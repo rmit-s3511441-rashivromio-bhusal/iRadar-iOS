@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Mvp-fp-b10">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="iHo-vU-mHD">
+            <objects>
+                <viewController id="Mvp-fp-b10" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KZi-s8-xVp"/>
+                        <viewControllerLayoutGuide type="bottom" id="l6h-of-XQP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="d4D-rl-fZi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluetooth" translatesAutoresizingMaskIntoConstraints="NO" id="lYF-Qs-XWV">
+                                <rect key="frame" x="135" y="75" width="98" height="98"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNc-A6-ezU">
+                                <rect key="frame" x="26" y="277" width="341" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="mnB-vw-nuS">
+                                <rect key="frame" x="26" y="318" width="341" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="fcc-0H-mBi"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9x-Y7-3VG">
+                                <rect key="frame" x="26" y="378" width="341" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" red="0.087903045119999995" green="0.07562627643" blue="0.37521860000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="ETn-FV-gpQ">
+                                <rect key="frame" x="26" y="410" width="341" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Fc0-ef-Ndn"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bDQ-8q-Hy7">
+                                <rect key="frame" x="144" y="472" width="81" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="81" id="cq6-Mk-iQn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="zmu-3j-zYv" kind="show" id="iY1-Hz-R4B"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iRadarLogo" translatesAutoresizingMaskIntoConstraints="NO" id="lpy-KR-b9N">
+                                <rect key="frame" x="76" y="197" width="240" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="5sI-oC-UPj"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.50511023119999998" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="lpy-KR-b9N" firstAttribute="top" secondItem="lYF-Qs-XWV" secondAttribute="bottom" constant="24" id="1FM-zZ-wn3"/>
+                            <constraint firstItem="cNc-A6-ezU" firstAttribute="leading" secondItem="mnB-vw-nuS" secondAttribute="leading" id="1QN-k8-TGc"/>
+                            <constraint firstItem="t9x-Y7-3VG" firstAttribute="top" secondItem="mnB-vw-nuS" secondAttribute="bottom" constant="30" id="7Ld-VZ-dy5"/>
+                            <constraint firstItem="lpy-KR-b9N" firstAttribute="top" secondItem="d4D-rl-fZi" secondAttribute="top" constant="197" id="BvD-1W-8gi"/>
+                            <constraint firstItem="lYF-Qs-XWV" firstAttribute="leading" secondItem="d4D-rl-fZi" secondAttribute="leading" constant="135" id="HR1-xz-lVR"/>
+                            <constraint firstItem="lpy-KR-b9N" firstAttribute="centerX" secondItem="t9x-Y7-3VG" secondAttribute="centerX" id="LRZ-mT-UoB"/>
+                            <constraint firstItem="mnB-vw-nuS" firstAttribute="leading" secondItem="ETn-FV-gpQ" secondAttribute="leading" id="NjU-lB-Qck"/>
+                            <constraint firstItem="ETn-FV-gpQ" firstAttribute="top" secondItem="t9x-Y7-3VG" secondAttribute="bottom" constant="8" symbolic="YES" id="Qgb-H5-DYc"/>
+                            <constraint firstItem="cNc-A6-ezU" firstAttribute="top" secondItem="lpy-KR-b9N" secondAttribute="bottom" constant="8" symbolic="YES" id="STS-Gb-YB4"/>
+                            <constraint firstItem="cNc-A6-ezU" firstAttribute="trailing" secondItem="mnB-vw-nuS" secondAttribute="trailing" id="UqO-W6-pZ4"/>
+                            <constraint firstItem="l6h-of-XQP" firstAttribute="top" secondItem="bDQ-8q-Hy7" secondAttribute="bottom" constant="164" id="XK1-lc-sAu"/>
+                            <constraint firstItem="lpy-KR-b9N" firstAttribute="leading" secondItem="d4D-rl-fZi" secondAttribute="leadingMargin" constant="60" id="ZkY-kY-0Fp"/>
+                            <constraint firstItem="bDQ-8q-Hy7" firstAttribute="centerX" secondItem="lYF-Qs-XWV" secondAttribute="centerX" id="ZrH-8B-r4x"/>
+                            <constraint firstItem="lpy-KR-b9N" firstAttribute="centerX" secondItem="ETn-FV-gpQ" secondAttribute="centerX" id="a2n-Gp-GuL"/>
+                            <constraint firstItem="mnB-vw-nuS" firstAttribute="leading" secondItem="d4D-rl-fZi" secondAttribute="leadingMargin" constant="10" id="duI-bw-W92"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cNc-A6-ezU" secondAttribute="trailing" constant="-8" id="fAI-s1-b7y"/>
+                            <constraint firstItem="lpy-KR-b9N" firstAttribute="centerX" secondItem="mnB-vw-nuS" secondAttribute="centerX" id="gWD-0r-8BW"/>
+                            <constraint firstItem="mnB-vw-nuS" firstAttribute="top" secondItem="cNc-A6-ezU" secondAttribute="bottom" constant="11" id="jcg-jv-S4C"/>
+                            <constraint firstAttribute="bottom" secondItem="ETn-FV-gpQ" secondAttribute="bottom" constant="227" id="myf-3b-TVl"/>
+                            <constraint firstItem="mnB-vw-nuS" firstAttribute="centerY" secondItem="d4D-rl-fZi" secondAttribute="centerY" id="o5W-JQ-Sav"/>
+                            <constraint firstItem="mnB-vw-nuS" firstAttribute="leading" secondItem="t9x-Y7-3VG" secondAttribute="leading" id="rBV-Lg-prH"/>
+                            <constraint firstItem="bDQ-8q-Hy7" firstAttribute="top" secondItem="ETn-FV-gpQ" secondAttribute="bottom" constant="32" id="tlR-NQ-ZaB"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="bvZ-Xl-ERT">
+                        <barButtonItem key="leftBarButtonItem" image="HoMHP" id="k0t-iT-WKg"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nyz-bp-eh2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3436" y="1124"/>
+        </scene>
+        <!--Beacon View Controller-->
+        <scene sceneID="XIo-1W-6yD">
+            <objects>
+                <viewController id="zmu-3j-zYv" customClass="beaconViewController" customModule="iRadar" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="T7a-ge-4zP"/>
+                        <viewControllerLayoutGuide type="bottom" id="AjZ-BH-sZr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Jjc-pw-BCn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bluetooth" translatesAutoresizingMaskIntoConstraints="NO" id="wfo-3m-2x4">
+                                <rect key="frame" x="154" y="20" width="66" height="66"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="statusLabel" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8y-lc-756">
+                                <rect key="frame" x="91" y="144" width="129" height="57"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.50511023119999998" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfo-3m-2x4" firstAttribute="centerX" secondItem="Jjc-pw-BCn" secondAttribute="centerX" id="1Mc-4m-lmS"/>
+                            <constraint firstItem="X8y-lc-756" firstAttribute="centerX" secondItem="Jjc-pw-BCn" secondAttribute="centerX" constant="-32" id="SdY-yn-nip"/>
+                            <constraint firstItem="wfo-3m-2x4" firstAttribute="centerY" secondItem="Jjc-pw-BCn" secondAttribute="centerY" id="W6H-Bb-Ryz"/>
+                            <constraint firstItem="X8y-lc-756" firstAttribute="centerY" secondItem="Jjc-pw-BCn" secondAttribute="centerY" constant="-161" id="nka-Bb-2xy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="statusLabel" destination="X8y-lc-756" id="M0x-by-B0z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BDH-ZO-7lb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2706.4000000000001" y="1129.385307346327"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="HoMHP" width="26" height="20"/>
+        <image name="bluetooth" width="98" height="98"/>
+        <image name="iRadarLogo" width="1024" height="512"/>
+    </resources>
+</document>
