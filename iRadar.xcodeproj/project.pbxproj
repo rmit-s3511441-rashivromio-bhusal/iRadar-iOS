@@ -1,0 +1,411 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04A421151E8514F400194289 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A421141E8514F400194289 /* loginViewController.swift */; };
+		04A421161E85438900194289 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D4AFEE1E84E02100324E87 /* CoreLocation.framework */; };
+		04A4211E1E8A8C2700194289 /* NearbyDeviceClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4211D1E8A8C2700194289 /* NearbyDeviceClass.swift */; };
+		04A421221E8A8F6300194289 /* newConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A421211E8A8F6300194289 /* newConfigurationViewController.swift */; };
+		04D4AFDC1E84DE9400324E87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D4AFDB1E84DE9400324E87 /* AppDelegate.swift */; };
+		04D4AFDE1E84DE9400324E87 /* beaconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D4AFDD1E84DE9400324E87 /* beaconViewController.swift */; };
+		04D4AFE11E84DE9400324E87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04D4AFDF1E84DE9400324E87 /* Main.storyboard */; };
+		04D4AFE31E84DE9400324E87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04D4AFE21E84DE9400324E87 /* Assets.xcassets */; };
+		04D4AFE61E84DE9400324E87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04D4AFE41E84DE9400324E87 /* LaunchScreen.storyboard */; };
+		403C435AC21B731520EB8DB5 /* Pods_iRadar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC71C861529174BCE2E76AB4 /* Pods_iRadar.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		04A421141E8514F400194289 /* loginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
+		04A421171E8A3A6400194289 /* NearMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearMessages.h; sourceTree = "<group>"; };
+		04A421181E8A671D00194289 /* iRadar-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iRadar-Bridging-Header.h"; sourceTree = "<group>"; };
+		04A4211D1E8A8C2700194289 /* NearbyDeviceClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyDeviceClass.swift; sourceTree = "<group>"; };
+		04A421211E8A8F6300194289 /* newConfigurationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newConfigurationViewController.swift; sourceTree = "<group>"; };
+		04D4AFD81E84DE9400324E87 /* iRadar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRadar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04D4AFDB1E84DE9400324E87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		04D4AFDD1E84DE9400324E87 /* beaconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = beaconViewController.swift; sourceTree = "<group>"; };
+		04D4AFE01E84DE9400324E87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		04D4AFE21E84DE9400324E87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		04D4AFE51E84DE9400324E87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		04D4AFE71E84DE9400324E87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04D4AFEE1E84E02100324E87 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		5A042C005C0B2E4307D19DC1 /* Pods-iRadar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iRadar.release.xcconfig"; path = "Pods/Target Support Files/Pods-iRadar/Pods-iRadar.release.xcconfig"; sourceTree = "<group>"; };
+		82F986CE78D5547A8174A19F /* Pods-iRadar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iRadar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iRadar/Pods-iRadar.debug.xcconfig"; sourceTree = "<group>"; };
+		CC71C861529174BCE2E76AB4 /* Pods_iRadar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iRadar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		04D4AFD51E84DE9400324E87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04A421161E85438900194289 /* CoreLocation.framework in Frameworks */,
+				403C435AC21B731520EB8DB5 /* Pods_iRadar.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04D4AFCF1E84DE9400324E87 = {
+			isa = PBXGroup;
+			children = (
+				04D4AFDA1E84DE9400324E87 /* iRadar */,
+				04D4AFD91E84DE9400324E87 /* Products */,
+				04D4AFED1E84E02100324E87 /* Frameworks */,
+				7E8D8CA7CEA67004C44CD9DA /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		04D4AFD91E84DE9400324E87 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04D4AFD81E84DE9400324E87 /* iRadar.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		04D4AFDA1E84DE9400324E87 /* iRadar */ = {
+			isa = PBXGroup;
+			children = (
+				04D4AFDB1E84DE9400324E87 /* AppDelegate.swift */,
+				04D4AFDD1E84DE9400324E87 /* beaconViewController.swift */,
+				04D4AFDF1E84DE9400324E87 /* Main.storyboard */,
+				04D4AFE21E84DE9400324E87 /* Assets.xcassets */,
+				04D4AFE41E84DE9400324E87 /* LaunchScreen.storyboard */,
+				04D4AFE71E84DE9400324E87 /* Info.plist */,
+				04A421141E8514F400194289 /* loginViewController.swift */,
+				04A421171E8A3A6400194289 /* NearMessages.h */,
+				04A421181E8A671D00194289 /* iRadar-Bridging-Header.h */,
+				04A4211D1E8A8C2700194289 /* NearbyDeviceClass.swift */,
+				04A421211E8A8F6300194289 /* newConfigurationViewController.swift */,
+			);
+			path = iRadar;
+			sourceTree = "<group>";
+		};
+		04D4AFED1E84E02100324E87 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				04D4AFEE1E84E02100324E87 /* CoreLocation.framework */,
+				CC71C861529174BCE2E76AB4 /* Pods_iRadar.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7E8D8CA7CEA67004C44CD9DA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				82F986CE78D5547A8174A19F /* Pods-iRadar.debug.xcconfig */,
+				5A042C005C0B2E4307D19DC1 /* Pods-iRadar.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		04D4AFD71E84DE9400324E87 /* iRadar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04D4AFEA1E84DE9400324E87 /* Build configuration list for PBXNativeTarget "iRadar" */;
+			buildPhases = (
+				FB761EA097D24426FA261419 /* [CP] Check Pods Manifest.lock */,
+				04D4AFD41E84DE9400324E87 /* Sources */,
+				04D4AFD51E84DE9400324E87 /* Frameworks */,
+				04D4AFD61E84DE9400324E87 /* Resources */,
+				E5AB719981D689478981A921 /* [CP] Embed Pods Frameworks */,
+				876ADAF2755EC8A16876FB2F /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iRadar;
+			productName = iRadar;
+			productReference = 04D4AFD81E84DE9400324E87 /* iRadar.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		04D4AFD01E84DE9400324E87 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Rashiv Romio Bhusal";
+				TargetAttributes = {
+					04D4AFD71E84DE9400324E87 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = CHW274QMX3;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 04D4AFD31E84DE9400324E87 /* Build configuration list for PBXProject "iRadar" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 04D4AFCF1E84DE9400324E87;
+			productRefGroup = 04D4AFD91E84DE9400324E87 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				04D4AFD71E84DE9400324E87 /* iRadar */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		04D4AFD61E84DE9400324E87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04D4AFE61E84DE9400324E87 /* LaunchScreen.storyboard in Resources */,
+				04D4AFE31E84DE9400324E87 /* Assets.xcassets in Resources */,
+				04D4AFE11E84DE9400324E87 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		876ADAF2755EC8A16876FB2F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iRadar/Pods-iRadar-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E5AB719981D689478981A921 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iRadar/Pods-iRadar-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB761EA097D24426FA261419 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		04D4AFD41E84DE9400324E87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04D4AFDE1E84DE9400324E87 /* beaconViewController.swift in Sources */,
+				04A4211E1E8A8C2700194289 /* NearbyDeviceClass.swift in Sources */,
+				04D4AFDC1E84DE9400324E87 /* AppDelegate.swift in Sources */,
+				04A421221E8A8F6300194289 /* newConfigurationViewController.swift in Sources */,
+				04A421151E8514F400194289 /* loginViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		04D4AFDF1E84DE9400324E87 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04D4AFE01E84DE9400324E87 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		04D4AFE41E84DE9400324E87 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04D4AFE51E84DE9400324E87 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		04D4AFE81E84DE9400324E87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		04D4AFE91E84DE9400324E87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		04D4AFEB1E84DE9400324E87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82F986CE78D5547A8174A19F /* Pods-iRadar.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CHW274QMX3;
+				INFOPLIST_FILE = iRadar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "s3511441-student.rmit.edu.au.iRadar";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "/Users/ROMIO/RMIT/4th Sem/iRadar/iRadar1/iRadar/iRadar/NearMessages.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		04D4AFEC1E84DE9400324E87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A042C005C0B2E4307D19DC1 /* Pods-iRadar.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CHW274QMX3;
+				INFOPLIST_FILE = iRadar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "s3511441-student.rmit.edu.au.iRadar";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "/Users/ROMIO/RMIT/4th Sem/iRadar/iRadar1/iRadar/iRadar/NearMessages.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		04D4AFD31E84DE9400324E87 /* Build configuration list for PBXProject "iRadar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04D4AFE81E84DE9400324E87 /* Debug */,
+				04D4AFE91E84DE9400324E87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04D4AFEA1E84DE9400324E87 /* Build configuration list for PBXNativeTarget "iRadar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04D4AFEB1E84DE9400324E87 /* Debug */,
+				04D4AFEC1E84DE9400324E87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 04D4AFD01E84DE9400324E87 /* Project object */;
+}
