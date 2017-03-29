@@ -29,7 +29,7 @@ class NearbyDeviceClass : UIViewController {
 extension NearbyDeviceClass: KTKDevicesManagerDelegate {
     func devicesManager(_ manager: KTKDevicesManager, didDiscover devices: [KTKNearbyDevice]?) {
         
-        if let device = devices?.filter({$0.uniqueID == "abcd"}).first {
+        if let device = devices?.filter({$0.uniqueID == "rTJz"}).first {
             
             
             let connection = KTKDeviceConnection(nearbyDevice: device)
@@ -40,7 +40,7 @@ extension NearbyDeviceClass: KTKDevicesManagerDelegate {
             }
             
             let newConfiguration = KTKDeviceConfiguration(uniqueID: device.uniqueID!)
-            newConfiguration.major = 123
+            newConfiguration.major = 52060
             newConfiguration.transmissionPower = .power5
         }
         

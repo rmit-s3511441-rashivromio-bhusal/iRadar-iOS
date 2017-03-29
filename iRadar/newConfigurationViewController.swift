@@ -13,7 +13,7 @@ import KontaktSDK
 class newConfigurationViewController: UIViewController {
     
     var devicesManager: KTKDevicesManager!
-    var myBeacons = ["abcd", "efgh", "ijkl"]
+    var myBeacons = ["4tla", "rTJz", "oHdN"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,14 +32,14 @@ class newConfigurationViewController: UIViewController {
             return
         }
         
-        if let device = devices?.filter({$0.uniqueID == "abcd"}).first {
+        if let device = devices?.filter({$0.uniqueID == "rTJz"}).first {
             manager.stopDevicesDiscovery()
         for device in nearbyDevices {
             if let index = myBeacons.index(of: device.uniqueID!) {
                 let config = KTKDeviceConfiguration()
                 config.packets = [.iBeacon, .eddystoneURL]
                 config.url = URL(string: "https://kontakt.io")
-                config.minor = NSNumber(value: arc4random_uniform(65536))
+                config.minor = NSNumber(value: arc4random_uniform(16309))
                 
                 let connection = KTKDeviceConnection(nearbyDevice: device)
                 

@@ -45,7 +45,8 @@
             let proximityUUID = NSUUID(uuidString: "f7826da6-4fa2-4e98-8024-bc5b71e0893e")
             
            // let region = KTKBeaconRegion(proximityUUID: proximityUUID! as UUID, identifier: "rashiv.beacon")
-            let region = KTKBeaconRegion(proximityUUID: proximityUUID! as UUID,major: 52060, minor: 16309, identifier: "rashiv.beacon")
+           let region = KTKBeaconRegion(proximityUUID: proximityUUID! as UUID,major: 52060, minor: 16309, identifier: "rashiv.beacon")
+             //let region = KTKBeaconRegion(proximityUUID: proximityUUID! as UUID, major: 52060, identifier: "rashiv.beacon")
             
             // Region Properties
             region.notifyEntryStateOnDisplay = true
@@ -79,6 +80,9 @@
             // Do any additional setup after loading the view, typically from a nib.
         }
         
+        
+        
+        
         override func didReceiveMemoryWarning() {
             super.didReceiveMemoryWarning()
             // Dispose of any resources that can be recreated.
@@ -105,19 +109,24 @@
             
             
            statusLabel.text = "Did change location authorization status to: \(status.rawValue)"
+             print("SOMETHING  HERE")
             if status == .authorizedAlways{
-                
+                 print("SOMETHING  ")
                 // Region
                 let proximityUUID = NSUUID(uuidString: "f7826da6-4fa2-4e98-8024-bc5b71e0893e")
+                 print("S HERE")
                 
               //  let region = KTKBeaconRegion(proximityUUID: NSUUID(uuidString: "f7826da6-4fa2-4e98-8024-bc5b71e0893e"), major: <#T##CLBeaconMajorValue#>, minor: <#T##CLBeaconMinorValue#>, identifier: <#T##String#>)
                 let region = KTKBeaconRegion(proximityUUID: proximityUUID! as UUID,major: 52060, minor: 16309, identifier: "rashiv.beacon")
+                 print("SOMETHING WRONG HERE again")
                 
                 // Region Properties
                 region.notifyEntryStateOnDisplay = true
-                
+                 print("Siloo HERE")
                 beaconManager.startMonitoring(for: region)
+                 print("SnjvhoilopotreevvE")
                 beaconManager.startRangingBeacons(in: region)
+                 print("SOewoiyt pop ")
                 beaconManager.requestState(for: region)
             }
         }
