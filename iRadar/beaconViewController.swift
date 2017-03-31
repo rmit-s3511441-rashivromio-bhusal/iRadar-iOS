@@ -135,6 +135,7 @@
             print("Monitoring did fail for region: \(region)")
             print("Error: \(error)")
             statusLabel.text = "Monitoring did fail for region: \(region)"
+            print("reach here")
         }
         
         func beaconManager(_ manager: KTKBeaconManager, didStartMonitoringFor region: KTKBeaconRegion) {

@@ -14,10 +14,11 @@ class newConfigurationViewController: UIViewController {
     
     var devicesManager: KTKDevicesManager!
     var myBeacons = ["4tla", "rTJz", "oHdN"]
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+           print("check1")
         devicesManager = KTKDevicesManager(delegate: self)
         devicesManager.startDevicesDiscovery(withInterval: 2.0)
     }
@@ -27,12 +28,15 @@ class newConfigurationViewController: UIViewController {
  extension newConfigurationViewController: KTKDevicesManagerDelegate {
     
     func devicesManager(_ manager: KTKDevicesManager, didDiscover devices: [KTKNearbyDevice]?) {
-        
+        print("check2")
+
         guard let nearbyDevices = devices else {
             return
         }
         
         if let device = devices?.filter({$0.uniqueID == "rTJz"}).first {
+            print("check3")
+
             manager.stopDevicesDiscovery()
         for device in nearbyDevices {
             if let index = myBeacons.index(of: device.uniqueID!) {
