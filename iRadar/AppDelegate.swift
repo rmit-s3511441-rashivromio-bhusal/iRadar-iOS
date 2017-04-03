@@ -12,6 +12,7 @@ import CoreLocation
 import KontaktSDK
 
 @UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?

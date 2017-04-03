@@ -17,10 +17,11 @@
         override func viewDidLoad() {
             super.viewDidLoad()
             
-            
+             print("faaaaaaaaa")
             // Initiate Beacon Manager
             beaconManager = KTKBeaconManager(delegate: self)
             beaconManager.requestLocationAlwaysAuthorization()
+             print("aaaaarerfsdfdf")
            /*
             
             let uuid = UUID(uuidString:"f7826da6-4fa2-4e98-8024-bc5b71e0893e")!
