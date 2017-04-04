@@ -11,11 +11,13 @@ import UIKit
 class BeaconTableViewController: UITableViewController {
     
 
-   var beacons = [Beacons]()
+   //var beacons = [Beacons]()
    
+    
+    var beacons : [Beacons]? = []
   //  var beacons = ["4tla", "rTJz", "oHdN"]
   
-    let cellIdentifier = "BeaconTableViewCell"
+   // let cellIdentifier = "BeaconTableViewCell"
     
     // =========================================================================
     // MARK: - UIViewController
@@ -24,17 +26,93 @@ class BeaconTableViewController: UITableViewController {
     override func viewDidLoad() {
         // Super
         super.viewDidLoad()
-        loadSampleBeacons()
+        
+        fetchAdvertisement()
+       // loadSampleBeacons()
         print("EHU")
         
         
         
     }
+    
+    private func fetchAdvertisement(){
+        print("EHU 1")
+        let urlRequest = URLRequest(url: URL(string: "https://newsapi.org/v1/articles?source=techcrunch&sortBy=top&apiKey=c035c70501304481b56d98f33c221899")!)
+        print("EHU 2 ")
+        let task = URLSession.shared.dataTask(with: urlRequest)
+        {
+            
+            (data,response,error) in
+            
+            
+            if error != nil {
+                print(error)
+                return
+            }
+            
+            
+            self.beacons = [Beacons]()
+            
+            do{
+                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String : AnyObject]
+                
+                    if let articlesFromJson = json["articles"] as? [[String : AnyObject]]
+                        {
+                            
+                        for articlesFromJson in articlesFromJson {
+                            
+                            let beacon = Beacons()
+                            
+                        // if let resultFromJson = json["result"] as? [[String : AnyObject]]
+
+                            //  if let specials = resultFromJson["result"] as? String, let specials=resultFromJson["uid"]as?String, let desc =responseFromJson["response"]
+                            //result,specials,uid,name ,url
+                            
+                            
+                            
+                            if let title = articlesFromJson["title"] as? String ,let desc = articlesFromJson["description"] as? String {
+                                
+                     
+                               beacon.title = title
+                            beacon.desc = desc
+                                
+                                
+                              
+                            }
+                            
+                            self.beacons?.append(beacon)
+                        }
+                        
+                    }
+            
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+
+                }
+                
+                
+            }
+            catch let error{
+                print(error)
+            }
+                
+            }
+        task.resume()
+        
+        
+        }
+        
+    
 
     
     //MARK: Private Methods
     
-    private func loadSampleBeacons() {
+   /* private func loadSampleBeacons() {
+        
+        
+        
+        
+        
         
         let photo1 = UIImage(named: "Beacons1")
         let photo2 = UIImage(named: "Beacons2")
@@ -47,11 +125,11 @@ class BeaconTableViewController: UITableViewController {
             fatalError("Unable to instantiate meal2")
         }
         
-         beacons += [Beacons1, Beacons2]
+        // beacons += [Beacons1, Beacons2]
         
     }
     
-    
+    */
         
 
     
@@ -61,48 +139,33 @@ class BeaconTableViewController: UITableViewController {
     // MARK: - Table View Data Source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return beacons.count
+        
+               return self.beacons?.count ?? 0
+        
+        //return self.beacons?.count ?? 0
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        // Table view cells are reused and should be dequeued using a cell identifier.
-        let cellIdentifier = "BeaconTableViewCell"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "beacontableviewcell", for: indexPath) as! BeaconTableViewCell
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? BeaconTableViewCell  else {
-            fatalError("The dequeued cell is not an instance of BeaconTableViewCell.")
-        }
         
-        // Fetches the appropriate meal for the data source layout.
-        let beacon = beacons[indexPath.row]
+        cell.title.text = self.beacons?[indexPath.item].title
+        cell.desc.text = self.beacons?[indexPath.item].desc
         
-        cell.nameLabel.text = beacon.name
-        cell.photoImageView.image = beacon.photo
+        
         
         return cell
     }
     
+    
         
-       // cell.textLabel?.text = "Beacons \(indexPath.section) Row \(indexPath.row)"
-//        let row = indexPath.row
-//        cell.textLabel?.text = beacons[row].name
-//        //cell.textLabel?.textColor = UIColor.kontaktMainGray
-//        cell.accessoryType = .disclosureIndicator
-//
-
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Beacons \(section)"
-    }
-    
-    
-    private func loadBeacons() -> [Beacons]? {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: Beacons.ArchiveURL.path) as? [Beacons]
    
-    }
     
 }
+

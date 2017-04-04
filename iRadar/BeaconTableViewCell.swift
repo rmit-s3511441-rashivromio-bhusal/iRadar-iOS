@@ -11,13 +11,11 @@ import UIKit
 
 class BeaconTableViewCell: UITableViewCell {
     
+    @IBOutlet var img: UIImageView!
   
-
-    @IBOutlet weak var photoImageView: UIImageView!
-    
-    @IBOutlet weak var nameLabel: UILabel!
-
-    
+    @IBOutlet var desc: UILabel!
+   
+    @IBOutlet var title: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

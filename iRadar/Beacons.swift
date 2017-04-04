@@ -6,6 +6,23 @@
 //  Copyright © 2017 Rashiv Romio Bhusal. All rights reserved.
 //
 
+
+
+
+
+import UIKit
+
+class Beacons: NSObject {
+    
+    
+  
+    var title: String?
+    var desc: String?
+    
+    
+}
+
+/*
 import UIKit
 import os.log
 
@@ -13,9 +30,7 @@ import os.log
     
     //MARK: Properties
     
-    var name: String
-    var photo: UIImage?
-    
+      
     struct PropertyKey {
         static let name = "name"
         static let photo = "photo"
@@ -66,3 +81,4 @@ import os.log
         static let ArchiveURL = DocumentsDirectory.appendingPathComponent("beacons")
 
 }
+ */
