@@ -28,8 +28,7 @@ class BeaconTableViewController: UITableViewController {
         super.viewDidLoad()
         
         fetchAdvertisement()
-       // loadSampleBeacons()
-        print("EHU")
+            print("EHU")
         
         
         
@@ -38,6 +37,16 @@ class BeaconTableViewController: UITableViewController {
     private func fetchAdvertisement(){
         print("EHU 1")
         let urlRequest = URLRequest(url: URL(string: "https://newsapi.org/v1/articles?source=techcrunch&sortBy=top&apiKey=c035c70501304481b56d98f33c221899")!)
+        
+       
+       // let urlRequest = URLRequest(url: URL(string: " https://api.kontakt.io/action?uniqueId=4tla&apiKey=vnrXRFJARjeLgIVLBeqmHkXMxXEVsNRm")!)
+        
+       
+        
+        
+        
+        
+        
         print("EHU 2 ")
         let task = URLSession.shared.dataTask(with: urlRequest)
         {
@@ -70,11 +79,12 @@ class BeaconTableViewController: UITableViewController {
                             
                             
                             
-                            if let title = articlesFromJson["title"] as? String ,let desc = articlesFromJson["description"] as? String {
+                            if let title = articlesFromJson["title"] as? String ,let desc = articlesFromJson["description"] as? String , let img = articlesFromJson["urlToImage"] as? String {
                                 
                      
                                beacon.title = title
                             beacon.desc = desc
+                                beacon.img = img
                                 
                                 
                               
@@ -102,36 +112,7 @@ class BeaconTableViewController: UITableViewController {
         
         }
         
-    
-
-    
-    //MARK: Private Methods
-    
-   /* private func loadSampleBeacons() {
-        
-        
-        
-        
-        
-        
-        let photo1 = UIImage(named: "Beacons1")
-        let photo2 = UIImage(named: "Beacons2")
-        
-        guard let Beacons1 = Beacons(name: "1st Beacon", photo: photo1) else {
-            fatalError("Unable to instantiate meal1")
-        }
-        
-        guard let Beacons2 = Beacons(name: "2nd Beacon", photo: photo2) else {
-            fatalError("Unable to instantiate meal2")
-        }
-        
-        // beacons += [Beacons1, Beacons2]
-        
-    }
-    
-    */
-        
-
+   
     
   
     
@@ -157,6 +138,7 @@ class BeaconTableViewController: UITableViewController {
         
         cell.title.text = self.beacons?[indexPath.item].title
         cell.desc.text = self.beacons?[indexPath.item].desc
+        cell.img.downloadImage(from: (self.beacons?[indexPath.item].img!)!)
         
         
         
@@ -169,3 +151,32 @@ class BeaconTableViewController: UITableViewController {
     
 }
 
+
+
+extension UIImageView{
+    
+        func downloadImage(from url: String)
+        {
+        
+            let urlRequest = URLRequest(url: URL(string: url)!)
+        
+        
+            let task = URLSession.shared.dataTask(with: urlRequest)
+            {
+                (data,response,error) in
+                if error != nil
+                {
+                    print(error)
+                    return
+                }
+            
+                    DispatchQueue.main.async
+                        {
+                            self.image = UIImage(data : data!)
+                        }
+            }
+        
+        task.resume()
+    
+        }
+                    }
