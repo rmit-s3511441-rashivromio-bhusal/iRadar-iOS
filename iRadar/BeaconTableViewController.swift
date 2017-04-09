@@ -16,13 +16,19 @@ import KontaktSDK
 
 class BeaconTableViewController: UITableViewController {
     
-    
+    var beacons : [Beacons]? = []
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        
         let apiClient = KTKCloudClient.sharedInstance()
         
-        let parameters = ["uniqueId": "4tla"]
+      //  let parameters = ["uniqueId": "4tla"]
+        
+        
+          let parameters: [String: String] = [ "uniqueId": "rTJz, 4tla, oHdN" ]
         
         apiClient.getObjects(KTKAction.self, parameters: parameters) { (response, error) in
             if let cloudError = KTKCloudErrorFromError(error) {
@@ -33,12 +39,16 @@ class BeaconTableViewController: UITableViewController {
                     case .browser:
                         if let url = action.url {
                             print("Browser Action for URL: \(url)")
-                           
+                            
+                            self.fetchAdvertisement()
+                            
                         }
                     case .content:
                         if let contentAction = action.content, let url = contentAction.contentURL {
                             print("Contant Action. Content URL: \(url)")
-                          
+                            
+                            self.fetchAdvertisement()
+                            
                         }
                     case .invalid:
                         print("Invalid action")
@@ -47,20 +57,13 @@ class BeaconTableViewController: UITableViewController {
             }
         }
         
-        fetchAdvertisement()
-        print("EHU")
+               print("EHU")
     }
   
 
     
 
-   //var beacons = [Beacons]()
-   
     
-    var beacons : [Beacons]? = []
-  //  var beacons = ["4tla", "rTJz", "oHdN"]
-  
-   // let cellIdentifier = "BeaconTableViewCell"
     
     // =========================================================================
     // MARK: - UIViewController
@@ -111,14 +114,7 @@ class BeaconTableViewController: UITableViewController {
                         
                         let beacon = Beacons()
                         
-                        // if let resultFromJson = json["result"] as? [[String : AnyObject]]
-                        
-                        //  if let specials = resultFromJson["result"] as? String, let specials=resultFromJson["uid"]as?String, let desc =responseFromJson["response"]
-                        //result,specials,uid,name ,url
-                        
-                        
-                        
-                        if let title = actionsFromJson["proximity"] as? String ,let desc = actionsFromJson["deviceUniqueIds"] as? String , let img = actionsFromJson["url"] as? String {
+                        if let title = actionsFromJson["actionType"] as? String ,let desc = actionsFromJson["proximity"] as? String , let img = actionsFromJson["url"] as? String {
                             
                             print(title)
                             print(desc)
@@ -132,6 +128,18 @@ class BeaconTableViewController: UITableViewController {
                                 
                               
                             }
+                        else if let title = actionsFromJson["actionType"] as? String ,let desc = actionsFromJson["proximity"] as? String , let img = actionsFromJson["content"] as? String {
+                            
+                            print(title)
+                            print(desc)
+                            print(title)
+                            
+                            beacon.title = title
+                            beacon.desc = desc
+                            beacon.img = img
+
+                            
+                        }
                             
                             self.beacons?.append(beacon)
                         }
@@ -181,7 +189,7 @@ class BeaconTableViewController: UITableViewController {
         
         cell.title.text = self.beacons?[indexPath.item].title
         cell.desc.text = self.beacons?[indexPath.item].desc
-       // cell.img.downloadImage(from: (self.beacons?[indexPath.item].img!)!)
+        cell.img.downloadImage(from: (self.beacons?[indexPath.item].img!)!)
         
         return cell
     }
