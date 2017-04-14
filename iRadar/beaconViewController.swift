@@ -46,7 +46,7 @@
             let proximityUUID = NSUUID(uuidString: "f7826da6-4fa2-4e98-8024-bc5b71e0893e")
             
            // let region = KTKBeaconRegion(proximityUUID: proximityUUID! as UUID, identifier: "rashiv.beacon")
-           let region = KTKBeaconRegion(proximityUUID: proximityUUID! as UUID,major: 52060, minor: 16309, identifier: "rashiv.beacon")
+           let region = KTKBeaconRegion(proximityUUID: proximityUUID! as UUID,major: 8076, minor: 17108, identifier: "rashiv.beacon")
              //let region = KTKBeaconRegion(proximityUUID: proximityUUID! as UUID, major: 52060, identifier: "rashiv.beacon")
             
             // Region Properties
@@ -97,7 +97,7 @@
         
         func beaconManager(_ manager: KTKBeaconManager, didDetermineState state: CLRegionState, for region: KTKBeaconRegion) {
             print("Did determine state \"\(state.rawValue)\" for region: \(region)")
-           // statusLabel.text = "Did determine state \"\(state.rawValue)\" for region: \(region)"
+            statusLabel.text = "Did determine state \"\(state.rawValue)\" for region: \(region)"
         }
         
         func beaconManager(_ manager: KTKBeaconManager, didChangeLocationAuthorizationStatus status: CLAuthorizationStatus) {
@@ -118,7 +118,7 @@
                  print("S HERE")
                 
               //  let region = KTKBeaconRegion(proximityUUID: NSUUID(uuidString: "f7826da6-4fa2-4e98-8024-bc5b71e0893e"), major: <#T##CLBeaconMajorValue#>, minor: <#T##CLBeaconMinorValue#>, identifier: <#T##String#>)
-                let region = KTKBeaconRegion(proximityUUID: proximityUUID! as UUID,major: 52060, minor: 16309, identifier: "rashiv.beacon")
+                let region = KTKBeaconRegion(proximityUUID: proximityUUID! as UUID,major: 8076, minor: 17108, identifier: "rashiv.beacon")
                  print("SOMETHING WRONG HERE again")
                 
                 // Region Properties
@@ -140,10 +140,13 @@
         }
         
         func beaconManager(_ manager: KTKBeaconManager, didStartMonitoringFor region: KTKBeaconRegion) {
-            print("Did start monitoring for region: \(region)")
-           statusLabel.text = "Did start monitoring for region: \(region)"
+             print("Did monitoring region \(region)")
+          statusLabel.text = "Did start monitoring for region: \(region)"
         }
         
+      
+        
+      
         func beaconManager(_ manager: KTKBeaconManager, didEnter region: KTKBeaconRegion) {
             print("Did enter region: \(region)")
             statusLabel.text = "Did enter region: \(region)"

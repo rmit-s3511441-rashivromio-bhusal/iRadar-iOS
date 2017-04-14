@@ -8,35 +8,58 @@
 
 import Foundation
 import UIKit
+import Firebase
+import GoogleSignIn
 
-class loginViewController: UIViewController {
+class loginViewController: UIViewController , GIDSignInDelegate , GIDSignInUIDelegate {
+    @IBOutlet weak var SignIn: GIDSignInButton!
     
-    
- 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
+       // var apicall = BeaconTableViewController.apicall()
+        setupGoogleButtons()
+    }
+   
+    
+    fileprivate func setupGoogleButtons()
+    {
+    
+        let SignIn = UIButton(type: .system)
+         SignIn.frame = CGRect(x: self.view.bounds.size.width - (166 + 66), y: self.view.bounds.size.height - (96 + 4) , width: 50, height: 50)
+        view.addSubview(SignIn)
+       // SignIn.backgroundColor = .white
+       // SignIn.setTitle("SignIn", for: .normal)
+     //  SignIn.addTarget(self, action: #selector(handleCustomGoogleSignIn) , for: .touchUpInside)
+        GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance().uiDelegate = self
         
-        // Do any additional setup after loading the view.
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-    @IBAction func loginbuttontapped(_ sender: Any) {
+   func  handleCustomGoogleSignIn(){
+        GIDSignIn.sharedInstance().signInSilently()
+   }
+//    
+    
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         
-        // let username = usernametextfield.text;
-        //let password = passwordtextfield.text;
-}
+        if error != nil
+        {
+            print( error )
+            return
+        }
+        else{
+            performSegue(withIdentifier: "idSegueContent", sender: self)
+            print(user.profile.email)
+            print(user.profile.imageURL(withDimension: 400))
+        }
+        
+        
+        
+        
+        }
 
-/*
- // MARK: - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
- // Get the new view controller using segue.destinationViewController.
- // Pass the selected object to the new view controller.
- }
- */
+
 }

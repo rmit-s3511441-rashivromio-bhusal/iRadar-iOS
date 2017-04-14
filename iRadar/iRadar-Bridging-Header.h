@@ -7,3 +7,4 @@
 //
 
  #import <KontaktSDK/KontaktSDK.h>
+#import <Google/SignIn.h>

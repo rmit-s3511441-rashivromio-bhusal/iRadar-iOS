@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="iHo-vU-mHD">
             <objects>
-                <viewController id="Mvp-fp-b10" sceneMemberID="viewController">
+                <viewController id="Mvp-fp-b10" customClass="loginViewController" customModule="iRadar" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KZi-s8-xVp"/>
                         <viewControllerLayoutGuide type="bottom" id="l6h-of-XQP"/>
@@ -65,7 +65,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Xi3-go-QFC" kind="show" id="PlS-8r-nMt"/>
+                                    <segue destination="Xi3-go-QFC" kind="show" identifier="idSegueContent" id="PlS-8r-nMt"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iRadarLogo" translatesAutoresizingMaskIntoConstraints="NO" id="lpy-KR-b9N">
@@ -74,6 +74,11 @@
                                     <constraint firstAttribute="height" constant="72" id="5sI-oC-UPj"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EUh-QM-giL" customClass="GIDSignInButton">
+                                <rect key="frame" x="67" y="519" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.50511023119999998" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -104,10 +109,13 @@
                     <navigationItem key="navigationItem" id="bvZ-Xl-ERT">
                         <barButtonItem key="leftBarButtonItem" image="HoMHP" id="k0t-iT-WKg"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="SignIn" destination="EUh-QM-giL" id="U6C-PH-2BN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nyz-bp-eh2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3586" y="618"/>
+            <point key="canvasLocation" x="-3586.4000000000001" y="617.54122938530736"/>
         </scene>
         <!--Advertisement-->
         <scene sceneID="CCe-KV-h5r">
@@ -170,7 +178,7 @@
                                     <outlet property="desc" destination="J8p-o7-Ake" id="xZe-za-YUd"/>
                                     <outlet property="img" destination="1Z6-l7-Ei3" id="thy-G9-Vve"/>
                                     <outlet property="title" destination="0Am-Vf-njb" id="DFl-hk-f26"/>
-                                    <segue destination="zmu-3j-zYv" kind="show" id="Vfr-zg-rUV"/>
+                                    <segue destination="zmu-3j-zYv" kind="show" id="A62-Ma-Jvz"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -203,7 +211,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="EA6AB557-1C72-432B-9E28-C7980DB8C7DC" translatesAutoresizingMaskIntoConstraints="NO" id="wfo-3m-2x4">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="CE759AA3-A5DC-49CB-B746-B82F63F9BE1B" translatesAutoresizingMaskIntoConstraints="NO" id="wfo-3m-2x4">
                                 <rect key="frame" x="154" y="20" width="66" height="66"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="statusLabel" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8y-lc-756">
@@ -228,14 +236,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BDH-ZO-7lb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-899" y="618"/>
+            <point key="canvasLocation" x="42" y="961"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TWI-y3-ZFI">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Xi3-go-QFC" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1gx-3W-egT">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="1gx-3W-egT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -250,7 +258,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="EA6AB557-1C72-432B-9E28-C7980DB8C7DC" width="98" height="98">
+        <image name="CE759AA3-A5DC-49CB-B746-B82F63F9BE1B" width="98" height="98">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

@@ -10,6 +10,7 @@
 		045F434D1E92283000E323EC /* BeaconTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F434C1E92283000E323EC /* BeaconTableViewController.swift */; };
 		045F434F1E9254E200E323EC /* BeaconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F434E1E9254E200E323EC /* BeaconTableViewCell.swift */; };
 		045F43511E92635B00E323EC /* Beacons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F43501E92635B00E323EC /* Beacons.swift */; };
+		046BB5EF1EA08CAB005BD4E7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 046BB5EE1EA08CAB005BD4E7 /* GoogleService-Info.plist */; };
 		04A421151E8514F400194289 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A421141E8514F400194289 /* loginViewController.swift */; };
 		04A421161E85438900194289 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D4AFEE1E84E02100324E87 /* CoreLocation.framework */; };
 		04A4211E1E8A8C2700194289 /* NearbyDeviceClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4211D1E8A8C2700194289 /* NearbyDeviceClass.swift */; };
@@ -26,6 +27,7 @@
 		045F434C1E92283000E323EC /* BeaconTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconTableViewController.swift; sourceTree = "<group>"; };
 		045F434E1E9254E200E323EC /* BeaconTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconTableViewCell.swift; sourceTree = "<group>"; };
 		045F43501E92635B00E323EC /* Beacons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beacons.swift; sourceTree = "<group>"; };
+		046BB5EE1EA08CAB005BD4E7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		04A421141E8514F400194289 /* loginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
 		04A421171E8A3A6400194289 /* NearMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearMessages.h; sourceTree = "<group>"; };
 		04A421181E8A671D00194289 /* iRadar-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iRadar-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 		04D4AFDA1E84DE9400324E87 /* iRadar */ = {
 			isa = PBXGroup;
 			children = (
+				046BB5EE1EA08CAB005BD4E7 /* GoogleService-Info.plist */,
 				04D4AFDB1E84DE9400324E87 /* AppDelegate.swift */,
 				04D4AFDD1E84DE9400324E87 /* beaconViewController.swift */,
 				04D4AFDF1E84DE9400324E87 /* Main.storyboard */,
@@ -177,6 +180,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				046BB5EF1EA08CAB005BD4E7 /* GoogleService-Info.plist in Resources */,
 				04D4AFE61E84DE9400324E87 /* LaunchScreen.storyboard in Resources */,
 				04D4AFE31E84DE9400324E87 /* Assets.xcassets in Resources */,
 				04D4AFE11E84DE9400324E87 /* Main.storyboard in Resources */,

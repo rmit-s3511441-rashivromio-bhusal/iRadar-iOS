@@ -13,7 +13,7 @@ import KontaktSDK
 class newConfigurationViewController: UIViewController {
     
     var devicesManager: KTKDevicesManager!
-    var myBeacons = ["4tla", "rTJz", "oHdN"]
+    var myBeacons = ["4tla"]
 
     
     override func viewDidLoad() {

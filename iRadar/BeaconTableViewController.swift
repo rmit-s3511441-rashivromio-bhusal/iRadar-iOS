@@ -17,12 +17,20 @@ import KontaktSDK
 class BeaconTableViewController: UITableViewController {
     
     var beacons : [Beacons]? = []
+    
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        apicall()
         
+        
+    }
+    
+        
+        
+        func apicall(){
         let apiClient = KTKCloudClient.sharedInstance()
         
       //  let parameters = ["uniqueId": "4tla"]

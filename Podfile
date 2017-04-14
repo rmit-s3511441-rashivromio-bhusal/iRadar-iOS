@@ -6,6 +6,8 @@ target 'iRadar' do
   use_frameworks!
 pod 'KontaktSDK', '~> 1.3'
   # Pods for iRadar
-
+pod 'Google/SignIn'
+pod 'Firebase/Auth'
+pod 'Firebase/Core'
 
 end
