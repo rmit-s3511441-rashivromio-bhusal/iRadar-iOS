@@ -57,8 +57,32 @@ class loginViewController: UIViewController , GIDSignInDelegate , GIDSignInUIDel
         }
         
         
+        guard let idToken = user.authentication.idToken
+            else{
+                return
+        }
+        guard let accesToken = user.authentication.accessToken
+            else
+        {
+            return
+        }
         
+        let credentials = FIRGoogleAuthProvider.credential(withIDToken: idToken, accessToken: accesToken)
         
+        FIRAuth.auth()?.signIn(with: credentials, completion: {(user , error) in
+            if let err = error{
+                print(" firebase failed to create Google account:",err)
+                return
+            }
+            guard let uid = user?.uid
+                else
+            {
+                return
+            }
+            print("successfully firebase login", uid)
+            
+        })
+    
         }
 
 
