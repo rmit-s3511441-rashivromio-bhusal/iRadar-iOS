@@ -27,49 +27,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
 //        GIDSignIn.sharedInstance().delegate = self
         
+               
+        
         Kontakt.setAPIKey("vnrXRFJARjeLgIVLBeqmHkXMxXEVsNRm")
         return true
     }
-    
-//    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-//        if let err = error {
-//            print("Failed to login to google",err)
-//            
-    
-//    }
-//        print("Login",user)
-//        print(user.profile.email)
-//        print(user.profile.imageURL(withDimension: 400))
-    
-        
-//       guard let idToken = user.authentication.idToken
-//        else{
-//            return
-//        }
-//        guard let accesToken = user.authentication.accessToken
-//        else
-//        {
-//            return
-//        }
-//        
-//        let credentials = FIRGoogleAuthProvider.credential(withIDToken: idToken, accessToken: accesToken)
-//        
-//        FIRAuth.auth()?.signIn(with: credentials, completion: {(user , error) in
-//            if let err = error{
-//                print(" firebase failed to create Google account:",err)
-//                return
-//            }
-//            guard let uid = user?.uid
-//            else
-//            {
-//                return
-//            }
-//            print("successfully firebase login", uid)
-//            
-//           
-//            })
-
-    
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         return GIDSignIn.sharedInstance().handle(url,

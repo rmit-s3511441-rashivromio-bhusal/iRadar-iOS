@@ -64,8 +64,6 @@ class BeaconTableViewController: UITableViewController {
                 }
             }
         }
-        
-               print("EHU")
     }
   
 
