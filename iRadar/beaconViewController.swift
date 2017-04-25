@@ -8,16 +8,24 @@
 
     import UIKit
     import KontaktSDK
-    import GoogleSignIn
-    
+   import GoogleSignIn
+    import Firebase
+
+
     class beaconViewController: UIViewController {
+        @IBOutlet weak var Signout: UIButton!
         
+        @IBOutlet weak var googleimage: UIImageView!
         var beaconManager: KTKBeaconManager!
         
        
         @IBOutlet weak var show: UIButton!
         @IBOutlet weak var major: UILabel!
         @IBOutlet var statusLabel: UILabel!
+        
+        
+        
+        
         override func viewDidLoad() {
             super.viewDidLoad()
             
@@ -72,6 +80,12 @@
             
             // Do any additional setup after loading the view, typically from a nib.
         }
+        
+        
+        
+        
+        
+        
         ///CHANGES//
         func update(distance: CLProximity) {
             UIView.animate(withDuration: 0.8) { [unowned self] in
@@ -102,9 +116,83 @@
             // Dispose of any resources that can be recreated.
         }
         
+        
        
         
-    }
+        
+        
+        //
+        
+        //
+        @IBAction func didTapSignOut(sender: AnyObject) {
+            
+          
+            
+           
+                GIDSignIn.sharedInstance().signIn()
+            
+            FIRAuth.auth()?.addStateDidChangeListener { auth, user in
+                if let user = user {
+                    print("User is signed in.")
+                } else {
+                    print("User is signed out.")
+                }
+
+            
+                //
+                let alertController = UIAlertController(
+                    title: "Title",
+                    message: "Message",
+                    preferredStyle: UIAlertControllerStyle.alert
+                )
+                
+                let cancelAction = UIAlertAction(
+                    title: "Cancel",
+                    style: UIAlertActionStyle.destructive) { (action) in
+                        // ...
+                }
+                
+                let confirmAction = UIAlertAction(
+                title: "OK", style: UIAlertActionStyle.default) { (action) in
+                    self.performSegue(withIdentifier: "logout", sender: self)
+                
+                    print("sign out button tapped")
+                    let firebaseAuth = FIRAuth.auth()
+                    do {
+                        try firebaseAuth!.signOut()
+                        
+                        //        GIDGoogleUser.sharedInstance.signedIn = false
+                        // dismissViewControllerAnimated(true, completion: nil)
+                    } catch let signOutError as NSError {
+                        print ("Error signing out: \(signOutError)")
+                    } catch {
+                        print("Unknown error.")
+                    }
+                    
+                    
+                    GIDSignIn.sharedInstance().signOut()
+                
+                }
+                
+                alertController.addAction(confirmAction)
+                alertController.addAction(cancelAction)
+                
+                self.present(alertController, animated: true, completion: nil)
+                
+                //
+             
+           
+        }
+            }
+       
+        
+
+        
+        
+        }
+        
+       
+
 
 
     extension beaconViewController: KTKBeaconManagerDelegate {

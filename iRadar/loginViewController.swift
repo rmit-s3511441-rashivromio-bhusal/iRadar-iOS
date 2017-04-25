@@ -22,6 +22,8 @@ class loginViewController: UIViewController , GIDSignInDelegate , GIDSignInUIDel
         setupGoogleButtons()
     }
    
+  
+    
     
     fileprivate func setupGoogleButtons()
     {
@@ -33,8 +35,11 @@ class loginViewController: UIViewController , GIDSignInDelegate , GIDSignInUIDel
        // SignIn.setTitle("SignIn", for: .normal)
      //  SignIn.addTarget(self, action: #selector(handleCustomGoogleSignIn) , for: .touchUpInside)
         GIDSignIn.sharedInstance().delegate = self
+        
         GIDSignIn.sharedInstance().uiDelegate = self
         
+      
+    
     }
     
     
@@ -58,14 +63,11 @@ class loginViewController: UIViewController , GIDSignInDelegate , GIDSignInUIDel
        //
     
     
-    @IBAction func didTapSignOut(sender: AnyObject) {
-        GIDSignIn.sharedInstance().signOut()
-    }
-    
+  
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         // fetchAdvertisementhere()
-    
+        
         if error != nil
         {
             print( error )
@@ -90,6 +92,9 @@ class loginViewController: UIViewController , GIDSignInDelegate , GIDSignInUIDel
             
             print(user.profile.imageURL(withDimension: 400))
             print("hhhhiiiiiiii")
+            
+            
+            
            
         }
         
@@ -126,6 +131,5 @@ class loginViewController: UIViewController , GIDSignInDelegate , GIDSignInUIDel
         
         }
     
-
-
+   
 }
