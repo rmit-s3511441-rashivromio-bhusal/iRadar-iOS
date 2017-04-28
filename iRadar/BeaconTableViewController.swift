@@ -8,6 +8,7 @@
 
 import UIKit
 import KontaktSDK
+import GoogleSignIn
 
    
 
@@ -16,14 +17,15 @@ import KontaktSDK
 
 class BeaconTableViewController: UITableViewController {
     
+   
+    
     var beacons : [Beacons]? = []
     
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        apicall()
+               apicall()
      
     }
     

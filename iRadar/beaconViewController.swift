@@ -12,9 +12,10 @@
     import Firebase
 
 
-    class beaconViewController: UIViewController {
+    class beaconViewController: UIViewController , GIDSignInUIDelegate {
         
         
+        @IBOutlet weak var profilePic: UIImageView!
         @IBOutlet weak var Signout: UIButton!
         
         @IBOutlet weak var googleimage: UIImageView!
@@ -27,12 +28,23 @@
         
         
         
+        func refreshInterface()
+        {
+            print("hi")
+            if let currentUser = GIDSignIn.sharedInstance().currentUser{
+                
+                
+                let profilePicURL = currentUser.profile.imageURL(withDimension: 400)
+                profilePic.image = UIImage(data: NSData(contentsOf : profilePicURL!)! as Data)
+                profilePic.isHidden = false
+            }
+        }
         
         override func viewDidLoad() {
             super.viewDidLoad()
             
-            
-            
+            GIDSignIn.sharedInstance().uiDelegate = self
+            refreshInterface()
              print("faaaaaaaaa")
             // Initiate Beacon Manager
             beaconManager = KTKBeaconManager(delegate: self)
@@ -229,9 +241,6 @@
             
           
             
-           
-                GIDSignIn.sharedInstance().signIn()
-            
             FIRAuth.auth()?.addStateDidChangeListener { auth, user in
                 if case let user = user {
                     print("User is signed in.")
@@ -410,10 +419,13 @@
         private func fetchAdvertisementhere(){
             print("EHU 1")
             
+            
+            if let currentUser = GIDSignIn.sharedInstance().currentUser{
          //   GIDSignIn.sharedInstance().signIn()
-          //  let email = user.profile.email
-
-          
+           let name = currentUser.profile.name!
+           let email = currentUser.profile.email!
+            
+            
 //            if (GIDSignIn.sharedInstance().currentUser.profile.email != nil){
 //                var email = user.profile.email
 //                
@@ -422,8 +434,8 @@
 //            
 
      
-            
-            let parameter = ["beacon": "4tla", "special":"f7826da6-4fa2-4e98-8024-bc5b71e0893e", "customer": "rashiv"] as [String: Any]
+                let parameter = ["name" : name, "special":"f7826da6-4fa2-4e98-8024-bc5b71e0893e", "customer": email] as [String: Any]
+           // let parameter = ["beacon": "4tla", "special":"f7826da6-4fa2-4e98-8024-bc5b71e0893e", "customer": "rashiv"] as [String: Any]
             
             let myUrl = URL(string: "https://iradar-dev.appspot.com/api/impression");
             var request = URLRequest(url:myUrl!);
@@ -504,7 +516,7 @@
         }
 }
 
-
+}
 
 
 ///

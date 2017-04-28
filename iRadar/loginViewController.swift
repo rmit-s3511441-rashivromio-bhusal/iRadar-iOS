@@ -15,8 +15,7 @@ import GoogleSignIn
 class loginViewController: UIViewController , GIDSignInDelegate , GIDSignInUIDelegate {
     
     
-    @IBOutlet weak var profile: UILabel!
-        @IBOutlet weak var SignIn: GIDSignInButton!
+    @IBOutlet weak var SignIn: GIDSignInButton!
    
     @IBOutlet weak var im: UIImageView!
     override func viewDidLoad()
