@@ -24,13 +24,23 @@ class BeaconTableViewController: UITableViewController {
         super.viewDidLoad()
        
         apicall()
-        
-        
+     
     }
     
+    func loadList(notification: NSNotification){
+        //load data here
+        self.tableView.reloadData()
+    }
         
         
         func apicall(){
+            
+            //NEW C/haNGES HERE
+            //CHECK IF ITS WORKING OR NOT
+            print("CHECKING THE IMAGES LOADED")
+                NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
+            print("CHECKING THE IMAGES LOADED HERE OR NOT")
+
         let apiClient = KTKCloudClient.sharedInstance()
         
       //  let parameters = ["uniqueId": "4tla"]
@@ -75,7 +85,8 @@ class BeaconTableViewController: UITableViewController {
     // MARK: - UIViewController
    
   
-    
+    // =========================================================================
+    // MARK: - GET IMAGES FROM URL
     private func fetchAdvertisement(){
         print("EHU 1")
         
@@ -199,9 +210,6 @@ class BeaconTableViewController: UITableViewController {
         
         return cell
     }
-    
-    
-        
    
     
 }

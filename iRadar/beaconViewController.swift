@@ -13,6 +13,8 @@
 
 
     class beaconViewController: UIViewController {
+        
+        
         @IBOutlet weak var Signout: UIButton!
         
         @IBOutlet weak var googleimage: UIImageView!
@@ -29,6 +31,8 @@
         override func viewDidLoad() {
             super.viewDidLoad()
             
+            
+            
              print("faaaaaaaaa")
             // Initiate Beacon Manager
             beaconManager = KTKBeaconManager(delegate: self)
@@ -38,14 +42,19 @@
             // Region
             let proximityUUID = NSUUID(uuidString: "f7826da6-4fa2-4e98-8024-bc5b71e0893e")
             
-            let major: CLBeaconMajorValue = CLBeaconMajorValue(arc4random_uniform(5000))
-            let minor: CLBeaconMinorValue = CLBeaconMajorValue(arc4random_uniform(5000))
-            
+//            let major: CLBeaconMajorValue = CLBeaconMajorValue(arc4random_uniform(5000))
+//            let minor: CLBeaconMinorValue = CLBeaconMajorValue(arc4random_uniform(5000))
+//            
            // let beaconPeripheralData: NSDictionary = region.peripheralData(withMeasuredPower: nil) as NSDictionary
 
             
+            let region = KTKBeaconRegion(proximityUUID: proximityUUID! as UUID, identifier: "rashiv.beacon")
+            
+            //,major: 8076, minor: 17108
+            
+            //major: 52060, minor: 16309
           
-            let region = KTKBeaconRegion(proximityUUID: proximityUUID! as UUID,major: major, minor: minor, identifier: "rashiv.beacon")
+           // let region = KTKBeaconRegion(proximityUUID: proximityUUID! as UUID,major: major, minor: minor, identifier: "rashiv.beacon")
            
             // Region Properties
             region.notifyEntryStateOnDisplay = true
@@ -74,34 +83,124 @@
             case .authorizedAlways:
                 if KTKBeaconManager.isMonitoringAvailable() {
                     beaconManager.startMonitoring(for: region)
+                    print("Monitoring turned on for region: \(region)")
+                //CBPeripheralDelegate?.monitoringOperationDidStartSuccessfully()
                 }                // We will use this later
             }
 
             
             // Do any additional setup after loading the view, typically from a nib.
         }
-        
-        
-        
-        
+       
         
         
         ///CHANGES//
         func update(distance: CLProximity) {
-            UIView.animate(withDuration: 0.8) { [unowned self] in
+            UIView.animate(withDuration: 0.1) { [unowned self] in
                 switch distance {
                 case .unknown:
                     self.view.backgroundColor = UIColor.gray
                     
                 case .far:
-                    self.view.backgroundColor = UIColor.blue
+                    self.view.backgroundColor = UIColor.white
+                   
+                    //checking//
+                    ////CHANGES
+                    let title = "FAR"
+                    let message = "This is far"
+                    let cancelButtonTitle = "Cancel"
+                    let okButtonTitle = "OK"
+                    
+                    let alertController = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+                    let cancelAction = UIAlertAction.init(title: cancelButtonTitle, style: UIAlertActionStyle.cancel, handler: nil)
+                    let okAction = UIAlertAction(
+                    title: "OK", style: UIAlertActionStyle.default){ (action) in
+                        self.performSegue(withIdentifier: "viewadvertisement", sender: self)
+                    }
+                    alertController.addAction(cancelAction);
+                    alertController.addAction(okAction);
+                    
+                    //CHECKING
+                    if ( okButtonTitle == "ok" )
+                    {
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+                    }
+                    
+                    
+                    self.present(alertController, animated: true, completion: nil)
                     
                     
                 case .near:
-                    self.view.backgroundColor = UIColor.orange
+                    self.view.backgroundColor = UIColor.green
+                    //checking//
+                    let title = "NEAR"
+                    let message = "This is NEAR"
+                    let cancelButtonTitle = "Cancel"
+                    let okButtonTitle = "Ok"
+                    
+                    let alertController = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+                    let cancelAction = UIAlertAction.init(title: cancelButtonTitle, style: UIAlertActionStyle.cancel, handler: nil)
+                    let okAction = UIAlertAction(
+                    title: "OK", style: UIAlertActionStyle.default){ (action) in
+                        self.performSegue(withIdentifier: "viewadvertisement", sender: self)
+                    }
+                    alertController.addAction(cancelAction);
+                    alertController.addAction(okAction);
+                    //CHECKING
+                    if ( okButtonTitle == "ok" )
+                    {
+                        print("CHECKING THE  LOADED")
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "beacontableviewcell"), object: nil)
+                        
+                        print("CHECKING THE IMAGES LOADED ha")
+                        
+                        
+                        
+                    }
+                    
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                    
+
+
                     
                 case .immediate:
                     self.view.backgroundColor = UIColor.red
+                    //checking//
+                    let title = "IMMEDIATE"
+                    let message = "This is right next to you"
+                    let cancelButtonTitle = "Cancel"
+                    let okButtonTitle = "Ok"
+                    
+                    let alertController = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+                    let cancelAction = UIAlertAction.init(title: cancelButtonTitle, style: UIAlertActionStyle.cancel, handler: nil)
+                    
+                    
+                     //let okAction = UIAlertAction.init(title: okButtonTitle, style: UIAlertActionStyle.default)
+                    
+                    let okAction = UIAlertAction(
+                        title: "OK", style: UIAlertActionStyle.default){ (action) in
+                                self.performSegue(withIdentifier: "viewadvertisement", sender: self)
+                    }
+                    alertController.addAction(cancelAction);
+                    alertController.addAction(okAction);
+                    
+                    //CHECKING
+                    if ( okButtonTitle == "ok" )
+                    {
+                        print("CHECKING THE  LOADED")
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "beacontableviewcell"), object: nil)
+                        
+                        print("CHECKING THE IMAGES LOADED ha")
+                        
+                        
+                        
+                    }
+                    
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                    
+
                    
                 }
             }
@@ -119,6 +218,8 @@
         
        
         
+       
+        
         
         
         //
@@ -132,7 +233,7 @@
                 GIDSignIn.sharedInstance().signIn()
             
             FIRAuth.auth()?.addStateDidChangeListener { auth, user in
-                if let user = user {
+                if case let user = user {
                     print("User is signed in.")
                 } else {
                     print("User is signed out.")
@@ -232,19 +333,19 @@
                 
                 
                 
-                let major: CLBeaconMajorValue = CLBeaconMajorValue(arc4random_uniform(5000))
-                let minor: CLBeaconMinorValue = CLBeaconMajorValue(arc4random_uniform(5000))
-                
+//                let major: CLBeaconMajorValue = CLBeaconMajorValue(arc4random_uniform(5000))
+//                let minor: CLBeaconMinorValue = CLBeaconMajorValue(arc4random_uniform(5000))
+//                
                 // let beaconPeripheralData: NSDictionary = region.peripheralData(withMeasuredPower: nil) as NSDictionary
                 
                 
                 
-                let region = KTKBeaconRegion(proximityUUID: proximityUUID! as UUID,major: major, minor: minor, identifier: "rashiv.beacon")
+               // let region = KTKBeaconRegion(proximityUUID: proximityUUID! as UUID,major: major, minor: minor, identifier: "rashiv.beacon")
                 
 
+                  // let region = KTKBeaconRegion(proximityUUID: proximityUUID! as UUID, major: 52060, minor: 16309, identifier: "rashiv.beacon")
                 
-                
-                //let region = KTKBeaconRegion(proximityUUID: proximityUUID! as UUID,major: 8076, minor: 17108, identifier: "rashiv.beacon")
+               let region = KTKBeaconRegion(proximityUUID: proximityUUID! as UUID, identifier: "rashiv.beacon")
                  print("SOMETHING WRONG HERE again")
                 
                 // Region Properties
@@ -272,9 +373,7 @@
             fetchAdvertisementhere()
         }
         
-      
-        
-      
+    
         func beaconManager(_ manager: KTKBeaconManager, didEnter region: KTKBeaconRegion) {
             print("Did enter region: \(region)")
             statusLabel.text = "Did enter region: \(region)"
@@ -284,7 +383,7 @@
             print("Did exit region \(region)")
             statusLabel.text = "Did exit region \(region)"
         }
-        
+      
         func beaconManager(_ manager: KTKBeaconManager, didRangeBeacons beacons: [CLBeacon], in region: KTKBeaconRegion) {
             print("Did ranged \"\(beacons.count)\" beacons inside region: \(region)")
             statusLabel.text = "Did ranged \"\(beacons.count)\" beacons inside region: \(region)"
@@ -308,11 +407,21 @@
        
         
         
-        
         private func fetchAdvertisementhere(){
             print("EHU 1")
             
-         
+         //   GIDSignIn.sharedInstance().signIn()
+          //  let email = user.profile.email
+
+          
+//            if (GIDSignIn.sharedInstance().currentUser.profile.email != nil){
+//                var email = user.profile.email
+//                
+//                print("Account Has address")
+//                print("geeee", user.profile.email)
+//            
+
+     
             
             let parameter = ["beacon": "4tla", "special":"f7826da6-4fa2-4e98-8024-bc5b71e0893e", "customer": "rashiv"] as [String: Any]
             
@@ -320,20 +429,18 @@
             var request = URLRequest(url:myUrl!);
             
             let postString = "beacon=4tla&customer=rashiv"
+            
+            
             request.httpBody = postString.data(using: String.Encoding.utf8)
             
             print(postString)
-            
             
             request.httpMethod = "POST";
             request.addValue("tmwNSX5uC4JjVnZsUZFnKcJW", forHTTPHeaderField: "Api-Key")
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.addValue("application/json", forHTTPHeaderField: "Accept")
             do {
-
                 request.httpBody = try JSONSerialization.data(withJSONObject: parameter, options: .prettyPrinted)
-                
-                
             }
             catch let error  {
                 print(error.localizedDescription)
@@ -351,8 +458,6 @@
                     print("The  statusCode of this url is : \(httpResponse.statusCode)")
                     print("hello buddy")
                 }
-                
-                
                 if error != nil {
                     print(error as Any)
                     return
@@ -374,7 +479,6 @@
                         print("do u know what is here")
                         for actionsFromJson in actionsFromJson {
                             
-                            
                             if let beaco = actionsFromJson["beacon"] as? String ,let cust = actionsFromJson["customer"] as? String  {
                                 
                                 print(beaco)
@@ -382,16 +486,7 @@
                                 print("where is the output")
                                 
                             }
-                            
-                            //    else if let title = actionsFromJson["actionType"] as? String ,let desc = actionsFromJson["proximity"] as? String , let img = actionsFromJson["content"] as? String {
-                            
-                            
-                            // }
-                            
-                            
-                            
                         }
-                        
                     }
                     //                
                     //                DispatchQueue.main.async {
@@ -404,17 +499,34 @@
                 catch let error{
                     print(error)
                 }
-                
             }
             task.resume()
-            
-            
         }
-        
-        
-
-        
-        
-        
-        
 }
+
+
+
+
+///
+/*
+ extension CLBeacon
+ {
+ /// Returns a specially-formatted description of the beacon's characteristics.
+ func fullDetails() -> String {
+ let proximityText: String
+ 
+ switch proximity {
+ case .near:
+ proximityText = "Near"
+ case .immediate:
+ proximityText = "Immediate"
+ case .far:
+ proximityText = "Far"
+ case .unknown:
+ proximityText = "Unknown"
+ }
+ 
+ return "\(major), \(minor) •  \(proximityText) • \(accuracy) • \(rssi)"
+ }
+ }
+ */
