@@ -11,6 +11,7 @@
 
 
 import UIKit
+import KontaktSDK
 
 class Beacons: NSObject {
     
