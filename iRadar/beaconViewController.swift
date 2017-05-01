@@ -14,6 +14,7 @@
 
     class beaconViewController: UIViewController , GIDSignInUIDelegate {
         
+        var beacons : [Beacons]? = []
         
         @IBOutlet weak var profilePic: UIImageView!
         @IBOutlet weak var Signout: UIButton!
@@ -53,6 +54,7 @@
             
             // Region
             let proximityUUID = NSUUID(uuidString: "f7826da6-4fa2-4e98-8024-bc5b71e0893e")
+            
             
 //            let major: CLBeaconMajorValue = CLBeaconMajorValue(arc4random_uniform(5000))
 //            let minor: CLBeaconMinorValue = CLBeaconMajorValue(arc4random_uniform(5000))
@@ -431,10 +433,20 @@
 //                
 //                print("Account Has address")
 //                print("geeee", user.profile.email)
+                
+                let major: CLBeaconMajorValue = CLBeaconMajorValue(arc4random_uniform(5000))
+                 let minor: CLBeaconMinorValue = CLBeaconMajorValue(arc4random_uniform(5000))
+                
+
 //            
+            //    let proximityUUID = NSUUID(uuidString: "f7826da6-4fa2-4e98-8024-bc5b71e0893e")
+                
+                 //let region = KTKBeaconRegion(proximityUUID: proximityUUID! as UUID,major: major,minor: minor, identifier: "rashiv.beacon")
+               // let region = KTKBeaconRegion(proximityUUID: proximityUUID! as UUID,major: major, minor: minor, identifier: "rashiv.beacon")
+                
 
      
-                let parameter = ["name" : name, "special":"f7826da6-4fa2-4e98-8024-bc5b71e0893e", "customer": email] as [String: Any]
+                let parameter = ["beacond_id_major": major ,"beacond_id_minor": minor, "name" : name, "special": "f7826da6-4fa2-4e98-8024-bc5b71e0893e" ,"customer": email] as [String: Any]
            // let parameter = ["beacon": "4tla", "special":"f7826da6-4fa2-4e98-8024-bc5b71e0893e", "customer": "rashiv"] as [String: Any]
             
             let myUrl = URL(string: "https://iradar-dev.appspot.com/api/impression");
