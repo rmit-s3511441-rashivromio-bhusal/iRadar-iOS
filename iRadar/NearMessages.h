@@ -7,3 +7,4 @@
 //
 
 #import <GNSMessages.h>
+#import <KontaktSDK/KontaktSDK.h>

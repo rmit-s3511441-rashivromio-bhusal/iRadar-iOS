@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		042C6AC11EB84BD500AA46EC /* AdvertisementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042C6AC01EB84BD500AA46EC /* AdvertisementViewController.swift */; };
+		0448EB201EB8416F001128B9 /* KontaktSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0448EB1F1EB8416F001128B9 /* KontaktSDK.framework */; };
 		045F434D1E92283000E323EC /* BeaconTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F434C1E92283000E323EC /* BeaconTableViewController.swift */; };
 		045F434F1E9254E200E323EC /* BeaconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F434E1E9254E200E323EC /* BeaconTableViewCell.swift */; };
 		045F43511E92635B00E323EC /* Beacons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F43501E92635B00E323EC /* Beacons.swift */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		042C6AC01EB84BD500AA46EC /* AdvertisementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementViewController.swift; sourceTree = "<group>"; };
+		0448EB1F1EB8416F001128B9 /* KontaktSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KontaktSDK.framework; path = Pods/KontaktSDK/Cocoapods/iOS/KontaktSDK.framework; sourceTree = "<group>"; };
 		045F434C1E92283000E323EC /* BeaconTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconTableViewController.swift; sourceTree = "<group>"; };
 		045F434E1E9254E200E323EC /* BeaconTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconTableViewCell.swift; sourceTree = "<group>"; };
 		045F43501E92635B00E323EC /* Beacons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beacons.swift; sourceTree = "<group>"; };
@@ -51,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0448EB201EB8416F001128B9 /* KontaktSDK.framework in Frameworks */,
 				04A421161E85438900194289 /* CoreLocation.framework in Frameworks */,
 				403C435AC21B731520EB8DB5 /* Pods_iRadar.framework in Frameworks */,
 			);
@@ -85,6 +90,7 @@
 				04D4AFDD1E84DE9400324E87 /* beaconViewController.swift */,
 				04D4AFDF1E84DE9400324E87 /* Main.storyboard */,
 				045F434E1E9254E200E323EC /* BeaconTableViewCell.swift */,
+				042C6AC01EB84BD500AA46EC /* AdvertisementViewController.swift */,
 				04D4AFE21E84DE9400324E87 /* Assets.xcassets */,
 				04D4AFE41E84DE9400324E87 /* LaunchScreen.storyboard */,
 				04D4AFE71E84DE9400324E87 /* Info.plist */,
@@ -102,6 +108,7 @@
 		04D4AFED1E84E02100324E87 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0448EB1F1EB8416F001128B9 /* KontaktSDK.framework */,
 				04D4AFEE1E84E02100324E87 /* CoreLocation.framework */,
 				CC71C861529174BCE2E76AB4 /* Pods_iRadar.framework */,
 			);
@@ -232,7 +239,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -250,6 +257,7 @@
 				04A421221E8A8F6300194289 /* newConfigurationViewController.swift in Sources */,
 				04A421151E8514F400194289 /* loginViewController.swift in Sources */,
 				045F434D1E92283000E323EC /* BeaconTableViewController.swift in Sources */,
+				042C6AC11EB84BD500AA46EC /* AdvertisementViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,12 +382,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = CHW274QMX3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/KontaktSDK/Cocoapods/iOS",
+				);
 				INFOPLIST_FILE = iRadar/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "s3511441-student.rmit.edu.au.iRadar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "/Users/ROMIO/RMIT/4th Sem/iRadar/iRadar1/iRadar/iRadar/NearMessages.h";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "/Users/ROMIO/Desktop/iRadar-iOS/iRadar/iRadar-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -390,12 +403,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = CHW274QMX3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/KontaktSDK/Cocoapods/iOS",
+				);
 				INFOPLIST_FILE = iRadar/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "s3511441-student.rmit.edu.au.iRadar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "/Users/ROMIO/RMIT/4th Sem/iRadar/iRadar1/iRadar/iRadar/NearMessages.h";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "/Users/ROMIO/Desktop/iRadar-iOS/iRadar/iRadar-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

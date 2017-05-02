@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Mvp-fp-b10">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Mvp-fp-b10">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -142,7 +142,7 @@
                                 <rect key="frame" x="0.0" y="72" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" tableViewCell="wUD-bO-vIm" id="ATu-Iq-ye1">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iRadarLogo" translatesAutoresizingMaskIntoConstraints="NO" id="1Z6-l7-Ei3">
@@ -184,7 +184,7 @@
                                     <outlet property="desc" destination="J8p-o7-Ake" id="xZe-za-YUd"/>
                                     <outlet property="img" destination="1Z6-l7-Ei3" id="thy-G9-Vve"/>
                                     <outlet property="title" destination="0Am-Vf-njb" id="DFl-hk-f26"/>
-                                    <segue destination="wvF-7G-Sds" kind="showDetail" action="showViewController:sender:" id="MEA-uv-qQ3"/>
+                                    <segue destination="uph-6m-eFL" kind="show" identifier="advertisement" id="2qU-ox-ouN"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -200,11 +200,21 @@
                         </barButtonItem>
                         <barButtonItem key="leftBarButtonItem" title="Back" id="1XX-iM-UPR">
                             <color key="tintColor" red="0.9915887713432312" green="0.0049145189113914967" blue="0.1742897629737854" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="SignOut" id="ig8-dm-apk">
                             <connections>
-                                <action selector="didTapSignOutWithSender:" destination="BN6-2k-V1n" id="B4Z-2c-yX1"/>
-                                <segue destination="Mvp-fp-b10" kind="show" identifier="logout" id="kn0-bj-ZjN"/>
+                                <segue destination="zmu-3j-zYv" kind="show" id="RKk-eF-Bwt"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Signout" style="plain" id="F9I-lx-MSU">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vO4-6v-Q9s">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Signout"/>
+                                <connections>
+                                    <action selector="didTapSignOutWithSender:" destination="BN6-2k-V1n" eventType="touchUpInside" id="Eqj-s1-o6b"/>
+                                </connections>
+                            </button>
+                            <connections>
+                                <segue destination="Mvp-fp-b10" kind="show" identifier="logout" id="1p8-EP-slg"/>
                             </connections>
                         </barButtonItem>
                         <connections>
@@ -212,7 +222,7 @@
                         </connections>
                     </navigationItem>
                     <connections>
-                        <outlet property="Signout" destination="ig8-dm-apk" id="Jkk-6y-OYd"/>
+                        <outlet property="SignOut" destination="F9I-lx-MSU" id="45P-9S-QcG"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WJ8-9G-FKG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -232,7 +242,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Advertisement" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCW-sP-kdI">
-                                <rect key="frame" x="16" y="60" width="343" height="21"/>
+                                <rect key="frame" x="16" y="16" width="343" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="4AA-5W-nRb"/>
                                 </constraints>
@@ -241,13 +251,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="13" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jb4-ig-xTL">
-                                <rect key="frame" x="16" y="301" width="343" height="346"/>
+                                <rect key="frame" x="16" y="257" width="343" height="390"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="78m-7v-7rs">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="-44" width="375" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="3an-dE-hh0"/>
                                 </constraints>
@@ -261,7 +271,7 @@
                                 </items>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tgh-Ms-UPw">
-                                <rect key="frame" x="79" y="107" width="240" height="128"/>
+                                <rect key="frame" x="79" y="63" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="T1R-FJ-IJ3"/>
                                 </constraints>
@@ -278,6 +288,7 @@
                             <constraint firstItem="GCW-sP-kdI" firstAttribute="top" secondItem="78m-7v-7rs" secondAttribute="bottom" constant="16" id="RCJ-sa-MV4"/>
                             <constraint firstItem="Tgh-Ms-UPw" firstAttribute="top" secondItem="GCW-sP-kdI" secondAttribute="bottom" constant="26" id="V42-z9-cB3"/>
                             <constraint firstItem="GCW-sP-kdI" firstAttribute="leading" secondItem="ZZz-fg-bdI" secondAttribute="leadingMargin" id="XLM-Vt-sng"/>
+                            <constraint firstItem="Tgh-Ms-UPw" firstAttribute="top" secondItem="TFg-Gx-SIM" secondAttribute="bottom" constant="43" id="ZSY-b4-kjV"/>
                             <constraint firstItem="78m-7v-7rs" firstAttribute="leading" secondItem="ZZz-fg-bdI" secondAttribute="leading" id="b2l-ol-lOW"/>
                             <constraint firstAttribute="trailing" secondItem="78m-7v-7rs" secondAttribute="trailing" id="dBr-tH-lI6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Tgh-Ms-UPw" secondAttribute="trailing" constant="40" id="gTb-Gr-WhV"/>
@@ -288,7 +299,11 @@
                         <barButtonItem key="backBarButtonItem" tag="1" title="Back" id="2pQ-ga-qkv">
                             <color key="tintColor" red="1" green="0.59092889433658113" blue="0.60995308879260235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="mLs-G2-nwk"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="mLs-G2-nwk">
+                            <connections>
+                                <segue destination="zmu-3j-zYv" kind="show" id="A8W-j6-ETF"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Signout" id="T5A-Z2-YIM">
                             <connections>
                                 <action selector="didTapSignOutWithSender:" destination="uph-6m-eFL" id="bla-ar-rHV"/>
@@ -298,11 +313,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="Signout" destination="T5A-Z2-YIM" id="cTk-i8-B4m"/>
+                        <outlet property="adv" destination="jb4-ig-xTL" id="arX-xN-WXO"/>
+                        <outlet property="pic" destination="Tgh-Ms-UPw" id="JQY-7f-MUs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yD6-6n-KMZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1023.2" y="347.67616191904051"/>
+            <point key="canvasLocation" x="620" y="352"/>
         </scene>
         <!--Beacon View Controller-->
         <scene sceneID="XIo-1W-6yD">
@@ -316,7 +333,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="16D74848-B740-4B32-ADC4-296E5AD9D02A" translatesAutoresizingMaskIntoConstraints="NO" id="wfo-3m-2x4">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageView:wfo-3m-2x4:image" translatesAutoresizingMaskIntoConstraints="NO" id="wfo-3m-2x4">
                                 <rect key="frame" x="154" y="85" width="66" height="66"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="66" id="I6T-Dm-11y"/>
@@ -380,6 +397,10 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Yz-0g-7Zg">
                                 <rect key="frame" x="16" y="44" width="122" height="128"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3ZX-kh-d62">
+                                <rect key="frame" x="76" y="260" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0045357635244727135" green="0.45466464757919312" blue="0.99135392904281616" alpha="0.47016802226027399" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -405,6 +426,7 @@
                     </view>
                     <connections>
                         <outlet property="Signout" destination="Dmi-tc-lAt" id="Grn-X2-VVe"/>
+                        <outlet property="beaimg" destination="3ZX-kh-d62" id="X8P-9c-iIK"/>
                         <outlet property="googleimage" destination="wfo-3m-2x4" id="S2Q-z5-lMg"/>
                         <outlet property="major" destination="KNO-cl-lip" id="Ov1-5g-FiM"/>
                         <outlet property="profilePic" destination="4Yz-0g-7Zg" id="TTA-4M-ZY4"/>
@@ -421,7 +443,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Xi3-go-QFC" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="1gx-3W-egT">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1gx-3W-egT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -434,27 +456,12 @@
             </objects>
             <point key="canvasLocation" x="-1774" y="645"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="omt-lT-L9Y">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wvF-7G-Sds" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="1Mh-7N-93M">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="uph-6m-eFL" kind="relationship" relationship="rootViewController" id="eFx-rf-cCm"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zL8-zo-1C6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="204" y="348"/>
-        </scene>
     </scenes>
     <resources>
-        <image name="16D74848-B740-4B32-ADC4-296E5AD9D02A" width="98" height="98">
+        <image name="HoMHP" width="26" height="20"/>
+        <image name="bluetooth" width="98" height="98"/>
+        <image name="iRadarLogo" width="1024" height="512"/>
+        <image name="imageView:wfo-3m-2x4:image" width="98" height="98">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -1145,11 +1152,9 @@ AKsArQCyALUAtwC5ALsAvQDCANkA2wDdn4+flJ+fn6ifu5+/n8qf05/Yn+Cf45/on/ef+6ACoAqgF6Ac
 oB6gIKAloC2gMKA1oD2gQKBSoFWgWgAAAAAAAAIBAAAAAAAAAEEAAAAAAAAAAAAAAAAAAKBcA
 </mutableData>
         </image>
-        <image name="HoMHP" width="26" height="20"/>
-        <image name="bluetooth" width="98" height="98"/>
-        <image name="iRadarLogo" width="1024" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="A8W-j6-ETF"/>
         <segue reference="llx-xB-YQ6"/>
     </inferredMetricsTieBreakers>
 </document>

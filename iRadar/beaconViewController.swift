@@ -6,7 +6,7 @@
 //  Copyright © 2017 Rashiv Romio Bhusal. All rights reserved.
 //
 
-    import UIKit
+ 
     import KontaktSDK
    import GoogleSignIn
     import Firebase
@@ -15,7 +15,9 @@
     class beaconViewController: UIViewController , GIDSignInUIDelegate {
         
         var beacons : [Beacons]? = []
+        var hi : [BeaconTableViewController]? = []
         
+        @IBOutlet weak var beaimg: UIImageView!
         @IBOutlet weak var profilePic: UIImageView!
         @IBOutlet weak var Signout: UIButton!
         
@@ -31,6 +33,7 @@
         
         func refreshInterface()
         {
+            // beaconManager.stopMonitoringForAllRegions()
             print("hi")
             if let currentUser = GIDSignIn.sharedInstance().currentUser{
                 
@@ -147,6 +150,13 @@
                 case .near:
                     self.view.backgroundColor = UIColor.green
                     //checking//
+                // BeaconTableViewController().fetchAdvertisement()
+                    
+//                    var img: String?
+//                    let beaimgURL  = actionsFromJson["url"] as? String
+                   
+
+                    
                     let title = "NEAR"
                     let message = "This is NEAR"
                     let cancelButtonTitle = "Cancel"
@@ -179,9 +189,11 @@
 
                     
                 case .immediate:
+                    
+                    
                     self.view.backgroundColor = UIColor.red
                     //checking//
-                    let title = "IMMEDIATE"
+                                        let title = "IMMEDIATE"
                     let message = "This is right next to you"
                     let cancelButtonTitle = "Cancel"
                     let okButtonTitle = "Ok"
@@ -283,11 +295,18 @@
                     
                     
                     GIDSignIn.sharedInstance().signOut()
+                    let proximityUUID = NSUUID(uuidString: "f7826da6-4fa2-4e98-8024-bc5b71e0893e")
+
+                    let region = KTKBeaconRegion(proximityUUID: proximityUUID! as UUID, identifier: "rashiv.beacon")
+                    self.beaconManager.stopMonitoring(for: region)
                 
                 }
-                
                 alertController.addAction(confirmAction)
                 alertController.addAction(cancelAction)
+                
+                //change here
+                 self.beaconManager.stopMonitoringForAllRegions()
+                //change here
                 
                 self.present(alertController, animated: true, completion: nil)
                 
@@ -371,9 +390,9 @@
         }
         
         func beaconManager(_ manager: KTKBeaconManager, monitoringDidFailFor region: KTKBeaconRegion?, withError error: Error?) {
-            print("Monitoring did fail for region: \(region)")
-            print("Error: \(error)")
-            statusLabel.text = "Monitoring did fail for region: \(region)"
+            print("Monitoring did fail for region: \(String(describing: region))")
+            print("Error: \(String(describing: error))")
+            statusLabel.text = "Monitoring did fail for region: \(String(describing: region))"
             print("reach here")
         }
         
@@ -397,11 +416,13 @@
       
         func beaconManager(_ manager: KTKBeaconManager, didRangeBeacons beacons: [CLBeacon], in region: KTKBeaconRegion) {
             print("Did ranged \"\(beacons.count)\" beacons inside region: \(region)")
-            statusLabel.text = "Did ranged \"\(beacons.count)\" beacons inside region: \(region)"
+            statusLabel.text = "Did ranged \"\(beacons.count)\""
+           // statusLabel.text = "Did ranged \"\(beacons.count)\" beacons inside region: \(region)"
             if let closestBeacon = beacons.sorted(by: { $0.0.accuracy < $0.1.accuracy }).first , closestBeacon.accuracy > 0 {
-                print("Closest Beacon is M: \(closestBeacon.major), m: \(closestBeacon.minor) ~ \(closestBeacon.accuracy) meters away.")
+                
+                //print("Closest Beacon is M: \(closestBeacon.major), m: \(closestBeacon.minor) ~ \(closestBeacon.accuracy) meters away.")
                 major.text = " closestBeacon.major is \(closestBeacon.major) "
-                statusLabel.text = "\(statusLabel.text) Closest Beacon is M: \(closestBeacon.major), m: \(closestBeacon.minor) ~ \(closestBeacon.accuracy) meters away."
+               // statusLabel.text = "\(String(describing: statusLabel.text)) Closest Beacon is M: \(closestBeacon.major), m: \(closestBeacon.minor) ~ \(closestBeacon.accuracy) meters away."
                 //CHANGES//
                 if beacons.count > 0 {
                     let beacon = beacons[0]
@@ -421,23 +442,17 @@
         private func fetchAdvertisementhere(){
             print("EHU 1")
             
-            
+            //beaconManager(<#T##manager: KTKBeaconManager##KTKBeaconManager#>, didRangeBeacons: <#T##[CLBeacon]#>, in: <#T##KTKBeaconRegion#>)
             if let currentUser = GIDSignIn.sharedInstance().currentUser{
          //   GIDSignIn.sharedInstance().signIn()
            let name = currentUser.profile.name!
            let email = currentUser.profile.email!
             
-            
-//            if (GIDSignIn.sharedInstance().currentUser.profile.email != nil){
-//                var email = user.profile.email
-//                
-//                print("Account Has address")
-//                print("geeee", user.profile.email)
                 
-                let major: CLBeaconMajorValue = CLBeaconMajorValue(arc4random_uniform(5000))
+               let major: CLBeaconMajorValue = CLBeaconMajorValue(arc4random_uniform(5000))
                  let minor: CLBeaconMinorValue = CLBeaconMajorValue(arc4random_uniform(5000))
                 
-
+                
 //            
             //    let proximityUUID = NSUUID(uuidString: "f7826da6-4fa2-4e98-8024-bc5b71e0893e")
                 
@@ -446,7 +461,7 @@
                 
 
      
-                let parameter = ["beacond_id_major": major ,"beacond_id_minor": minor, "name" : name, "special": "f7826da6-4fa2-4e98-8024-bc5b71e0893e" ,"customer": email] as [String: Any]
+                let parameter = ["beacond_id_major": major ,"beacond_id_minor": minor , "name" : name, "special": "f7826da6-4fa2-4e98-8024-bc5b71e0893e" ,"customer": email] as [String: Any]
            // let parameter = ["beacon": "4tla", "special":"f7826da6-4fa2-4e98-8024-bc5b71e0893e", "customer": "rashiv"] as [String: Any]
             
             let myUrl = URL(string: "https://iradar-dev.appspot.com/api/impression");

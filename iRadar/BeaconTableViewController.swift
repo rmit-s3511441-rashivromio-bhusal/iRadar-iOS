@@ -9,6 +9,7 @@
 import UIKit
 import KontaktSDK
 import GoogleSignIn
+import Firebase
 
    
 
@@ -18,7 +19,9 @@ import GoogleSignIn
 class BeaconTableViewController: UITableViewController {
     
    
-    
+     
+   
+    @IBOutlet weak var SignOut: UIBarButtonItem!
     var beacons : [Beacons]? = []
     
 
@@ -64,9 +67,12 @@ class BeaconTableViewController: UITableViewController {
                             
                         }
                     case .content:
-                        if let contentAction = action.content, let url = contentAction.contentURL {
-                            print("Contant Action. Content URL: \(url)")
+                       // if let contentAction = action.content, let url = contentAction.contentURL {
+                         //   print("Contant Action. Content URL: \(url)")
+                        if let contentAction = action.content{
+                            print("Contant Action. Content URL: \(contentAction)")
                             
+ 
                             self.fetchAdvertisement()
                             
                         }
@@ -89,11 +95,11 @@ class BeaconTableViewController: UITableViewController {
   
     // =========================================================================
     // MARK: - GET IMAGES FROM URL
-    private func fetchAdvertisement(){
+    public func fetchAdvertisement(){
         print("EHU 1")
         
         
-        let myUrl = URL(string: "https://api.kontakt.io/action?uniqueId=4tla");
+        let myUrl = URL(string: "https://api.kontakt.io/action?uniqueId");
         var request = URLRequest(url:myUrl!);
         request.httpMethod = "GET";
         request.addValue("vnrXRFJARjeLgIVLBeqmHkXMxXEVsNRm", forHTTPHeaderField: "Api-Key")
@@ -212,9 +218,90 @@ class BeaconTableViewController: UITableViewController {
         
         return cell
     }
-   
+    
+    //MARK: NAVIGATION
+    
+    
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "advertisement" {
+            if let indexPath = tableView.indexPathForSelectedRow{
+               let advertisementVC = segue.destination as! AdvertisementViewController
+                    advertisementVC.advtext = beacons?[indexPath.row].title
+    
+            }
+                        }
+           
+            }
+    
+    
+    
+
+    
+    @IBAction func didTapSignOut(sender: AnyObject) {
+        
+        
+        
+        FIRAuth.auth()?.addStateDidChangeListener { auth, user in
+            if case let user = user {
+                print("User was signed in.")
+            } else {
+                print("User is signed out.")
+            }
+            
+            
+            //
+            let alertController = UIAlertController(
+                title: "Title",
+                message: "Message",
+                preferredStyle: UIAlertControllerStyle.alert
+            )
+            
+            let cancelAction = UIAlertAction(
+                title: "Cancel",
+                style: UIAlertActionStyle.destructive) { (action) in
+                    // ...
+            }
+            
+            let confirmAction = UIAlertAction(
+            title: "OK", style: UIAlertActionStyle.default) { (action) in
+                self.performSegue(withIdentifier: "logout", sender: self)
+                
+                print("sign out button tapped")
+                let firebaseAuth = FIRAuth.auth()
+                do {
+                    try firebaseAuth!.signOut()
+                    
+                    //        GIDGoogleUser.sharedInstance.signedIn = false
+                    // dismissViewControllerAnimated(true, completion: nil)
+                } catch let signOutError as NSError {
+                    print ("Error signing out: \(signOutError)")
+                } catch {
+                    print("Unknown error.")
+                }
+                
+                
+                GIDSignIn.sharedInstance().signOut()
+                
+            }
+            
+            alertController.addAction(confirmAction)
+            alertController.addAction(cancelAction)
+            
+            self.present(alertController, animated: true, completion: nil)
+            
+            //
+            
+            
+        }
+    }
+    
+    
+    
+    
     
 }
+
+
 
 
 
@@ -231,7 +318,7 @@ extension UIImageView{
                 (data,response,error) in
                 if error != nil
                 {
-                    print(error)
+                    print(error!)
                     return
                 }
             

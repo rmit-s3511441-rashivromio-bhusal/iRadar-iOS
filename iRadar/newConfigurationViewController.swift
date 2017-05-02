@@ -65,7 +65,7 @@ class newConfigurationViewController: UIViewController {
                 
                 connection.write(config, completion: { (synchronized, configuration, error) in
                     if error == nil {
-                        print("Configuration for \(configuration?.uniqueID!) applied successfully")
+                        print("Configuration for \(String(describing: configuration?.uniqueID!)) applied successfully")
                     }
                 })
                 
@@ -116,7 +116,7 @@ class newConfigurationViewController: UIViewController {
                         
                         connection.write(config, completion: { (synchronized, configuration, error) in
                             if error == nil {
-                                print("Configuration for \(configuration?.uniqueID!) applied successfully")
+                                print("Configuration for \(String(describing: configuration?.uniqueID!)) applied successfully")
                             }
                         })
                         
@@ -169,7 +169,7 @@ class newConfigurationViewController: UIViewController {
                             
                             connection.write(config, completion: { (synchronized, configuration, error) in
                                 if error == nil {
-                                    print("Configuration for \(configuration?.uniqueID!) applied successfully")
+                                    print("Configuration for \(String(describing: configuration?.uniqueID!)) applied successfully")
                                 }
                             })
                             
