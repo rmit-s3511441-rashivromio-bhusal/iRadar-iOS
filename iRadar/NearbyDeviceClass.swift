@@ -24,8 +24,6 @@ class NearbyDeviceClass : UIViewController {
     }
 }
 
-
-
 extension NearbyDeviceClass: KTKDevicesManagerDelegate {
     func devicesManager(_ manager: KTKDevicesManager, didDiscover devices: [KTKNearbyDevice]?) {
         
@@ -46,8 +44,6 @@ extension NearbyDeviceClass: KTKDevicesManagerDelegate {
         else
             if let device = devices?.filter({$0.uniqueID == "4tla"}).first {
             
-            
-                
             let connection = KTKDeviceConnection(nearbyDevice: device)
             connection.readConfiguration() { configuration, error in
                 if error == nil, let config = configuration {

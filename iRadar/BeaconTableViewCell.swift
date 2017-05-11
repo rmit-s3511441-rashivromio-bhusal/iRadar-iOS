@@ -16,6 +16,10 @@ class BeaconTableViewCell: UITableViewCell {
     @IBOutlet var desc: UILabel!
    
     @IBOutlet var title: UILabel!
+    
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
        
@@ -30,7 +34,7 @@ class BeaconTableViewCell: UITableViewCell {
     
     
     
- 
+  
     
 
 }

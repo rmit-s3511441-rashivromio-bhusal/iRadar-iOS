@@ -18,6 +18,32 @@ class loginViewController: UIViewController , GIDSignInDelegate , GIDSignInUIDel
     @IBOutlet weak var SignIn: GIDSignInButton!
    
     @IBOutlet weak var im: UIImageView!
+    
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(true)
+      // self.view.backgroundColor = UIColor(patternImage: UIImage(named: "ibeaco.png")!.resizableImage(withCapInsets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)))
+        
+        
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        UIImage(named: "ibeaco.png")?.draw(in: self.view.bounds)
+        
+        var image: UIImage! = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        
+        self.view.backgroundColor = UIColor(patternImage: image)
+        
+    }
+    
+        
+        
+        
+    
+
+    
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -114,7 +140,7 @@ class loginViewController: UIViewController , GIDSignInDelegate , GIDSignInUIDel
                 
                 
                 
-                guard let pic = GIDSignIn.sharedInstance().currentUser.profile.imageURL(withDimension: 400) , let data = NSData(contentsOf: pic) as? Data else {
+                guard let pic = GIDSignIn.sharedInstance().currentUser.profile.imageURL(withDimension: 400) , let data = NSData(contentsOf: pic) as Data? else {
                     print("missing picture with the dimension:")
                     return
                 }

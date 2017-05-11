@@ -387,7 +387,7 @@
 					"$(PROJECT_DIR)/Pods/KontaktSDK/Cocoapods/iOS",
 				);
 				INFOPLIST_FILE = iRadar/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "s3511441-student.rmit.edu.au.iRadar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -408,7 +408,7 @@
 					"$(PROJECT_DIR)/Pods/KontaktSDK/Cocoapods/iOS",
 				);
 				INFOPLIST_FILE = iRadar/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "s3511441-student.rmit.edu.au.iRadar";
 				PRODUCT_NAME = "$(TARGET_NAME)";

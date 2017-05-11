@@ -21,6 +21,12 @@ class AdvertisementViewController: UIViewController  {
    @IBOutlet weak var adv: UILabel!
     @IBOutlet weak var pic: UIImageView!
     @IBOutlet weak var Signout: UIBarButtonItem!
+    
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

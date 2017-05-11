@@ -44,10 +44,24 @@
             }
         }
         
+        override func viewWillAppear(_ animated: Bool)
+        {
+            super.viewWillAppear(true)
+            
+            UIGraphicsBeginImageContext(self.view.frame.size)
+            UIImage(named: "ibeaco.png")?.draw(in: self.view.bounds)
+            
+            var image: UIImage! = UIGraphicsGetImageFromCurrentImageContext()
+            
+            UIGraphicsEndImageContext()
+            
+            self.view.backgroundColor = UIColor(patternImage: image)
+            
+        }
+        
         override func viewDidLoad() {
             super.viewDidLoad()
-            
-            GIDSignIn.sharedInstance().uiDelegate = self
+                       GIDSignIn.sharedInstance().uiDelegate = self
             refreshInterface()
              print("faaaaaaaaa")
             // Initiate Beacon Manager
@@ -245,7 +259,7 @@
        
         
        
-        
+       
         
         
         //
