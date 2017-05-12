@@ -119,12 +119,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nyz-bp-eh2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3586.4000000000001" y="617.54122938530736"/>
+            <point key="canvasLocation" x="-3852" y="574"/>
         </scene>
         <!--Advertisement-->
         <scene sceneID="CCe-KV-h5r">
             <objects>
-                <tableViewController id="BN6-2k-V1n" customClass="BeaconTableViewController" customModule="iRadar" sceneMemberID="viewController">
+                <tableViewController id="BN6-2k-V1n" customClass="BeaconTableViewController" customModule="iRadar" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="OZT-ZL-trD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -192,13 +192,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Advertisement" id="P0B-Nf-j1A">
-                        <barButtonItem key="backBarButtonItem" tag="1" title="beacons" id="Rou-bv-jTu">
-                            <color key="tintColor" red="0.99160164594650269" green="0.007162836380302906" blue="0.13290363550186157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </barButtonItem>
                         <barButtonItem key="leftBarButtonItem" title="Back" id="1XX-iM-UPR">
                             <color key="tintColor" red="0.9915887713432312" green="0.0049145189113914967" blue="0.1742897629737854" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="zmu-3j-zYv" kind="show" id="RKk-eF-Bwt"/>
+                                <action selector="backWithSender:" destination="BN6-2k-V1n" id="mde-vV-p6c"/>
+                                <segue destination="zmu-3j-zYv" kind="show" identifier="back" id="RKk-eF-Bwt"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Signout" style="plain" id="F9I-lx-MSU">
@@ -220,6 +218,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="SignOut" destination="F9I-lx-MSU" id="45P-9S-QcG"/>
+                        <outlet property="back" destination="1XX-iM-UPR" id="yN0-9p-CTq"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WJ8-9G-FKG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -238,8 +237,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Advertisement" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCW-sP-kdI">
-                                <rect key="frame" x="132" y="60" width="111.5" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Advertisement" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCW-sP-kdI">
+                                <rect key="frame" x="132" y="16" width="112" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="4AA-5W-nRb"/>
                                 </constraints>
@@ -247,13 +246,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="13" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jb4-ig-xTL">
-                                <rect key="frame" x="16" y="301" width="42" height="346"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="13" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jb4-ig-xTL">
+                                <rect key="frame" x="16" y="257" width="42" height="390"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="78m-7v-7rs">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="78m-7v-7rs">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="3an-dE-hh0"/>
@@ -268,7 +267,7 @@
                                 </items>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tgh-Ms-UPw">
-                                <rect key="frame" x="79" y="107" width="240" height="128"/>
+                                <rect key="frame" x="79" y="63" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="T1R-FJ-IJ3"/>
                                 </constraints>
@@ -276,12 +275,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="78m-7v-7rs" firstAttribute="leading" secondItem="ZZz-fg-bdI" secondAttribute="leading" id="0zw-78-1WX"/>
                             <constraint firstItem="Tgh-Ms-UPw" firstAttribute="leading" secondItem="ZZz-fg-bdI" secondAttribute="leadingMargin" constant="63" id="3cj-HI-Tvr"/>
                             <constraint firstAttribute="bottom" secondItem="jb4-ig-xTL" secondAttribute="bottom" constant="20" symbolic="YES" id="Gny-9k-jYh"/>
                             <constraint firstItem="jb4-ig-xTL" firstAttribute="top" secondItem="Tgh-Ms-UPw" secondAttribute="bottom" constant="66" id="M3n-E5-zb7"/>
+                            <constraint firstItem="jb4-ig-xTL" firstAttribute="leading" secondItem="ZZz-fg-bdI" secondAttribute="leadingMargin" id="RrF-cm-WjV"/>
                             <constraint firstItem="Tgh-Ms-UPw" firstAttribute="top" secondItem="GCW-sP-kdI" secondAttribute="bottom" constant="26" id="V42-z9-cB3"/>
                             <constraint firstItem="Tgh-Ms-UPw" firstAttribute="top" secondItem="TFg-Gx-SIM" secondAttribute="bottom" constant="43" id="ZSY-b4-kjV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Tgh-Ms-UPw" secondAttribute="trailing" constant="40" id="gTb-Gr-WhV"/>
+                            <constraint firstItem="78m-7v-7rs" firstAttribute="centerX" secondItem="GCW-sP-kdI" secondAttribute="centerX" id="is7-81-lpB"/>
+                            <constraint firstAttribute="trailing" secondItem="78m-7v-7rs" secondAttribute="trailing" id="mpx-oi-WCx"/>
+                            <constraint firstItem="78m-7v-7rs" firstAttribute="top" secondItem="ZZz-fg-bdI" secondAttribute="top" id="uQr-fM-Id9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Advertisement" id="jgB-Xj-tzY">
@@ -290,7 +294,8 @@
                         </barButtonItem>
                         <barButtonItem key="leftBarButtonItem" title="Back" id="mLs-G2-nwk">
                             <connections>
-                                <segue destination="zmu-3j-zYv" kind="show" id="A8W-j6-ETF"/>
+                                <action selector="backWithSender:" destination="uph-6m-eFL" id="RF0-9B-Hdk"/>
+                                <segue destination="zmu-3j-zYv" kind="show" identifier="back" id="A8W-j6-ETF"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Signout" id="T5A-Z2-YIM">
@@ -303,6 +308,7 @@
                     <connections>
                         <outlet property="Signout" destination="T5A-Z2-YIM" id="cTk-i8-B4m"/>
                         <outlet property="adv" destination="jb4-ig-xTL" id="arX-xN-WXO"/>
+                        <outlet property="back" destination="mLs-G2-nwk" id="2w5-Xu-XWU"/>
                         <outlet property="pic" destination="Tgh-Ms-UPw" id="JQY-7f-MUs"/>
                     </connections>
                 </viewController>
@@ -345,39 +351,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4rJ-9W-WdM">
-                                <rect key="frame" x="-16" y="0.0" width="391" height="44"/>
-                                <items>
-                                    <navigationItem title="Beacons" id="Igd-Jm-h9E">
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="Shy-wF-vF5">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Dmi-tc-lAt">
-                                                <rect key="frame" x="269" y="7" width="102" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Signout">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="didTapSignOutWithSender:" destination="zmu-3j-zYv" eventType="touchUpInside" id="EQh-2e-QBc"/>
-                                                </connections>
-                                            </button>
-                                            <connections>
-                                                <segue destination="Mvp-fp-b10" kind="show" identifier="logout" id="TB5-8u-h9x"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Yz-0g-7Zg">
                                 <rect key="frame" x="16" y="44" width="61" height="89"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="89" id="5Oo-9S-Wew"/>
                                     <constraint firstAttribute="width" constant="61" id="J22-MO-VXf"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3ZX-kh-d62">
-                                <rect key="frame" x="76" y="263" width="240" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="8mM-BK-C0i"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KNO-cl-lip">
@@ -389,30 +367,39 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y6y-Lx-yeY">
+                                <rect key="frame" x="246" y="0.0" width="93" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="93" id="N6F-i3-9PH"/>
+                                </constraints>
+                                <state key="normal" title="SignOut">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapSignOutWithSender:" destination="zmu-3j-zYv" eventType="touchUpInside" id="U1P-QB-uVB"/>
+                                    <segue destination="Mvp-fp-b10" kind="show" identifier="logout" id="RWi-Z9-QdY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="4rJ-9W-WdM" secondAttribute="trailing" id="06u-Vj-gA8"/>
                             <constraint firstItem="KNO-cl-lip" firstAttribute="trailing" secondItem="VRr-Hc-1YY" secondAttribute="trailing" id="Byr-r2-DuE"/>
                             <constraint firstItem="KNO-cl-lip" firstAttribute="trailing" secondItem="Jjc-pw-BCn" secondAttribute="trailingMargin" id="DKA-ju-FNH"/>
                             <constraint firstItem="KNO-cl-lip" firstAttribute="top" secondItem="rjh-9H-eTG" secondAttribute="bottom" constant="59" id="DnA-QC-KKe"/>
+                            <constraint firstItem="4Yz-0g-7Zg" firstAttribute="top" secondItem="T7a-ge-4zP" secondAttribute="bottom" constant="24" id="EpF-Bu-lHH"/>
                             <constraint firstItem="KNO-cl-lip" firstAttribute="leading" secondItem="4Yz-0g-7Zg" secondAttribute="leading" id="G9i-ZZ-iL3"/>
-                            <constraint firstItem="4rJ-9W-WdM" firstAttribute="leading" secondItem="Jjc-pw-BCn" secondAttribute="leadingMargin" constant="-32" id="JgT-ke-S9Y"/>
+                            <constraint firstItem="Y6y-Lx-yeY" firstAttribute="top" secondItem="Jjc-pw-BCn" secondAttribute="top" id="Ho1-bd-mKy"/>
+                            <constraint firstItem="VRr-Hc-1YY" firstAttribute="top" secondItem="Y6y-Lx-yeY" secondAttribute="bottom" constant="44" id="MJ4-U1-OTY"/>
                             <constraint firstItem="AjZ-BH-sZr" firstAttribute="top" secondItem="KNO-cl-lip" secondAttribute="bottom" constant="95" id="Mwi-Lp-bhe"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="3ZX-kh-d62" secondAttribute="trailing" constant="43" id="TjD-uo-MO2"/>
-                            <constraint firstItem="4rJ-9W-WdM" firstAttribute="top" secondItem="Jjc-pw-BCn" secondAttribute="top" id="UEv-SH-WkK"/>
-                            <constraint firstItem="rjh-9H-eTG" firstAttribute="top" secondItem="3ZX-kh-d62" secondAttribute="bottom" constant="33" id="WGH-SK-JpM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Y6y-Lx-yeY" secondAttribute="trailing" constant="20" id="Xr5-be-M5s"/>
                             <constraint firstItem="VRr-Hc-1YY" firstAttribute="top" secondItem="4Yz-0g-7Zg" secondAttribute="bottom" constant="-48" id="Y0e-ee-42q"/>
-                            <constraint firstItem="4Yz-0g-7Zg" firstAttribute="top" secondItem="4rJ-9W-WdM" secondAttribute="bottom" id="cpr-Jb-4IE"/>
-                            <constraint firstItem="3ZX-kh-d62" firstAttribute="leading" secondItem="Jjc-pw-BCn" secondAttribute="leadingMargin" constant="60" id="h1V-Zk-biL"/>
                             <constraint firstItem="4Yz-0g-7Zg" firstAttribute="leading" secondItem="Jjc-pw-BCn" secondAttribute="leadingMargin" id="kS7-WG-BLW"/>
                             <constraint firstItem="VRr-Hc-1YY" firstAttribute="leading" secondItem="Jjc-pw-BCn" secondAttribute="leadingMargin" constant="92" id="oap-JM-ttr"/>
                             <constraint firstItem="rjh-9H-eTG" firstAttribute="leading" secondItem="Jjc-pw-BCn" secondAttribute="leading" constant="168" id="yhe-pG-Hh1"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="Signout" destination="Dmi-tc-lAt" id="Grn-X2-VVe"/>
-                        <outlet property="beaimg" destination="3ZX-kh-d62" id="X8P-9c-iIK"/>
+                        <outlet property="Signout" destination="Y6y-Lx-yeY" id="Vp5-8o-A5r"/>
                         <outlet property="major" destination="KNO-cl-lip" id="Ov1-5g-FiM"/>
                         <outlet property="profilePic" destination="4Yz-0g-7Zg" id="TTA-4M-ZY4"/>
                         <outlet property="show" destination="j8C-7Y-yiR" id="YwN-1I-FzJ"/>
@@ -421,7 +408,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BDH-ZO-7lb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2666.4000000000001" y="629.2353823088456"/>
+            <point key="canvasLocation" x="-2782" y="1671"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TWI-y3-ZFI">
@@ -447,7 +434,7 @@
         <image name="iRadarLogo" width="1024" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="llx-xB-YQ6"/>
-        <segue reference="A8W-j6-ETF"/>
+        <segue reference="RWi-Z9-QdY"/>
+        <segue reference="RKk-eF-Bwt"/>
     </inferredMetricsTieBreakers>
 </document>

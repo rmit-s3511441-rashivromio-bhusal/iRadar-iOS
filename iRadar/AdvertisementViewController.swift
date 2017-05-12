@@ -22,6 +22,7 @@ class AdvertisementViewController: UIViewController  {
     @IBOutlet weak var pic: UIImageView!
     @IBOutlet weak var Signout: UIBarButtonItem!
     
+    @IBOutlet weak var back: UIBarButtonItem!
     
     
     
@@ -50,6 +51,12 @@ class AdvertisementViewController: UIViewController  {
 //        }
         
     }
+    
+    
+    @IBAction func back(sender: UIBarButtonItem!)
+    {
+        self.performSegue(withIdentifier: "back", sender: self)
+           }
     
     @IBAction func didTapSignOut(sender: AnyObject) {
         

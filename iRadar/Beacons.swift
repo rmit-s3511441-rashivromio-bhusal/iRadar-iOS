@@ -17,11 +17,13 @@ class Beacons: NSObject {
     
     
   
-    var title: String? 
+    var title: String?
     var desc: String?
     var img: String?
-    var url: String?
-    var uniquieID: String?
+    
+    
+   // var url: String?
+    //var uniquieID: String?
     //var img : UIImage?
     
     

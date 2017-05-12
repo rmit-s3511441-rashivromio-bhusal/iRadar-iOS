@@ -20,11 +20,15 @@ class BeaconTableViewController: UITableViewController {
     
    
      
+    @IBOutlet weak var back: UIBarButtonItem!
    
     @IBOutlet weak var SignOut: UIBarButtonItem!
-    var beacons : [Beacons]? = []
+   // var beacons : [Beacons]? = []
     
+    var beacons : [Beacons] = []
 
+    //var beacons : [[Beacons: Beacons]]? = []
+   
     
     override func viewWillAppear(_ animated: Bool)
     {
@@ -39,9 +43,16 @@ class BeaconTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-               apicall()
-     
+        
+        // refreshControl -> pull to refresh handler
+        let refreshControl = UIRefreshControl()
+        self.refreshControl = refreshControl
+        
+        apicall()
+        
     }
+    
+   
     
     func loadList(notification: NSNotification){
         //load data here
@@ -72,27 +83,28 @@ class BeaconTableViewController: UITableViewController {
                     switch action.type {
                     case .browser:
                         if let url = action.url {
-                            if let devicesUniqueID = action.devicesUniqueID?.contains("4tla"){
+                            //if let devicesUniqueID = action.devicesUniqueID?.contains("4tla"){
                                 
                             
                             print("Browser Action for URL: \(url)")
-                              print("B Action for URL: \(devicesUniqueID)")
+                             // print("B Action for URL: \(devicesUniqueID)")
+                            
                             self.fetchAdvertisement()
-                            }
+                           // }
                         }
                     case .content:
                        // if let contentAction = action.content, let url = contentAction.contentURL {
                          //   print("Contant Action. Content URL: \(url)")
                         if let contentAction = action.content{
-                            if let devicesUniqueID = action.devicesUniqueID?.contains("4tla"){
+                            //if let devicesUniqueID = action.devicesUniqueID?.contains("4tla"){
 
                             print("Contant Action. Content URL: \(contentAction)")
-                                print(" Action. Content : \(devicesUniqueID)")
+                               // print(" Action. Content : \(devicesUniqueID)")
                               
                             
- 
+                          
                             self.fetchAdvertisement()
-                            }
+                           // }
                         }
                     case .invalid:
                         print("Invalid action")
@@ -132,7 +144,6 @@ class BeaconTableViewController: UITableViewController {
         print (request)
      //   print(response)
         
-       
         
         let task = URLSession.shared.dataTask(with: request)
         {
@@ -149,7 +160,8 @@ class BeaconTableViewController: UITableViewController {
             
             if let httpResponse = response as? HTTPURLResponse {
                 print("statusCode: \(httpResponse.statusCode)")
-            }
+                print("hi")
+           // }
                        //change here
             
             
@@ -168,41 +180,48 @@ class BeaconTableViewController: UITableViewController {
 
                 let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! [String : AnyObject]
                 
+            
                 if let actionsFromJson = json["actions"] as? [[String : AnyObject]]
                 {
+                    
+                    
                     
                     for actionsFromJson in actionsFromJson {
                         
                         let beacon = Beacons()
                         
-                      //  if let uniquieID = actionsFromJson["deviceUniqueIds"] as? String{
-                            
+//                       for (key, value) in actionsFromJson {
+//                      print("\(key) -> \(value)")
                         
+                       // for value in actionsFromJson.values {
+                         //   print("\(value)")
+                    
+                           // if let deviceUniqueIds = actionsFromJson["devicesUniqueID"]?.contains("4tla") {
+                            
+                            // let uniqueId = actionsFromJson["deviceUniqueIds"]?["4tla"] as? String
+                            
                         if let title = actionsFromJson["actionType"] as? String ,let desc = actionsFromJson["proximity"] as? String , let img = actionsFromJson["url"] as? String {
                             
-                           
-                        //   print(uniquieID)
-                          
-                            print(title)
-                            print(desc)
-                            print(title)
+                           // print(deviceUniqueIds)
+                          //  print(uniqueId)
+                          //  print(title)
+                           // print(desc)
+                           // print(title)
                             
                             beacon.title = title
                             beacon.desc = desc
                             beacon.img = img
                             
-                                
-                           }
+                            }
+                           
                               
                             
-                        else if let title = actionsFromJson["actionType"] as? String ,let desc = actionsFromJson["proximity"] as? String , let img = actionsFromJson["content"] as? String {
-                            
-                            
-                          //  print(uniquieID)
+                        else if let title = actionsFromJson["actionType"] as? String ,let desc = actionsFromJson["proximity"] as? String , let img = actionsFromJson["content"] as? String  {
+                           // print(uniqueId)
 
-                            print(title)
-                            print(desc)
-                            print(title)
+                          //  print(title)
+                           // print(desc)
+                            // print(title)
                             
                             beacon.title = title
                             beacon.desc = desc
@@ -210,14 +229,16 @@ class BeaconTableViewController: UITableViewController {
                         }
                             
                         
-                            
-                            self.beacons?.append(beacon)
+                      //  }
+                            self.beacons.append(beacon)
                         }
                         
                     }
             
+              
                 DispatchQueue.main.async {
-                    self.tableView.reloadData()
+                    //self.tableView.reloadData()
+                    self.refresh()
 
                 }
                 
@@ -228,6 +249,9 @@ class BeaconTableViewController: UITableViewController {
             }
                 
             }
+            
+            //
+        }
         task.resume()
         
         
@@ -246,7 +270,11 @@ class BeaconTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-               return self.beacons?.count ?? 0
+       // return (self.beacons?.count)!
+        
+        return self.beacons.count
+        
+     //   return self.beacons?.count ?? 0
         
         //return self.beacons?.count ?? 0
     }
@@ -257,17 +285,40 @@ class BeaconTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "beacontableviewcell", for: indexPath) as! BeaconTableViewCell
         
         
+            
+            cell.title.text = self.beacons[indexPath.item].title
+            cell.desc.text = self.beacons[indexPath.item].desc
+            cell.img.downloadImage(from: (self.beacons[indexPath.item].img!))
         
-        cell.title.text = self.beacons?[indexPath.item].title 
-        cell.desc.text = self.beacons?[indexPath.item].desc
-        cell.img.downloadImage(from: (self.beacons?[indexPath.item].img!)!)
+        
+      
+//        cell.title.text = self.beacons?[indexPath.item].title
+//        cell.desc.text = self.beacons?[indexPath.item].desc
+//        cell.img.downloadImage(from: (self.beacons?[indexPath.item].img!)!)
         
        
         return cell
     }
     
+    
     //MARK: NAVIGATION
     
+    
+    func getData() {
+      self.beacons.removeAll(keepingCapacity: false)
+        
+        self.refresh()
+        
+        
+        
+        
+    }
+    
+    func refresh() {
+        self.tableView.reloadData()
+       
+        self.refreshControl?.endRefreshing()
+    }
     
    
     
@@ -275,8 +326,7 @@ class BeaconTableViewController: UITableViewController {
         if segue.identifier == "advertisement" {
             if let indexPath = tableView.indexPathForSelectedRow{
                let advertisementVC = segue.destination as! AdvertisementViewController
-                    advertisementVC.advtext = beacons?[indexPath.row].title
-                    advertisementVC.imagep = beacons?[indexPath.row].img
+                    advertisementVC.advtext = beacons[indexPath.row].title
     
             }
                         }
@@ -345,6 +395,10 @@ class BeaconTableViewController: UITableViewController {
         }
     }
     
+    @IBAction func back(sender: UIBarButtonItem!)
+    {
+        self.performSegue(withIdentifier: "back", sender: self)
+    }
     
     
     
@@ -359,7 +413,7 @@ extension UIImageView{
     
         func downloadImage(from url: String)
         {
-        
+        print("aaaaaaaa")
             let urlRequest = URLRequest(url: URL(string: url)!)
         
         
@@ -389,7 +443,7 @@ extension UIImageView{
 extension Collection where Indices.Iterator.Element == Index {
     
     /// Returns the element at the specified index iff it is within bounds, otherwise nil.
-    subscript (safe index: Index) -> Generator.Element? {
-        return indices.contains(index) ? self[index] : nil
+    subscript (beacons: Index) -> Generator.Element? {
+        return indices.contains(beacons) ? self[beacons] : nil
     }
 }

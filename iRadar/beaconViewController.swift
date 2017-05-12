@@ -17,11 +17,11 @@
         var beacons : [Beacons]? = []
         var hi : [BeaconTableViewController]? = []
         
-        @IBOutlet weak var beaimg: UIImageView!
+       // @IBOutlet weak var beaimg: UIImageView!
         @IBOutlet weak var profilePic: UIImageView!
         @IBOutlet weak var Signout: UIButton!
         
-        @IBOutlet weak var googleimage: UIImageView!
+      //  @IBOutlet weak var googleimage: UIImageView!
         var beaconManager: KTKBeaconManager!
         
        
@@ -455,6 +455,11 @@
         
         private func fetchAdvertisementhere(){
             print("EHU 1")
+            
+            
+            
+            self.refreshInterface()
+            self.beacons?.removeAll()
             
             //beaconManager(<#T##manager: KTKBeaconManager##KTKBeaconManager#>, didRangeBeacons: <#T##[CLBeacon]#>, in: <#T##KTKBeaconRegion#>)
             if let currentUser = GIDSignIn.sharedInstance().currentUser{
