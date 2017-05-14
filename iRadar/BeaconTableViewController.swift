@@ -428,10 +428,18 @@ extension UIImageView{
                     print(error!)
                     return
                 }
-                 DispatchQueue.main.async
-                        {
-                            self.image = UIImage(data : data)
-                        }
+//                 DispatchQueue.main.async
+//                        {
+//                            self.image = UIImage(data : data)
+//                        }
+                
+                
+                DispatchQueue.main.async(execute: { () -> Void in
+                    let image = UIImage(data: data)
+                    self.image = image
+                })
+
+                
             }
         
         task.resume()

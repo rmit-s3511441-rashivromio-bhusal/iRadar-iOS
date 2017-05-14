@@ -223,7 +223,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WJ8-9G-FKG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-678" y="353"/>
+            <point key="canvasLocation" x="-623" y="331"/>
         </scene>
         <!--Advertisement-->
         <scene sceneID="H9t-ug-vMX">
@@ -238,7 +238,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Advertisement" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCW-sP-kdI">
-                                <rect key="frame" x="132" y="16" width="112" height="21"/>
+                                <rect key="frame" x="132" y="60" width="112" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="4AA-5W-nRb"/>
                                 </constraints>
@@ -247,7 +247,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="13" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jb4-ig-xTL">
-                                <rect key="frame" x="16" y="257" width="42" height="390"/>
+                                <rect key="frame" x="16" y="301" width="42" height="346"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -267,7 +267,7 @@
                                 </items>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tgh-Ms-UPw">
-                                <rect key="frame" x="79" y="63" width="240" height="128"/>
+                                <rect key="frame" x="79" y="107" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="T1R-FJ-IJ3"/>
                                 </constraints>
@@ -415,7 +415,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Xi3-go-QFC" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="1gx-3W-egT">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1gx-3W-egT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -434,7 +434,7 @@
         <image name="iRadarLogo" width="1024" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RWi-Z9-QdY"/>
+        <segue reference="1p8-EP-slg"/>
         <segue reference="RKk-eF-Bwt"/>
     </inferredMetricsTieBreakers>
 </document>

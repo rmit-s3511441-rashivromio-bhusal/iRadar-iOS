@@ -15,7 +15,7 @@ import KontaktSDK
 
 class Beacons: NSObject {
     
-    
+   
   
     var title: String?
     var desc: String?

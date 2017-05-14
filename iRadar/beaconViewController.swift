@@ -51,7 +51,7 @@
             UIGraphicsBeginImageContext(self.view.frame.size)
             UIImage(named: "ibeaco.png")?.draw(in: self.view.bounds)
             
-            var image: UIImage! = UIGraphicsGetImageFromCurrentImageContext()
+            let image: UIImage! = UIGraphicsGetImageFromCurrentImageContext()
             
             UIGraphicsEndImageContext()
             
@@ -270,8 +270,9 @@
           
             
             FIRAuth.auth()?.addStateDidChangeListener { auth, user in
-                if case let user = user {
+                if let user = user {
                     print("User is signed in.")
+                    print(user)
                 } else {
                     print("User is signed out.")
                 }
