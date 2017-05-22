@@ -10,6 +10,7 @@
     import KontaktSDK
    import GoogleSignIn
     import Firebase
+import UserNotifications
 
 
     class beaconViewController: UIViewController , GIDSignInUIDelegate {
@@ -18,13 +19,16 @@
         var hi : [BeaconTableViewController]? = []
         
        // @IBOutlet weak var beaimg: UIImageView!
+        @IBOutlet weak var welcome: UILabel!
         @IBOutlet weak var profilePic: UIImageView!
         @IBOutlet weak var Signout: UIButton!
         
       //  @IBOutlet weak var googleimage: UIImageView!
         var beaconManager: KTKBeaconManager!
         
+        @IBOutlet weak var show2: UIButton!
        
+        @IBOutlet weak var show1: UIButton!
         @IBOutlet weak var show: UIButton!
         @IBOutlet weak var major: UILabel!
         @IBOutlet var statusLabel: UILabel!
@@ -39,8 +43,11 @@
                 
                 
                 let profilePicURL = currentUser.profile.imageURL(withDimension: 400)
+              
                 profilePic.image = UIImage(data: NSData(contentsOf : profilePicURL!)! as Data)
                 profilePic.isHidden = false
+                welcome.text = "Welcome to iRADAR" + "\t" + currentUser.profile.givenName
+                welcome.isHidden = false
             }
         }
         
@@ -127,7 +134,7 @@
         
         ///CHANGES//
         func update(distance: CLProximity) {
-            UIView.animate(withDuration: 0.1) { [unowned self] in
+            UIView.animate(withDuration: 0.5) { [unowned self] in
                 switch distance {
                 case .unknown:
                     self.view.backgroundColor = UIColor.gray
@@ -135,7 +142,7 @@
                 case .far:
                     self.view.backgroundColor = UIColor.white
                    
-                    //checking//
+             /*       //checking//
                     ////CHANGES
                     let title = "FAR"
                     let message = "This is far"
@@ -159,17 +166,21 @@
                     
                     
                     self.present(alertController, animated: true, completion: nil)
-                    
+                */
                     
                 case .near:
-                    self.view.backgroundColor = UIColor.green
+                    
+                    
+                    
+                    self.view.backgroundColor = UIColor.lightGray
                     //checking//
+                    
                 // BeaconTableViewController().fetchAdvertisement()
                     
 //                    var img: String?
 //                    let beaimgURL  = actionsFromJson["url"] as? String
                    
-
+/*
                     
                     let title = "NEAR"
                     let message = "This is NEAR"
@@ -199,14 +210,15 @@
                     
                     self.present(alertController, animated: true, completion: nil)
                     
-
+*/
 
                     
                 case .immediate:
                     
-                    
-                    self.view.backgroundColor = UIColor.red
+                    self.view.backgroundColor = UIColor.green
+                   //self.view.backgroundColor = UIColor.red
                     //checking//
+        /*
                                         let title = "IMMEDIATE"
                     let message = "This is right next to you"
                     let cancelButtonTitle = "Cancel"
@@ -240,7 +252,7 @@
                     
                     self.present(alertController, animated: true, completion: nil)
                     
-
+*/
                    
                 }
             }
@@ -256,15 +268,58 @@
         }
         
         
-       
         
-       
-       
+       /* @IBAction func mainButton(sender: UIButton) {
+            switch sender {
+            case show:
+                 self.performSegue(withIdentifier: "viewadvertisement", sender: self)
+                break
+            // do something
+            case show1:
+                
+                self.performSegue(withIdentifier: "advertisement2", sender: self)
+                break
+            // do something else
+            case show2:
+                self.performSegue(withIdentifier: "advertisement3", sender: self)
+                break
+                
+                
+            default: print(sender)
+            }
+        }
+ */
         
+     
+        @IBAction func didTapshow(sender: UIButton){
+           // beaconshow()
+            print("show")
+          // self.performSegue(withIdentifier: "advertisement2", sender: self)
+            self.performSegue(withIdentifier: "viewadvertisement", sender: self)
+           
+                              }
         
-        //
-        
-        //
+        @IBAction func didTapshow1(sender: UIButton){
+            // beaconshow()
+           print("show1")
+           self.performSegue(withIdentifier: "advertisement2", sender: self)
+
+        }
+
+        @IBAction func didTapshow2(sender: UIButton){
+             //beaconshow()
+            print("show2")
+            self.performSegue(withIdentifier: "advertisement3", sender: self)
+
+        }
+
+//        @IBAction func didTapshow2(sender: AnyObject){
+//            //beaconshow()
+//            self.performSegue(withIdentifier: "advertisement3", sender: self)
+//            
+//        }
+      
+    
         @IBAction func didTapSignOut(sender: AnyObject) {
             
           
@@ -409,13 +464,20 @@
             print("Error: \(String(describing: error))")
             statusLabel.text = "Monitoring did fail for region: \(String(describing: region))"
             print("reach here")
+            
+            show.isHidden = false
+            show1.isHidden = true
+            show2.isHidden = true
+
         }
         
         func beaconManager(_ manager: KTKBeaconManager, didStartMonitoringFor region: KTKBeaconRegion) {
              print("Did monitoring region \(region)")
           statusLabel.text = "Did start monitoring for region: \(region)"
             
-            fetchAdvertisementhere()
+         
+            
+           // fetchAdvertisementhere()
         }
         
     
@@ -435,23 +497,97 @@
            // statusLabel.text = "Did ranged \"\(beacons.count)\" beacons inside region: \(region)"
             if let closestBeacon = beacons.sorted(by: { $0.0.accuracy < $0.1.accuracy }).first , closestBeacon.accuracy > 0 {
                 
-                //print("Closest Beacon is M: \(closestBeacon.major), m: \(closestBeacon.minor) ~ \(closestBeacon.accuracy) meters away.")
+                print("Closest Beacon is M: \(closestBeacon.major), m: \(closestBeacon.minor) ~ \(closestBeacon.accuracy) meters away.")
                 major.text = " closestBeacon.major is \(closestBeacon.major) "
                // statusLabel.text = "\(String(describing: statusLabel.text)) Closest Beacon is M: \(closestBeacon.major), m: \(closestBeacon.minor) ~ \(closestBeacon.accuracy) meters away."
                 //CHANGES//
+                
+           
+                
+              
+                
+                    if (closestBeacon.major == 8076)
+                    {
+                        didTapshow(sender: UIButton())
+                        show.isHidden = false
+                        show1.isHidden = true
+                        show2.isHidden = true
+                        
+ 
+//                        if beacons.count > 0 {
+//                            let beacon = beacons[0]
+//                            update(distance: beacon.proximity)
+//                        } else {
+//                            update(distance: .unknown)
+//                        }
+                        
+                        
+                    }
+                     if (closestBeacon.major == 52060)
+                    {
+//                        if beacons.count > 0 {
+//                            let beacon = beacons[0]
+//                            update(distance: beacon.proximity)
+//                        } else {
+//                            update(distance: .unknown)
+//                        }
+
+                        didTapshow1(sender: UIButton())
+                        show1.isHidden = false
+                        show.isHidden = true
+                        show2.isHidden = true
+                        
+                    }
+                     if (closestBeacon.major == 57656)
+                    {
+//                        if beacons.count > 0 {
+//                            let beacon = beacons[0]
+//                            update(distance: beacon.proximity)
+//                        } else {
+//                            update(distance: .unknown)
+//                        }
+
+                        
+                        didTapshow2(sender: UIButton())
+                        show2.isHidden = false
+                        show1.isHidden = true
+                        show.isHidden = true
+                    }
+                
+                
+                
+                
+                if (closestBeacon.major != 8076 || closestBeacon.major != 52060 || closestBeacon.major != 57656)
+                {
+                    didTapshow(sender: UIButton())
+                    show.isHidden = true
+                    show1.isHidden = true
+                    show2.isHidden = true
+                    
+                    
+                    
+                }
+                
+                
+                
                 if beacons.count > 0 {
                     let beacon = beacons[0]
                     update(distance: beacon.proximity)
                 } else {
                     update(distance: .unknown)
                 }
+                
+                
+                
                 //CHANGES//
+                
                 
                 
             }
         }
         
        
+        
         
         
         private func fetchAdvertisementhere(){
@@ -562,30 +698,9 @@
             task.resume()
         }
 }
+        
+        
 
 }
 
 
-///
-/*
- extension CLBeacon
- {
- /// Returns a specially-formatted description of the beacon's characteristics.
- func fullDetails() -> String {
- let proximityText: String
- 
- switch proximity {
- case .near:
- proximityText = "Near"
- case .immediate:
- proximityText = "Immediate"
- case .far:
- proximityText = "Far"
- case .unknown:
- proximityText = "Unknown"
- }
- 
- return "\(major), \(minor) •  \(proximityText) • \(accuracy) • \(rssi)"
- }
- }
- */

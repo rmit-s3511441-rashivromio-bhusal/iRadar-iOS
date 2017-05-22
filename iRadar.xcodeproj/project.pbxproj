@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0425A7B91ECBD96B00437C84 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0425A7B81ECBD96B00437C84 /* NotificationCenter.framework */; };
+		0425A7BC1ECBD96B00437C84 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0425A7BB1ECBD96B00437C84 /* TodayViewController.swift */; };
+		0425A7BF1ECBD96B00437C84 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0425A7BD1ECBD96B00437C84 /* MainInterface.storyboard */; };
+		0425A7C31ECBD96C00437C84 /* iRadartoday.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0425A7B71ECBD96B00437C84 /* iRadartoday.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0425A7C91ECBDB4A00437C84 /* todayiRadar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0425A7C81ECBDB4A00437C84 /* todayiRadar.swift */; };
+		0425A7CB1ECEEA3B00437C84 /* Beacon2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0425A7CA1ECEEA3B00437C84 /* Beacon2TableViewController.swift */; };
+		0425A7CD1ECEF40600437C84 /* Beacon3TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0425A7CC1ECEF40600437C84 /* Beacon3TableViewController.swift */; };
 		042C6AC11EB84BD500AA46EC /* AdvertisementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042C6AC01EB84BD500AA46EC /* AdvertisementViewController.swift */; };
 		0448EB201EB8416F001128B9 /* KontaktSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0448EB1F1EB8416F001128B9 /* KontaktSDK.framework */; };
 		045F434D1E92283000E323EC /* BeaconTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F434C1E92283000E323EC /* BeaconTableViewController.swift */; };
@@ -25,7 +32,39 @@
 		403C435AC21B731520EB8DB5 /* Pods_iRadar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC71C861529174BCE2E76AB4 /* Pods_iRadar.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		0425A7C11ECBD96C00437C84 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04D4AFD01E84DE9400324E87 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0425A7B61ECBD96B00437C84;
+			remoteInfo = iRadartoday;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0425A7C71ECBD96C00437C84 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				0425A7C31ECBD96C00437C84 /* iRadartoday.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0425A7B71ECBD96B00437C84 /* iRadartoday.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = iRadartoday.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		0425A7B81ECBD96B00437C84 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		0425A7BB1ECBD96B00437C84 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		0425A7BE1ECBD96B00437C84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		0425A7C01ECBD96B00437C84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0425A7C81ECBDB4A00437C84 /* todayiRadar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = todayiRadar.swift; sourceTree = "<group>"; };
+		0425A7CA1ECEEA3B00437C84 /* Beacon2TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beacon2TableViewController.swift; sourceTree = "<group>"; };
+		0425A7CC1ECEF40600437C84 /* Beacon3TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beacon3TableViewController.swift; sourceTree = "<group>"; };
 		042C6AC01EB84BD500AA46EC /* AdvertisementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementViewController.swift; sourceTree = "<group>"; };
 		0448EB1F1EB8416F001128B9 /* KontaktSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KontaktSDK.framework; path = Pods/KontaktSDK/Cocoapods/iOS/KontaktSDK.framework; sourceTree = "<group>"; };
 		045F434C1E92283000E323EC /* BeaconTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconTableViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +90,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0425A7B41ECBD96B00437C84 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0425A7B91ECBD96B00437C84 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		04D4AFD51E84DE9400324E87 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -64,10 +111,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0425A7BA1ECBD96B00437C84 /* iRadartoday */ = {
+			isa = PBXGroup;
+			children = (
+				0425A7BB1ECBD96B00437C84 /* TodayViewController.swift */,
+				0425A7C81ECBDB4A00437C84 /* todayiRadar.swift */,
+				0425A7BD1ECBD96B00437C84 /* MainInterface.storyboard */,
+				0425A7C01ECBD96B00437C84 /* Info.plist */,
+			);
+			path = iRadartoday;
+			sourceTree = "<group>";
+		};
 		04D4AFCF1E84DE9400324E87 = {
 			isa = PBXGroup;
 			children = (
 				04D4AFDA1E84DE9400324E87 /* iRadar */,
+				0425A7BA1ECBD96B00437C84 /* iRadartoday */,
 				04D4AFD91E84DE9400324E87 /* Products */,
 				04D4AFED1E84E02100324E87 /* Frameworks */,
 				7E8D8CA7CEA67004C44CD9DA /* Pods */,
@@ -78,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				04D4AFD81E84DE9400324E87 /* iRadar.app */,
+				0425A7B71ECBD96B00437C84 /* iRadartoday.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -100,6 +160,8 @@
 				04A4211D1E8A8C2700194289 /* NearbyDeviceClass.swift */,
 				04A421211E8A8F6300194289 /* newConfigurationViewController.swift */,
 				045F434C1E92283000E323EC /* BeaconTableViewController.swift */,
+				0425A7CA1ECEEA3B00437C84 /* Beacon2TableViewController.swift */,
+				0425A7CC1ECEF40600437C84 /* Beacon3TableViewController.swift */,
 				045F43501E92635B00E323EC /* Beacons.swift */,
 			);
 			path = iRadar;
@@ -111,6 +173,7 @@
 				0448EB1F1EB8416F001128B9 /* KontaktSDK.framework */,
 				04D4AFEE1E84E02100324E87 /* CoreLocation.framework */,
 				CC71C861529174BCE2E76AB4 /* Pods_iRadar.framework */,
+				0425A7B81ECBD96B00437C84 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -127,6 +190,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0425A7B61ECBD96B00437C84 /* iRadartoday */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0425A7C61ECBD96C00437C84 /* Build configuration list for PBXNativeTarget "iRadartoday" */;
+			buildPhases = (
+				0425A7B31ECBD96B00437C84 /* Sources */,
+				0425A7B41ECBD96B00437C84 /* Frameworks */,
+				0425A7B51ECBD96B00437C84 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iRadartoday;
+			productName = iRadartoday;
+			productReference = 0425A7B71ECBD96B00437C84 /* iRadartoday.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		04D4AFD71E84DE9400324E87 /* iRadar */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04D4AFEA1E84DE9400324E87 /* Build configuration list for PBXNativeTarget "iRadar" */;
@@ -137,10 +217,12 @@
 				04D4AFD61E84DE9400324E87 /* Resources */,
 				E5AB719981D689478981A921 /* [CP] Embed Pods Frameworks */,
 				876ADAF2755EC8A16876FB2F /* [CP] Copy Pods Resources */,
+				0425A7C71ECBD96C00437C84 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0425A7C21ECBD96C00437C84 /* PBXTargetDependency */,
 			);
 			name = iRadar;
 			productName = iRadar;
@@ -153,10 +235,15 @@
 		04D4AFD01E84DE9400324E87 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0820;
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Rashiv Romio Bhusal";
 				TargetAttributes = {
+					0425A7B61ECBD96B00437C84 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = CHW274QMX3;
+						ProvisioningStyle = Automatic;
+					};
 					04D4AFD71E84DE9400324E87 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = CHW274QMX3;
@@ -178,11 +265,20 @@
 			projectRoot = "";
 			targets = (
 				04D4AFD71E84DE9400324E87 /* iRadar */,
+				0425A7B61ECBD96B00437C84 /* iRadartoday */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0425A7B51ECBD96B00437C84 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0425A7BF1ECBD96B00437C84 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		04D4AFD61E84DE9400324E87 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -245,6 +341,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0425A7B31ECBD96B00437C84 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0425A7C91ECBDB4A00437C84 /* todayiRadar.swift in Sources */,
+				0425A7BC1ECBD96B00437C84 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		04D4AFD41E84DE9400324E87 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -255,15 +360,33 @@
 				045F43511E92635B00E323EC /* Beacons.swift in Sources */,
 				04D4AFDC1E84DE9400324E87 /* AppDelegate.swift in Sources */,
 				04A421221E8A8F6300194289 /* newConfigurationViewController.swift in Sources */,
+				0425A7CB1ECEEA3B00437C84 /* Beacon2TableViewController.swift in Sources */,
 				04A421151E8514F400194289 /* loginViewController.swift in Sources */,
 				045F434D1E92283000E323EC /* BeaconTableViewController.swift in Sources */,
 				042C6AC11EB84BD500AA46EC /* AdvertisementViewController.swift in Sources */,
+				0425A7CD1ECEF40600437C84 /* Beacon3TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		0425A7C21ECBD96C00437C84 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0425A7B61ECBD96B00437C84 /* iRadartoday */;
+			targetProxy = 0425A7C11ECBD96C00437C84 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		0425A7BD1ECBD96B00437C84 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0425A7BE1ECBD96B00437C84 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		04D4AFDF1E84DE9400324E87 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -283,6 +406,40 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0425A7C41ECBD96C00437C84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = CHW274QMX3;
+				INFOPLIST_FILE = iRadartoday/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "s3511441-student.rmit.edu.au.iRadar.iRadartoday";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		0425A7C51ECBD96C00437C84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = CHW274QMX3;
+				INFOPLIST_FILE = iRadartoday/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "s3511441-student.rmit.edu.au.iRadar.iRadartoday";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		04D4AFE81E84DE9400324E87 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -380,6 +537,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 82F986CE78D5547A8174A19F /* Pods-iRadar.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = CHW274QMX3;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -387,7 +545,7 @@
 					"$(PROJECT_DIR)/Pods/KontaktSDK/Cocoapods/iOS",
 				);
 				INFOPLIST_FILE = iRadar/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "s3511441-student.rmit.edu.au.iRadar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -401,6 +559,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A042C005C0B2E4307D19DC1 /* Pods-iRadar.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = CHW274QMX3;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -408,7 +567,7 @@
 					"$(PROJECT_DIR)/Pods/KontaktSDK/Cocoapods/iOS",
 				);
 				INFOPLIST_FILE = iRadar/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "s3511441-student.rmit.edu.au.iRadar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -421,6 +580,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0425A7C61ECBD96C00437C84 /* Build configuration list for PBXNativeTarget "iRadartoday" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0425A7C41ECBD96C00437C84 /* Debug */,
+				0425A7C51ECBD96C00437C84 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		04D4AFD31E84DE9400324E87 /* Build configuration list for PBXProject "iRadar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

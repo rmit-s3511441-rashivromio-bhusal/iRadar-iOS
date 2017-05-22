@@ -12,6 +12,7 @@ import CoreLocation
 import KontaktSDK
 import Firebase
 import GoogleSignIn
+import UserNotifications
 
 
 @UIApplicationMain
@@ -23,13 +24,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        
         FIRApp.configure()
         GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
 //        GIDSignIn.sharedInstance().delegate = self
         
-               
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) {(accepted, error) in
+            if !accepted {
+                print("Notification access denied.")
+            }
+        }
+        
         
         Kontakt.setAPIKey("vnrXRFJARjeLgIVLBeqmHkXMxXEVsNRm")
+        
+       
+  
+        
         return true
     }
     
@@ -72,4 +85,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
 }
-

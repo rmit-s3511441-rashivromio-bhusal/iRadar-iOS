@@ -11,24 +11,27 @@ import KontaktSDK
 import GoogleSignIn
 import Firebase
 
-   
+
 
 ///
 
 
 class BeaconTableViewController: UITableViewController {
     
+    
+    
    
-     
-    @IBOutlet weak var back: UIBarButtonItem!
-   
-    @IBOutlet weak var SignOut: UIBarButtonItem!
-   // var beacons : [Beacons]? = []
+    @IBOutlet weak var back: UIButton!
+    
+    @IBOutlet weak var SignOut: UIButton!
+       // var beacons : [Beacons]? = []
     
     var beacons : [Beacons] = []
-
+    
+   //  var beaconImages =  [String: UIImage]()
+    
     //var beacons : [[Beacons: Beacons]]? = []
-   
+    
     
     override func viewWillAppear(_ animated: Bool)
     {
@@ -39,7 +42,7 @@ class BeaconTableViewController: UITableViewController {
         let imageView = UIImageView(image: backgroundImage)
         self.tableView.backgroundView = imageView
     }
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,28 +55,28 @@ class BeaconTableViewController: UITableViewController {
         
     }
     
-   
+    
     
     func loadList(notification: NSNotification){
         //load data here
         self.tableView.reloadData()
     }
+    
+    
+    func apicall(){
         
+        //NEW C/haNGES HERE
+        //CHECK IF ITS WORKING OR NOT
+        print("CHECKING THE IMAGES LOADED")
+        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
+        print("CHECKING THE IMAGES LOADED HERE OR NOT")
         
-        func apicall(){
-            
-            //NEW C/haNGES HERE
-            //CHECK IF ITS WORKING OR NOT
-            print("CHECKING THE IMAGES LOADED")
-                NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
-            print("CHECKING THE IMAGES LOADED HERE OR NOT")
-
         let apiClient = KTKCloudClient.sharedInstance()
         
-      //  let parameters = ["uniqueId": "4tla"]
+        let parameters = ["uniqueId": "4tla"]
         
         
-          let parameters: [String: String] = [ "uniqueId": "rTJz, 4tla, oHdN" ]
+        // let parameters: [String: String] = [ "uniqueId": "rTJz, 4tla, oHdN" ]
         
         apiClient.getObjects(KTKAction.self, parameters: parameters) { (response, error) in
             if let cloudError = KTKCloudErrorFromError(error) {
@@ -83,29 +86,84 @@ class BeaconTableViewController: UITableViewController {
                     switch action.type {
                     case .browser:
                         if let url = action.url {
-                            //if let devicesUniqueID = action.devicesUniqueID?.contains("4tla"){
-                                
+                                                        if let devicesUniqueID = action.devicesUniqueID?.contains("4tla"){
                             
-                            print("Browser Action for URL: \(url)")
-                             // print("B Action for URL: \(devicesUniqueID)")
                             
-                            self.fetchAdvertisement()
-                           // }
+                                                        print("Browser Action for URL: \(url)")
+                                                          print("B Action for URL: \(devicesUniqueID)")
+                            
+                                                        self.fetchAdvertisement()
+                                                        }
+                            
+                            
+//                            
+//                                                      else if let devicesUniqueID = action.devicesUniqueID?.contains("oHdN"){
+//                            
+//                            
+//                                                            print("Browser Action for URL: \(url)")
+//                                                            print("B Action for URL: \(devicesUniqueID)")
+//                            
+//                                                            self.fetchOHDN()
+//                                                        }
+//                            
+//                            //  if KTKBeaconManager.isRangingAvailable() {
+//                            
+//                            
+//                           else if let devicesUniqueID = action.devicesUniqueID?.contains("rTJz"){
+//                                
+//                                
+//                                print("Browser Action for URL: \(url)")
+//                                print("B Action for URL: \(devicesUniqueID)")
+//                                print(action.actionID)
+//                                
+//                                
+//                                self.fetchrTJz()
+//                                //  }
+//                                // }
+//                            }
                         }
+                        
                     case .content:
-                       // if let contentAction = action.content, let url = contentAction.contentURL {
-                         //   print("Contant Action. Content URL: \(url)")
+                        // if let contentAction = action.content, let url = contentAction.contentURL {
+                        //   print("Contant Action. Content URL: \(url)")
                         if let contentAction = action.content{
-                            //if let devicesUniqueID = action.devicesUniqueID?.contains("4tla"){
-
-                            print("Contant Action. Content URL: \(contentAction)")
-                               // print(" Action. Content : \(devicesUniqueID)")
-                              
+                                                        if let devicesUniqueID = action.devicesUniqueID?.contains("4tla"){
                             
-                          
-                            self.fetchAdvertisement()
-                           // }
+                                                        print("Contant Action. Content URL: \(contentAction)")
+                                                            print(" Action. Content : \(devicesUniqueID)")
+                            
+                            
+                            
+                                                        self.fetchAdvertisement()
+                                                        }
+                            
+//                            
+//                                                  else  if let devicesUniqueID = action.devicesUniqueID?.contains("oHdN"){
+//                            
+//                                                        print("Contant Action. Content URL: \(contentAction)")
+//                                                        print(" Action. Content : \(devicesUniqueID)")
+//                            
+//                            
+//                            
+//                                                        self.fetchOHDN()
+//                                                    }
+//                            
+//                            
+//                            
+//                            //
+//                           else if let devicesUniqueID = action.devicesUniqueID?.contains("rTJz"){
+//                                
+//                                print("Contant Action. Content URL: \(contentAction)")
+//                                print(" Action. Content : \(devicesUniqueID)")
+//                                
+//                                
+//                                
+//                                
+//                                self.fetchrTJz()
+//                            }
+                            
                         }
+                        
                     case .invalid:
                         print("Invalid action")
                     }
@@ -119,30 +177,299 @@ class BeaconTableViewController: UITableViewController {
             }
         }
     }
-  
-
-    
-
     
     
-    // =========================================================================
-    // MARK: - UIViewController
-   
-  
-    // =========================================================================
-    // MARK: - GET IMAGES FROM URL
-    public func fetchAdvertisement(){
+    
+    
+    
+    
+     
+     // =========================================================================
+     // MARK: - UIViewController
+     
+     
+     // =========================================================================
+     // MARK: - GET IMAGES FROM URL
+     public func fetchAdvertisement(){
+     print("EHU 1")
+     
+     let myUrl = URL(string: "https://api.kontakt.io/action?uniqueId=4tla");
+     var request = URLRequest(url:myUrl!);
+     request.httpMethod = "GET";
+     request.addValue("vnrXRFJARjeLgIVLBeqmHkXMxXEVsNRm", forHTTPHeaderField: "Api-Key")
+     request.addValue("application/vnd.com.kontakt+json;version=10", forHTTPHeaderField: "Accept")
+     print("EHU 2 ")
+     print (request)
+     //   print(response)
+     
+     
+     let task = URLSession.shared.dataTask(with: request)
+     {
+     
+     (data,response,error) in
+     
+     
+     guard let data = data , error == nil else {
+     self.tableView.reloadData()
+     
+     return
+     }
+     
+     
+     if let httpResponse = response as? HTTPURLResponse {
+     print("statusCode: \(httpResponse.statusCode)")
+     print("hi")
+     // }
+     //change here
+     
+     
+     if error != nil {
+     print(error as Any)
+     return
+     }
+     
+     
+     self.beacons = [Beacons]()
+     
+     do{
+     
+     //  let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String : AnyObject]
+     
+     
+     let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as![String : AnyObject]
+     
+     
+     if let actionsFromJson = json["actions"] as? [[String : AnyObject]]
+     {
+     
+     
+     
+     for actionsFromJson in actionsFromJson {
+     
+     let beacon = Beacons()
+     
+     //                       for (key, value) in actionsFromJson {
+     //                      print("\(key) -> \(value)")
+     
+     // for value in actionsFromJson.values {
+     //   print("\(value)")
+     
+     // if let deviceUniqueIds = actionsFromJson["devicesUniqueID"]?.contains("4tla") {
+     
+     // let uniqueId = actionsFromJson["deviceUniqueIds"]?["4tla"] as? String
+     
+     if let title = actionsFromJson["actionType"] as? String ,let desc = actionsFromJson["proximity"] as? String , let img = actionsFromJson["url"] as? String {
+     
+     // print(deviceUniqueIds)
+     //  print(uniqueId)
+     //  print(title)
+     // print(desc)
+     // print(title)
+     
+     beacon.title = title
+     beacon.desc = desc
+     beacon.img = img
+     
+     }
+     
+     
+     
+     else if let title = actionsFromJson["actionType"] as? String ,let desc = actionsFromJson["proximity"] as? String , let img = actionsFromJson["content"] as? String  {
+     // print(uniqueId)
+     
+     //  print(title)
+     // print(desc)
+     // print(title)
+     
+     beacon.title = title
+     beacon.desc = desc
+     beacon.img = img
+     }
+     
+     
+     //  }
+     self.beacons.append(beacon)
+     }
+     
+     }
+     
+     
+     DispatchQueue.main.async {
+     //self.tableView.reloadData()
+     self.refresh()
+     
+     }
+     
+     
+     }
+     catch let error{
+     print(error)
+     }
+     
+     }
+     
+     //
+     }
+     task.resume()
+     
+     
+     }
+     
+     
+    
+    
+    
+    
+     //==========================================================================
+     // MARK : - Unique id ohdn
+     
+     // let parameters: [String: String] = [ "uniqueId": "rTJz, 4tla, oHdN" ]
+   /*
+     
+     public func fetchOHDN(){
+     print("EHU 1")
+     
+     let myUrl = URL(string: "https://iradar-dev.appsot.com/api/beacon-specials?major=57656&minor=64688");
+     var request = URLRequest(url:myUrl!);
+     request.httpMethod = "GET";
+     request.addValue("tmwNSX5uC4JjVnZsUZFnKcJW", forHTTPHeaderField: "Api-Key")
+     request.addValue("application/json", forHTTPHeaderField: "Accept")
+     print("EHU 2 ")
+     print (request)
+       print(response)
+     
+     
+     let task = URLSession.shared.dataTask(with: request)
+     {
+     
+     (data,response,error) in
+     
+     
+     guard let data = data , error == nil else {
+     self.tableView.reloadData()
+     
+     return
+     }
+     
+     
+     if let httpResponse = response as? HTTPURLResponse {
+     print("statusCode: \(httpResponse.statusCode)")
+     print("hi")
+     // }
+     //change here
+     
+     
+     if error != nil {
+     print(error as Any)
+     return
+     }
+     
+     
+     self.beacons = [Beacons]()
+     
+     do{
+     
+     //  let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String : AnyObject]
+     
+     
+     let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as![String : AnyObject]
+     
+     
+     if let actionsFromJson = json["actions"] as? [[String : AnyObject]]
+     {
+     
+     
+     
+     for actionsFromJson in actionsFromJson {
+     
+     let beacon = Beacons()
+     
+     //                       for (key, value) in actionsFromJson {
+     //                      print("\(key) -> \(value)")
+     
+     // for value in actionsFromJson.values {
+     //   print("\(value)")
+     
+     // if let deviceUniqueIds = actionsFromJson["devicesUniqueID"]?.contains("4tla") {
+     
+     // let uniqueId = actionsFromJson["deviceUniqueIds"]?["4tla"] as? String
+     
+     if let title = actionsFromJson["actionType"] as? String ,let desc = actionsFromJson["proximity"] as? String , let img = actionsFromJson["url"] as? String {
+     
+     // print(deviceUniqueIds)
+     //  print(uniqueId)
+     //  print(title)
+     // print(desc)
+     // print(title)
+     
+     beacon.title = title
+     beacon.desc = desc
+     beacon.img = img
+     
+     }
+     
+     
+     
+     else if let title = actionsFromJson["actionType"] as? String ,let desc = actionsFromJson["proximity"] as? String , let img = actionsFromJson["content"] as? String  {
+     // print(uniqueId)
+     
+     //  print(title)
+     // print(desc)
+     // print(title)
+     
+     beacon.title = title
+     beacon.desc = desc
+     beacon.img = img
+     }
+     
+     
+     //  }
+     self.beacons.append(beacon)
+     }
+     
+     }
+     
+     
+     DispatchQueue.main.async {
+     //self.tableView.reloadData()
+     self.refresh()
+     
+     }
+     
+     
+     }
+     catch let error{
+     print(error)
+     }
+     
+     }
+     
+     //
+     }
+     task.resume()
+     
+     
+     }
+    */
+    
+    
+    
+    
+    //==============================================================================
+    //MARK : -  Fetch data for rtjz
+    
+    /*
+    public func fetchrTJz(){
         print("EHU 1")
         
-        
-        let myUrl = URL(string: "https://api.kontakt.io/action?uniqueId");
+        let myUrl = URL(string: "https://api.kontakt.io/action?uniqueId=rTJz");
         var request = URLRequest(url:myUrl!);
         request.httpMethod = "GET";
         request.addValue("vnrXRFJARjeLgIVLBeqmHkXMxXEVsNRm", forHTTPHeaderField: "Api-Key")
         request.addValue("application/vnd.com.kontakt+json;version=10", forHTTPHeaderField: "Accept")
         print("EHU 2 ")
         print (request)
-     //   print(response)
+        //   print(response)
         
         
         let task = URLSession.shared.dataTask(with: request)
@@ -152,101 +479,101 @@ class BeaconTableViewController: UITableViewController {
             
             
             guard let data = data , error == nil else {
-                 self.tableView.reloadData()
+                self.tableView.reloadData()
                 
                 return
             }
-
+            
             
             if let httpResponse = response as? HTTPURLResponse {
                 print("statusCode: \(httpResponse.statusCode)")
                 print("hi")
-           // }
-                       //change here
-            
-            
-            if error != nil {
-                print(error as Any)
-                return
-            }
-            
-            
-            self.beacons = [Beacons]()
-            
-            do{
+                // }
+                //change here
                 
-              //  let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String : AnyObject]
                 
-
-                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! [String : AnyObject]
+                if error != nil {
+                    print(error as Any)
+                    return
+                }
                 
-            
-                if let actionsFromJson = json["actions"] as? [[String : AnyObject]]
-                {
+                
+                self.beacons = [Beacons]()
+                
+                do{
+                    
+                    //  let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String : AnyObject]
                     
                     
+                    let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as![String : AnyObject]
                     
-                    for actionsFromJson in actionsFromJson {
+                    
+                    if let actionsFromJson = json["actions"] as? [[String : AnyObject]]
+                    {
                         
-                        let beacon = Beacons()
                         
-//                       for (key, value) in actionsFromJson {
-//                      print("\(key) -> \(value)")
                         
-                       // for value in actionsFromJson.values {
-                         //   print("\(value)")
-                    
-                           // if let deviceUniqueIds = actionsFromJson["devicesUniqueID"]?.contains("4tla") {
+                        for actionsFromJson in actionsFromJson {
+                            
+                            let beacon = Beacons()
+                            
+                            //                       for (key, value) in actionsFromJson {
+                            //                      print("\(key) -> \(value)")
+                            
+                            // for value in actionsFromJson.values {
+                            //   print("\(value)")
+                            
+                            // if let deviceUniqueIds = actionsFromJson["devicesUniqueID"]?.contains("4tla") {
                             
                             // let uniqueId = actionsFromJson["deviceUniqueIds"]?["4tla"] as? String
                             
-                        if let title = actionsFromJson["actionType"] as? String ,let desc = actionsFromJson["proximity"] as? String , let img = actionsFromJson["url"] as? String {
-                            
-                           // print(deviceUniqueIds)
-                          //  print(uniqueId)
-                          //  print(title)
-                           // print(desc)
-                           // print(title)
-                            
-                            beacon.title = title
-                            beacon.desc = desc
-                            beacon.img = img
-                            
+                            if let title = actionsFromJson["actionType"] as? String ,let desc = actionsFromJson["proximity"] as? String , let img = actionsFromJson["url"] as? String {
+                                
+                                // print(deviceUniqueIds)
+                                //  print(uniqueId)
+                                //  print(title)
+                                // print(desc)
+                                // print(title)
+                                
+                                beacon.title = title
+                                beacon.desc = desc
+                                beacon.img = img
+                                
                             }
-                           
-                              
+                                
+                                
+                                
+                            else if let title = actionsFromJson["actionType"] as? String ,let desc = actionsFromJson["proximity"] as? String , let img = actionsFromJson["content"] as? String  {
+                                // print(uniqueId)
+                                
+                                //  print(title)
+                                // print(desc)
+                                // print(title)
+                                
+                                beacon.title = title
+                                beacon.desc = desc
+                                beacon.img = img
+                            }
                             
-                        else if let title = actionsFromJson["actionType"] as? String ,let desc = actionsFromJson["proximity"] as? String , let img = actionsFromJson["content"] as? String  {
-                           // print(uniqueId)
-
-                          //  print(title)
-                           // print(desc)
-                            // print(title)
                             
-                            beacon.title = title
-                            beacon.desc = desc
-                            beacon.img = img
-                        }
-                            
-                        
-                      //  }
+                            //  }
                             self.beacons.append(beacon)
                         }
                         
                     }
-            
-              
-                DispatchQueue.main.async {
-                    //self.tableView.reloadData()
-                    self.refresh()
-
+                    
+                    
+                    DispatchQueue.main.async {
+                        //self.tableView.reloadData()
+                        self.refresh()
+                        
+                    }
+                    
+                    
                 }
-                
-                
-            }
-            catch let error{
-                print(error)
-            }
+                catch let error{
+                    print(error)
+                }
                 
             }
             
@@ -255,11 +582,159 @@ class BeaconTableViewController: UITableViewController {
         task.resume()
         
         
-        }
-        
-   
+    }
+   */
     
-  
+    
+    /*   public func rTJZ(){
+     let myUrl = URL(string: "https://api.kontakt.io/action?uniqueId=rTJz");
+     
+     fetching()
+     }
+     
+     
+     public func oHDN(){
+     let myUrl = URL(string: "https://api.kontakt.io/action?uniqueId=rTJz");
+     fetching()
+     
+     }
+     
+     public func tla()
+     {
+     let myUrl = URL(string: "https://api.kontakt.io/action?uniqueId=rTJz");
+     fetching()
+     
+     
+     }
+     
+     public func fetching(){
+     print("EHU 1")
+     
+     var request = URLRequest(url:myUrl);
+     request.httpMethod = "GET";
+     request.addValue("vnrXRFJARjeLgIVLBeqmHkXMxXEVsNRm", forHTTPHeaderField: "Api-Key")
+     request.addValue("application/vnd.com.kontakt+json;version=10", forHTTPHeaderField: "Accept")
+     print("EHU 2 ")
+     print (request)
+     //   print(response)
+     
+     
+     let task = URLSession.shared.dataTask(with: request)
+     {
+     
+     (data,response,error) in
+     
+     
+     guard let data = data , error == nil else {
+     self.tableView.reloadData()
+     
+     return
+     }
+     
+     
+     if let httpResponse = response as? HTTPURLResponse {
+     print("statusCode: \(httpResponse.statusCode)")
+     print("hi")
+     // }
+     //change here
+     
+     
+     if error != nil {
+     print(error as Any)
+     return
+     }
+     
+     
+     self.beacons = [Beacons]()
+     
+     do{
+     
+     //  let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String : AnyObject]
+     
+     
+     let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as![String : AnyObject]
+     
+     
+     if let actionsFromJson = json["actions"] as? [[String : AnyObject]]
+     {
+     
+     
+     
+     for actionsFromJson in actionsFromJson {
+     
+     let beacon = Beacons()
+     
+     //                       for (key, value) in actionsFromJson {
+     //                      print("\(key) -> \(value)")
+     
+     // for value in actionsFromJson.values {
+     //   print("\(value)")
+     
+     // if let deviceUniqueIds = actionsFromJson["devicesUniqueID"]?.contains("4tla") {
+     
+     // let uniqueId = actionsFromJson["deviceUniqueIds"]?["4tla"] as? String
+     
+     if let title = actionsFromJson["actionType"] as? String ,let desc = actionsFromJson["proximity"] as? String , let img = actionsFromJson["url"] as? String {
+     
+     // print(deviceUniqueIds)
+     //  print(uniqueId)
+     //  print(title)
+     // print(desc)
+     // print(title)
+     
+     beacon.title = title
+     beacon.desc = desc
+     beacon.img = img
+     
+     }
+     
+     
+     
+     else if let title = actionsFromJson["actionType"] as? String ,let desc = actionsFromJson["proximity"] as? String , let img = actionsFromJson["content"] as? String  {
+     // print(uniqueId)
+     
+     //  print(title)
+     // print(desc)
+     // print(title)
+     
+     beacon.title = title
+     beacon.desc = desc
+     beacon.img = img
+     }
+     
+     
+     //  }
+     self.beacons.append(beacon)
+     }
+     
+     }
+     
+     
+     DispatchQueue.main.async {
+     //self.tableView.reloadData()
+     self.refresh()
+     
+     }
+     
+     
+     }
+     catch let error{
+     print(error)
+     }
+     
+     }
+     
+     //
+     }
+     task.resume()
+     
+     
+     }
+     
+     
+     
+     
+     */
     
     // =========================================================================
     // MARK: - Table View Data Source
@@ -270,11 +745,11 @@ class BeaconTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-       // return (self.beacons?.count)!
+        // return (self.beacons?.count)!
         
         return self.beacons.count
         
-     //   return self.beacons?.count ?? 0
+        //   return self.beacons?.count ?? 0
         
         //return self.beacons?.count ?? 0
     }
@@ -284,28 +759,92 @@ class BeaconTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "beacontableviewcell", for: indexPath) as! BeaconTableViewCell
         
+        print(indexPath.row)
+       /*
+        cell.title.text = self.beacons[indexPath.item].title
+        cell.desc.text = self.beacons[indexPath.item].desc
+        cell.img.downloadImage(from: (self.beacons[indexPath.item].img!))
+        
+        
+        
+        //        cell.title.text = self.beacons?[indexPath.item].title
+        //        cell.desc.text = self.beacons?[indexPath.item].desc
+        //        cell.img.downloadImage(from: (self.beacons?[indexPath.item].img!)!)
+        */
+        
+        
+        if (cell.title != nil )
+        {
+            print(indexPath.row)
+            //cell.title.text = self.beacons[indexPath.row].title
+        cell.title.text = "No title"
+        }
+            else {
+                    cell.title.text = "No title"
+                }
+        
+        
+        if (cell.desc != nil)
+        {
+            print(indexPath.row)
+           // cell.desc.text = self.beacons[indexPath.row].desc
+             cell.desc.text = "No desc"
+        }
+                else
+                {
+                        cell.desc.text = "No desc"
+                }
+        
+        if (cell.img == nil)
+        {
+            print(indexPath.row)
+            let img = UIImage(named: "Settings.png")
+            let imageView = UIImageView(image: img)
+            cell.img = imageView
+
+            
+                    }
+          else if (cell.img != nil)
+            {
+                 print(indexPath.row)
+                cell.img.downloadImage(from: (self.beacons[indexPath.row].img!))
+                print(indexPath.row)
+                
+                
+            }
         
             
-            cell.title.text = self.beacons[indexPath.item].title
-            cell.desc.text = self.beacons[indexPath.item].desc
-            cell.img.downloadImage(from: (self.beacons[indexPath.item].img!))
+    
+    
+            
+            //cell.img.downloadImage(from: (self.beacons[indexPath.row].img!))
+            
         
-        
-      
-//        cell.title.text = self.beacons?[indexPath.item].title
-//        cell.desc.text = self.beacons?[indexPath.item].desc
-//        cell.img.downloadImage(from: (self.beacons?[indexPath.item].img!)!)
+//                else
+//                {
+//                        let img = UIImage(named: "Settings.png")
+//                        let imageView = UIImageView(image: img)
+//                        cell.img = imageView
+//                    
+//            
+//                }
+
+    
+          //  cell.img.downloadImage(from: (self.beacons[indexPath.row].img!))
         
        
+        
         return cell
     }
     
+    
+   
     
     //MARK: NAVIGATION
     
     
     func getData() {
-      self.beacons.removeAll(keepingCapacity: false)
+        self.beacons.removeAll(keepingCapacity: false)
         
         self.refresh()
         
@@ -316,37 +855,38 @@ class BeaconTableViewController: UITableViewController {
     
     func refresh() {
         self.tableView.reloadData()
-       
+        
         self.refreshControl?.endRefreshing()
     }
     
-   
     
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "advertisement" {
             if let indexPath = tableView.indexPathForSelectedRow{
-               let advertisementVC = segue.destination as! AdvertisementViewController
-                    advertisementVC.advtext = beacons[indexPath.row].title
-    
+                let advertisementVC = segue.destination as! AdvertisementViewController
+                advertisementVC.advtext = beacons[indexPath.row].title
+                
             }
-                        }
-           
-            }
+        }
+        
+    }
     
     
     
-
+    
     
     @IBAction func didTapSignOut(sender: AnyObject) {
         
         
         
         FIRAuth.auth()?.addStateDidChangeListener { auth, user in
-            if case let user = user {
-                print("User was signed in.")
+            if let user = user {
+                print("User was signed in.",user)
             } else {
                 print("User is signed out.")
             }
+            
             
             
             //
@@ -395,7 +935,7 @@ class BeaconTableViewController: UITableViewController {
         }
     }
     
-    @IBAction func back(sender: UIBarButtonItem!)
+    @IBAction func back(sender: AnyObject!)
     {
         self.performSegue(withIdentifier: "back", sender: self)
     }
@@ -409,49 +949,82 @@ class BeaconTableViewController: UITableViewController {
 
 
 
-extension UIImageView{
-    
-        func downloadImage(from url: String)
-        {
-        print("aaaaaaaa")
-            let urlRequest = URLRequest(url: URL(string: url)!)
-        
-        
-            let task = URLSession.shared.dataTask(with: urlRequest)
-            {
-                (data,response,error) in
-                guard let data = data , error == nil else {
-                    return
-                }
-                if error != nil
-                {
-                    print(error!)
-                    return
-                }
-//                 DispatchQueue.main.async
-//                        {
-//                            self.image = UIImage(data : data)
-//                        }
-                
-                
-                DispatchQueue.main.async(execute: { () -> Void in
-                    let image = UIImage(data: data)
-                    self.image = image
-                })
-
-                
-            }
-        
-        task.resume()
-    
-        }
-                    }
-
-
-extension Collection where Indices.Iterator.Element == Index {
-    
-    /// Returns the element at the specified index iff it is within bounds, otherwise nil.
-    subscript (beacons: Index) -> Generator.Element? {
-        return indices.contains(beacons) ? self[beacons] : nil
-    }
-}
+//extension UIImageView{
+//    
+//    func downloadImage(from url: String)
+//    {
+//        print("download function reached")
+//       
+//        let urlRequest = URLRequest(url: URL(string: url)! )
+//        
+//        
+//        let task = URLSession.shared.dataTask(with: urlRequest)
+//        {
+//            (data,response,error) in
+//            guard let data = data , error == nil else {
+//                NSLog("Image download error: \(String(describing: error))")
+//                
+//                return
+//            }
+//            if error != nil
+//            {
+//                print(error!)
+//                return
+//            }
+//            //                 DispatchQueue.main.async
+//            //                        {
+//            //                            self.image = UIImage(data : data)
+//            //                        }
+//            
+//            
+//            DispatchQueue.main.async(execute: { () -> Void in
+//                if let image = UIImage(data: data) {
+//                    NSLog("Image download success")
+//                    self.image = image
+//                
+//                    
+//                }
+//                    
+//                else {
+//                    self.image = UIImage(named : "Home.png")
+//                    NSLog("Image download unsuccess")
+//                }
+//                
+//                
+//            })
+//            
+//            
+//            
+//            
+//            
+//            /*
+//             
+//             dispatch_async(dispatch_get_main_queue(), {
+//             if let cell: YourTableViewCell = tableView.cellForRowAtIndexPath(indexPath) as? YourTableViewCell {
+//             cell.cardPreview.image = image
+//             }
+//             })
+//             } else {
+//             cell.cardPreview.image = UIImage(named: "defaultImage")
+//             }
+//             
+//             
+//             */
+//            
+//            
+//            
+//        }
+//        
+//        task.resume()
+//        
+//    }
+//}
+//
+//
+//extension Collection where Indices.Iterator.Element == Index {
+//    
+//    /// Returns the element at the specified index iff it is within bounds, otherwise nil.
+//    subscript (beacons: Index) -> Generator.Element? {
+//        return indices.contains(beacons) ? self[beacons] : nil
+//    }
+//}
