@@ -11,17 +11,18 @@ import KontaktSDK
 import GoogleSignIn
 import Firebase
 
-class Beacon2TableViewController: UITableViewController {
-
+class Beacon3TableViewController: UITableViewController {
     
     
-   
     
-    @IBOutlet weak var back: UIBarButtonItem!
+    
+    
+   // @IBOutlet weak var back: UIBarButtonItem!
     @IBOutlet weak var SignOut: UIBarButtonItem!
     var beacons : [Beacons] = []
     
     
+    @IBOutlet weak var back: UITabBarItem!
     
     override func viewWillAppear(_ animated: Bool)
     {
@@ -42,8 +43,8 @@ class Beacon2TableViewController: UITableViewController {
         // refreshControl -> pull to refresh handler
         let refreshControl = UIRefreshControl()
         self.refreshControl = refreshControl
-        post()
-        fetchrtjz()
+        post2()
+        fetchohdn()
         
     }
     
@@ -61,7 +62,7 @@ class Beacon2TableViewController: UITableViewController {
         
         let apiClient = KTKCloudClient.sharedInstance()
         
-        let parameters = ["uniqueId": "rTJz"]
+        let parameters = ["uniqueId": "oHdN"]
         
         
         apiClient.getObjects(KTKAction.self, parameters: parameters) { (response, error) in
@@ -73,8 +74,8 @@ class Beacon2TableViewController: UITableViewController {
                     case .browser:
                         if let url = action.url {
                             
-                                
-                             if let devicesUniqueID = action.devicesUniqueID?.contains("rTJz"){
+                            
+                            if let devicesUniqueID = action.devicesUniqueID?.contains("oHdN"){
                                 
                                 
                                 print("Browser Action for URL: \(url)")
@@ -82,9 +83,9 @@ class Beacon2TableViewController: UITableViewController {
                                 print(action.actionID)
                                 
                                 
-                                self.fetchrTJz()
-                            
-                         
+                                self.fetchoHdN()
+                                
+                                
                             }
                         }
                         
@@ -92,7 +93,7 @@ class Beacon2TableViewController: UITableViewController {
                         
                         if let contentAction = action.content{
                             
-                             if let devicesUniqueID = action.devicesUniqueID?.contains("rTJz"){
+                            if let devicesUniqueID = action.devicesUniqueID?.contains("oHdN"){
                                 
                                 print("Contant Action. Content URL: \(contentAction)")
                                 print(" Action. Content : \(devicesUniqueID)")
@@ -100,7 +101,7 @@ class Beacon2TableViewController: UITableViewController {
                                 
                                 
                                 
-                                self.fetchrTJz()
+                                self.fetchoHdN()
                             }
                             
                         }
@@ -118,20 +119,21 @@ class Beacon2TableViewController: UITableViewController {
             }
         }
     }
+ */
     
-   */
     
     
     //==============================================================================
-    //MARK : -  Fetch data for rtjz
+    //MARK : -  Fetch data for oHdN
     
     
-    public func fetchrtjz(){
+    
+    public func fetchohdn(){
         print("EHU 1")
-    
         
-        let myUrl = URL(string: "https://iradar-dev.appspot.com/api/beacon-specials?major=52060&minor=16309");
-        //let myUrl = URL(string: "https://iradar-dev.appspot.com/api/beacon-specials?major=57656&minor=64688");
+        
+        //let myUrl = URL(string: "  https://iradar-dev.appspot.com/api/beacon-specials?major=52060&minor=16309");
+        let myUrl = URL(string: "https://iradar-dev.appspot.com/api/beacon-specials?major=57656&minor=64688");
         var request = URLRequest(url:myUrl!);
         request.httpMethod = "GET";
         request.addValue("tmwNSX5uC4JjVnZsUZFnKcJW", forHTTPHeaderField: "Api-Key")
@@ -253,16 +255,18 @@ class Beacon2TableViewController: UITableViewController {
         
     }
     
-    func post()
+    
+    
+    func post2()
     {
         
         if let currentUser = GIDSignIn.sharedInstance().currentUser{
             //   GIDSignIn.sharedInstance().signIn()
             let name = currentUser.profile.name!
             let email = currentUser.profile.email!
-            let major = 52060
-            let beacon = "rTJz"
-            let special = "5164320753188864"
+            let major = 57656
+            let beacon = "oHdN"
+            let special = "5639221461123072"
             
             let parameter = ["major": major, "beacon" : beacon ,"name" : name, "special": special ,"customer": email] as [String: Any]
             
@@ -345,12 +349,10 @@ class Beacon2TableViewController: UITableViewController {
             }
             task.resume()
             
-            // beaconManager.stopMonitoringForAllRegions()
-            
         }
+        
 
     }
-    
     // =========================================================================
     // MARK: - Table View Data Source
     
@@ -363,7 +365,7 @@ class Beacon2TableViewController: UITableViewController {
         
         return self.beacons.count
         
-       
+        
     }
     
     
@@ -377,7 +379,7 @@ class Beacon2TableViewController: UITableViewController {
         {
             print(indexPath.row)
             cell.title.text = self.beacons[indexPath.row].title
-           // cell.title.text = "No title"
+            //cell.title.text = "No title"
         }
         else {
             cell.title.text = "No title"
@@ -387,7 +389,7 @@ class Beacon2TableViewController: UITableViewController {
         if (cell.desc != nil)
         {
             print(indexPath.row)
-           //  cell.desc.text = self.beacons[indexPath.row].desc
+            // cell.desc.text = self.beacons[indexPath.row].desc
             cell.desc.text = "No desc"
         }
         else
@@ -441,7 +443,7 @@ class Beacon2TableViewController: UITableViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "advertisement2" {
+        if segue.identifier == "advertisement3" {
             if let indexPath = tableView.indexPathForSelectedRow{
                 let advertisementVC = segue.destination as! AdvertisementViewController
                 advertisementVC.advtext = beacons[indexPath.row].title
@@ -514,7 +516,7 @@ class Beacon2TableViewController: UITableViewController {
         }
     }
     
-    @IBAction func back(sender: UIBarButtonItem!)
+    @IBAction func back(sender: UITabBar!)
     {
         self.performSegue(withIdentifier: "back", sender: self)
     }
@@ -527,3 +529,64 @@ class Beacon2TableViewController: UITableViewController {
 
 
 
+
+extension UIImageView{
+    
+    func downloadImage(from url: String)
+    {
+        print("download function reached")
+        
+        let urlRequest = URLRequest(url: URL(string: url)! )
+        
+        
+        let task = URLSession.shared.dataTask(with: urlRequest)
+        {
+            (data,response,error) in
+            guard let data = data , error == nil else {
+                NSLog("Image download error: \(String(describing: error))")
+                
+                return
+            }
+            if error != nil
+            {
+                print(error!)
+                return
+            }
+            //                 DispatchQueue.main.async
+            //                        {
+            //                            self.image = UIImage(data : data)
+            //                        }
+            
+            
+            DispatchQueue.main.async(execute: { () -> Void in
+                if let image = UIImage(data: data) {
+                    NSLog("Image download success")
+                    self.image = image
+                    
+                    
+                }
+                    
+                else {
+                    self.image = UIImage(named : "Home.png")
+                    NSLog("Image download unsuccess")
+                }
+                
+                
+            })
+            
+            
+        }
+        
+        task.resume()
+        
+    }
+}
+
+
+extension Collection where Indices.Iterator.Element == Index {
+    
+    /// Returns the element at the specified index iff it is within bounds, otherwise nil.
+    subscript (beacons: Index) -> Generator.Element? {
+        return indices.contains(beacons) ? self[beacons] : nil
+    }
+}

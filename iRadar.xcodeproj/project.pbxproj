@@ -14,6 +14,7 @@
 		0425A7C91ECBDB4A00437C84 /* todayiRadar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0425A7C81ECBDB4A00437C84 /* todayiRadar.swift */; };
 		0425A7CB1ECEEA3B00437C84 /* Beacon2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0425A7CA1ECEEA3B00437C84 /* Beacon2TableViewController.swift */; };
 		0425A7CD1ECEF40600437C84 /* Beacon3TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0425A7CC1ECEF40600437C84 /* Beacon3TableViewController.swift */; };
+		042671641ED41BCD00D36727 /* NormalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042671631ED41BCD00D36727 /* NormalViewController.swift */; };
 		042C6AC11EB84BD500AA46EC /* AdvertisementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042C6AC01EB84BD500AA46EC /* AdvertisementViewController.swift */; };
 		0448EB201EB8416F001128B9 /* KontaktSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0448EB1F1EB8416F001128B9 /* KontaktSDK.framework */; };
 		045F434D1E92283000E323EC /* BeaconTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F434C1E92283000E323EC /* BeaconTableViewController.swift */; };
@@ -65,6 +66,7 @@
 		0425A7C81ECBDB4A00437C84 /* todayiRadar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = todayiRadar.swift; sourceTree = "<group>"; };
 		0425A7CA1ECEEA3B00437C84 /* Beacon2TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beacon2TableViewController.swift; sourceTree = "<group>"; };
 		0425A7CC1ECEF40600437C84 /* Beacon3TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beacon3TableViewController.swift; sourceTree = "<group>"; };
+		042671631ED41BCD00D36727 /* NormalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NormalViewController.swift; sourceTree = "<group>"; };
 		042C6AC01EB84BD500AA46EC /* AdvertisementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementViewController.swift; sourceTree = "<group>"; };
 		0448EB1F1EB8416F001128B9 /* KontaktSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KontaktSDK.framework; path = Pods/KontaktSDK/Cocoapods/iOS/KontaktSDK.framework; sourceTree = "<group>"; };
 		045F434C1E92283000E323EC /* BeaconTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconTableViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				04D4AFDB1E84DE9400324E87 /* AppDelegate.swift */,
 				04D4AFDD1E84DE9400324E87 /* beaconViewController.swift */,
 				04D4AFDF1E84DE9400324E87 /* Main.storyboard */,
+				042671631ED41BCD00D36727 /* NormalViewController.swift */,
 				045F434E1E9254E200E323EC /* BeaconTableViewCell.swift */,
 				042C6AC01EB84BD500AA46EC /* AdvertisementViewController.swift */,
 				04D4AFE21E84DE9400324E87 /* Assets.xcassets */,
@@ -355,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04D4AFDE1E84DE9400324E87 /* beaconViewController.swift in Sources */,
+				042671641ED41BCD00D36727 /* NormalViewController.swift in Sources */,
 				04A4211E1E8A8C2700194289 /* NearbyDeviceClass.swift in Sources */,
 				045F434F1E9254E200E323EC /* BeaconTableViewCell.swift in Sources */,
 				045F43511E92635B00E323EC /* Beacons.swift in Sources */,
@@ -587,6 +591,7 @@
 				0425A7C51ECBD96C00437C84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		04D4AFD31E84DE9400324E87 /* Build configuration list for PBXProject "iRadar" */ = {
 			isa = XCConfigurationList;

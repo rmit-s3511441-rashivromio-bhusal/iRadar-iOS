@@ -20,6 +20,7 @@ class loginViewController: UIViewController , GIDSignInDelegate , GIDSignInUIDel
     @IBOutlet weak var im: UIImageView!
     
     
+    @IBOutlet weak var normalsigin: UIButton!
     override func viewWillAppear(_ animated: Bool)
     {
         super.viewWillAppear(true)
@@ -56,15 +57,26 @@ class loginViewController: UIViewController , GIDSignInDelegate , GIDSignInUIDel
   
     
     
+    @IBAction func normalsigin(sender: UIButton){
+        // beaconshow()
+        print("show1")
+        self.performSegue(withIdentifier: "normal", sender: self)
+        
+        
+        
+    }
+    
+    
     fileprivate func setupGoogleButtons()
     {
     
         let SignIn = UIButton(type: .system)
+        //SignIn.setTitle("Get Started With", for: .normal)
          SignIn.frame = CGRect(x: self.view.bounds.size.width - (166 + 66), y: self.view.bounds.size.height - (96 + 4) , width: 50, height: 50)
         view.addSubview(SignIn)
        // SignIn.backgroundColor = .white
        // SignIn.setTitle("SignIn", for: .normal)
-     //  SignIn.addTarget(self, action: #selector(handleCustomGoogleSignIn) , for: .touchUpInside)
+       //SignIn.addTarget(self, action: #selector(handleCustomGoogleSignIn) , for: .touchUpInside)
         GIDSignIn.sharedInstance().delegate = self
         
         GIDSignIn.sharedInstance().uiDelegate = self

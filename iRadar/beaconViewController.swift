@@ -15,15 +15,14 @@ import UserNotifications
 
     class beaconViewController: UIViewController , GIDSignInUIDelegate {
         
+               
         var beacons : [Beacons]? = []
         var hi : [BeaconTableViewController]? = []
         
-       // @IBOutlet weak var beaimg: UIImageView!
         @IBOutlet weak var welcome: UILabel!
         @IBOutlet weak var profilePic: UIImageView!
         @IBOutlet weak var Signout: UIButton!
         
-      //  @IBOutlet weak var googleimage: UIImageView!
         var beaconManager: KTKBeaconManager!
         
         @IBOutlet weak var show2: UIButton!
@@ -37,8 +36,6 @@ import UserNotifications
         
         func refreshInterface()
         {
-            // beaconManager.stopMonitoringForAllRegions()
-            print("hi")
             if let currentUser = GIDSignIn.sharedInstance().currentUser{
                 
                 
@@ -66,6 +63,8 @@ import UserNotifications
             
         }
         
+        
+        
         override func viewDidLoad() {
             super.viewDidLoad()
                        GIDSignIn.sharedInstance().uiDelegate = self
@@ -78,20 +77,8 @@ import UserNotifications
             
             // Region
             let proximityUUID = NSUUID(uuidString: "f7826da6-4fa2-4e98-8024-bc5b71e0893e")
-            
-            
-//            let major: CLBeaconMajorValue = CLBeaconMajorValue(arc4random_uniform(5000))
-//            let minor: CLBeaconMinorValue = CLBeaconMajorValue(arc4random_uniform(5000))
-//            
-           // let beaconPeripheralData: NSDictionary = region.peripheralData(withMeasuredPower: nil) as NSDictionary
-
-            
             let region = KTKBeaconRegion(proximityUUID: proximityUUID! as UUID, identifier: "rashiv.beacon")
             
-            //,major: 8076, minor: 17108
-            
-            //major: 52060, minor: 16309
-          
            // let region = KTKBeaconRegion(proximityUUID: proximityUUID! as UUID,major: major, minor: minor, identifier: "rashiv.beacon")
            
             // Region Properties
@@ -269,56 +256,35 @@ import UserNotifications
         
         
         
-       /* @IBAction func mainButton(sender: UIButton) {
-            switch sender {
-            case show:
-                 self.performSegue(withIdentifier: "viewadvertisement", sender: self)
-                break
-            // do something
-            case show1:
-                
-                self.performSegue(withIdentifier: "advertisement2", sender: self)
-                break
-            // do something else
-            case show2:
-                self.performSegue(withIdentifier: "advertisement3", sender: self)
-                break
-                
-                
-            default: print(sender)
-            }
-        }
- */
-        
      
         @IBAction func didTapshow(sender: UIButton){
            // beaconshow()
             print("show")
-          // self.performSegue(withIdentifier: "advertisement2", sender: self)
             self.performSegue(withIdentifier: "viewadvertisement", sender: self)
+            
+                        
            
-                              }
+            
+        }
         
         @IBAction func didTapshow1(sender: UIButton){
             // beaconshow()
            print("show1")
-           self.performSegue(withIdentifier: "advertisement2", sender: self)
+            self.performSegue(withIdentifier: "advertisement2", sender: self)
 
+                      
+         
         }
 
         @IBAction func didTapshow2(sender: UIButton){
              //beaconshow()
             print("show2")
-            self.performSegue(withIdentifier: "advertisement3", sender: self)
-
+            
+            
+             self.performSegue(withIdentifier: "advertisement3", sender: self)
+       
         }
 
-//        @IBAction func didTapshow2(sender: AnyObject){
-//            //beaconshow()
-//            self.performSegue(withIdentifier: "advertisement3", sender: self)
-//            
-//        }
-      
     
         @IBAction func didTapSignOut(sender: AnyObject) {
             
@@ -332,8 +298,6 @@ import UserNotifications
                     print("User is signed out.")
                 }
 
-            
-                //
                 let alertController = UIAlertController(
                     title: "Title",
                     message: "Message",
@@ -343,7 +307,7 @@ import UserNotifications
                 let cancelAction = UIAlertAction(
                     title: "Cancel",
                     style: UIAlertActionStyle.destructive) { (action) in
-                        // ...
+                
                 }
                 
                 let confirmAction = UIAlertAction(
@@ -406,55 +370,24 @@ import UserNotifications
         func beaconManager(_ manager: KTKBeaconManager, didChangeLocationAuthorizationStatus status: CLAuthorizationStatus) {
             print("Did change location authorization status to: \(status.rawValue)")
             
-            
-            //changes ------------------------------============332223#####################################################//
-             //changes ------------------------------============332223#####################################################//
-             //changes ------------------------------============332223#####################################################//
-            fetchAdvertisementhere()
-            
-             //changes ------------------------------============332223#####################################################//
-             //changes ------------------------------============332223#####################################################//
-             //changes ------------------------------============332223#####################################################//
-             //changes ------------------------------============332223#####################################################//
-            
-            print("SOMETHING WRONG HERE")
-            
-            
-            
-           statusLabel.text = "Did change location authorization status to: \(status.rawValue)"
-             print("SOMETHING  HERE")
+            statusLabel.text = "Did change location authorization status to: \(status.rawValue)"
+            print("SOMETHING  HERE")
             if status == .authorizedAlways{
                  print("SOMETHING  ")
                 // Region
                 let proximityUUID = NSUUID(uuidString: "f7826da6-4fa2-4e98-8024-bc5b71e0893e")
                  print("S HERE")
                 
-              //  let region = KTKBeaconRegion(proximityUUID: NSUUID(uuidString: "f7826da6-4fa2-4e98-8024-bc5b71e0893e"), major: <#T##CLBeaconMajorValue#>, minor: <#T##CLBeaconMinorValue#>, identifier: <#T##String#>)
-                
-                
-                
-//                let major: CLBeaconMajorValue = CLBeaconMajorValue(arc4random_uniform(5000))
-//                let minor: CLBeaconMinorValue = CLBeaconMajorValue(arc4random_uniform(5000))
-//                
-                // let beaconPeripheralData: NSDictionary = region.peripheralData(withMeasuredPower: nil) as NSDictionary
-                
-                
-                
-               // let region = KTKBeaconRegion(proximityUUID: proximityUUID! as UUID,major: major, minor: minor, identifier: "rashiv.beacon")
-                
-
-                  // let region = KTKBeaconRegion(proximityUUID: proximityUUID! as UUID, major: 52060, minor: 16309, identifier: "rashiv.beacon")
-                
                let region = KTKBeaconRegion(proximityUUID: proximityUUID! as UUID, identifier: "rashiv.beacon")
                  print("SOMETHING WRONG HERE again")
                 
                 // Region Properties
                 region.notifyEntryStateOnDisplay = true
-                 print("Siloo HERE")
+                
                 beaconManager.startMonitoring(for: region)
-                 print("SnjvhoilopotreevvE")
+                
                 beaconManager.startRangingBeacons(in: region)
-                 print("SOewoiyt pop ")
+                
                 beaconManager.requestState(for: region)
             }
         }
@@ -464,20 +397,17 @@ import UserNotifications
             print("Error: \(String(describing: error))")
             statusLabel.text = "Monitoring did fail for region: \(String(describing: region))"
             print("reach here")
-            
-            show.isHidden = false
-            show1.isHidden = true
-            show2.isHidden = true
+//            
+//           show.isHidden = false
+//            show1.isHidden = true
+//            show2.isHidden = true
 
         }
         
         func beaconManager(_ manager: KTKBeaconManager, didStartMonitoringFor region: KTKBeaconRegion) {
-             print("Did monitoring region \(region)")
+         //    print("Did monitoring region \(region)")
           statusLabel.text = "Did start monitoring for region: \(region)"
             
-         
-            
-           // fetchAdvertisementhere()
         }
         
     
@@ -508,12 +438,16 @@ import UserNotifications
                 
                     if (closestBeacon.major == 8076)
                     {
+                        
                         didTapshow(sender: UIButton())
                         show.isHidden = false
                         show1.isHidden = true
                         show2.isHidden = true
                         
- 
+                    
+
+                        
+                        
 //                        if beacons.count > 0 {
 //                            let beacon = beacons[0]
 //                            update(distance: beacon.proximity)
@@ -523,8 +457,12 @@ import UserNotifications
                         
                         
                     }
+                
+                
                      if (closestBeacon.major == 52060)
                     {
+                      
+
 //                        if beacons.count > 0 {
 //                            let beacon = beacons[0]
 //                            update(distance: beacon.proximity)
@@ -536,10 +474,17 @@ import UserNotifications
                         show1.isHidden = false
                         show.isHidden = true
                         show2.isHidden = true
+                    
+                        
+                        //beaconManager(<#T##manager: KTKBeaconManager##KTKBeaconManager#>, didRangeBeacons: <#T##[CLBeacon]#>, in: <#T##KTKBeaconRegion#>)
+                        
                         
                     }
+                
+                
                      if (closestBeacon.major == 57656)
                     {
+                       
 //                        if beacons.count > 0 {
 //                            let beacon = beacons[0]
 //                            update(distance: beacon.proximity)
@@ -552,22 +497,25 @@ import UserNotifications
                         show2.isHidden = false
                         show1.isHidden = true
                         show.isHidden = true
+                     
+                        
                     }
                 
                 
                 
-                
+          
                 if (closestBeacon.major != 8076 || closestBeacon.major != 52060 || closestBeacon.major != 57656)
                 {
                     didTapshow(sender: UIButton())
-                    show.isHidden = true
+                    
                     show1.isHidden = true
                     show2.isHidden = true
                     
                     
                     
                 }
-                
+ 
+//
                 
                 
                 if beacons.count > 0 {
@@ -577,128 +525,8 @@ import UserNotifications
                     update(distance: .unknown)
                 }
                 
-                
-                
-                //CHANGES//
-                
-                
-                
-            }
+                                    }
         }
-        
-       
-        
-        
-        
-        private func fetchAdvertisementhere(){
-            print("EHU 1")
-            
-            
-            
-            self.refreshInterface()
-            self.beacons?.removeAll()
-            
-            //beaconManager(<#T##manager: KTKBeaconManager##KTKBeaconManager#>, didRangeBeacons: <#T##[CLBeacon]#>, in: <#T##KTKBeaconRegion#>)
-            if let currentUser = GIDSignIn.sharedInstance().currentUser{
-         //   GIDSignIn.sharedInstance().signIn()
-           let name = currentUser.profile.name!
-           let email = currentUser.profile.email!
-            
-                
-               let major: CLBeaconMajorValue = CLBeaconMajorValue(arc4random_uniform(5000))
-                 let minor: CLBeaconMinorValue = CLBeaconMajorValue(arc4random_uniform(5000))
-                
-                
-//            
-            //    let proximityUUID = NSUUID(uuidString: "f7826da6-4fa2-4e98-8024-bc5b71e0893e")
-                
-                 //let region = KTKBeaconRegion(proximityUUID: proximityUUID! as UUID,major: major,minor: minor, identifier: "rashiv.beacon")
-               // let region = KTKBeaconRegion(proximityUUID: proximityUUID! as UUID,major: major, minor: minor, identifier: "rashiv.beacon")
-                
-
-     
-                let parameter = ["beacond_id_major": major ,"beacond_id_minor": minor , "name" : name, "special": "f7826da6-4fa2-4e98-8024-bc5b71e0893e" ,"customer": email] as [String: Any]
-           // let parameter = ["beacon": "4tla", "special":"f7826da6-4fa2-4e98-8024-bc5b71e0893e", "customer": "rashiv"] as [String: Any]
-            
-            let myUrl = URL(string: "https://iradar-dev.appspot.com/api/impression");
-            var request = URLRequest(url:myUrl!);
-            
-            let postString = "beacon=4tla&customer=rashiv"
-            
-            
-            request.httpBody = postString.data(using: String.Encoding.utf8)
-            
-            print(postString)
-            
-            request.httpMethod = "POST";
-            request.addValue("tmwNSX5uC4JjVnZsUZFnKcJW", forHTTPHeaderField: "Api-Key")
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.addValue("application/json", forHTTPHeaderField: "Accept")
-            do {
-                request.httpBody = try JSONSerialization.data(withJSONObject: parameter, options: .prettyPrinted)
-            }
-            catch let error  {
-                print(error.localizedDescription)
-            }
-            
-            print("Request printing")
-            print (request)
-            print("This is the request")
-            print(JSONSerialization.self)
-            
-            let task = URLSession.shared.dataTask(with: request)
-            {
-                (data,response,error) in
-                if let httpResponse = response as? HTTPURLResponse {
-                    print("The  statusCode of this url is : \(httpResponse.statusCode)")
-                    print("hello buddy")
-                }
-                if error != nil {
-                    print(error as Any)
-                    return
-                }
-                print("Now in the JSON")
-                
-                do{
-                    
-                    let parseData = try JSONSerialization.jsonObject(with: data!, options: .allowFragments)
-                    print("reachin")
-                    let disc = parseData as! NSDictionary
-                    print(disc)
-                    print("no")
-                    let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String : AnyObject]
-                    print("yes")
-                    
-                    if let actionsFromJson = json["actions"] as? [[String : AnyObject]]
-                    {
-                        print("do u know what is here")
-                        for actionsFromJson in actionsFromJson {
-                            
-                            if let beaco = actionsFromJson["beacon"] as? String ,let cust = actionsFromJson["customer"] as? String  {
-                                
-                                print(beaco)
-                                print(cust)
-                                print("where is the output")
-                                
-                            }
-                        }
-                    }
-                    //                
-                    //                DispatchQueue.main.async {
-                    //                 //   self.tableView.reloadData()
-                    //                    
-                    //                }
-                    //                
-                    
-                }
-                catch let error{
-                    print(error)
-                }
-            }
-            task.resume()
-        }
-}
-        
         
 
 }

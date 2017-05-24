@@ -29,6 +29,10 @@ class BeaconTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
+        title.layer.shadowColor = UIColor.black.cgColor
+        title.layer.shadowOffset = CGSize(width: 0, height: 0)
+        title.layer.shadowRadius = 6
+        title.layer.shadowOpacity = 1
         
         // Configure the view for the selected state
     }

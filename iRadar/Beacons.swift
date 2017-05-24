@@ -22,6 +22,7 @@ class Beacons: NSObject {
     var img: String?
     
     
+    
    // var url: String?
     //var uniquieID: String?
     //var img : UIImage?
