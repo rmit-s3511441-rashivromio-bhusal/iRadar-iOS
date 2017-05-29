@@ -202,7 +202,11 @@ import UserNotifications
                     
                 case .immediate:
                     
-                    self.view.backgroundColor = UIColor.green
+                    let hi = UIColor(red:65/255.0, green:105/255.0, blue:226/255.0, alpha:1.0)
+                    
+                    
+                    self.view.backgroundColor = hi
+                    
                    //self.view.backgroundColor = UIColor.red
                     //checking//
         /*
@@ -393,11 +397,11 @@ import UserNotifications
         }
         
         func beaconManager(_ manager: KTKBeaconManager, monitoringDidFailFor region: KTKBeaconRegion?, withError error: Error?) {
-            print("Monitoring did fail for region: \(String(describing: region))")
+            print("There is no any beacons in this area: \(String(describing: region))")
             print("Error: \(String(describing: error))")
-            statusLabel.text = "Monitoring did fail for region: \(String(describing: region))"
+            statusLabel.text = "The beacons are not available in this area: \(String(describing: region))"
             print("reach here")
-//            
+            
 //           show.isHidden = false
 //            show1.isHidden = true
 //            show2.isHidden = true
@@ -406,29 +410,29 @@ import UserNotifications
         
         func beaconManager(_ manager: KTKBeaconManager, didStartMonitoringFor region: KTKBeaconRegion) {
          //    print("Did monitoring region \(region)")
-          statusLabel.text = "Did start monitoring for region: \(region)"
+          statusLabel.text = "Started to  monitoring  for region: \(region)"
             
         }
         
     
         func beaconManager(_ manager: KTKBeaconManager, didEnter region: KTKBeaconRegion) {
             print("Did enter region: \(region)")
-            statusLabel.text = "Did enter region: \(region)"
+            statusLabel.text = "Enter region of the beacons: \(region)"
         }
         
         func beaconManager(_ manager: KTKBeaconManager, didExitRegion region: KTKBeaconRegion) {
-            print("Did exit region \(region)")
-            statusLabel.text = "Did exit region \(region)"
+            print(" Exit region \(region)")
+            statusLabel.text = " Exit region \(region)"
         }
       
         func beaconManager(_ manager: KTKBeaconManager, didRangeBeacons beacons: [CLBeacon], in region: KTKBeaconRegion) {
             print("Did ranged \"\(beacons.count)\" beacons inside region: \(region)")
-            statusLabel.text = "Did ranged \"\(beacons.count)\""
+            statusLabel.text = " Ranging now \"\(beacons.count)\""
            // statusLabel.text = "Did ranged \"\(beacons.count)\" beacons inside region: \(region)"
             if let closestBeacon = beacons.sorted(by: { $0.0.accuracy < $0.1.accuracy }).first , closestBeacon.accuracy > 0 {
                 
                 print("Closest Beacon is M: \(closestBeacon.major), m: \(closestBeacon.minor) ~ \(closestBeacon.accuracy) meters away.")
-                major.text = " closestBeacon.major is \(closestBeacon.major) "
+                major.text = " Closest Beacon from you is \(closestBeacon.major) "
                // statusLabel.text = "\(String(describing: statusLabel.text)) Closest Beacon is M: \(closestBeacon.major), m: \(closestBeacon.minor) ~ \(closestBeacon.accuracy) meters away."
                 //CHANGES//
                 

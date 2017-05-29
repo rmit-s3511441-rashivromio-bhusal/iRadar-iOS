@@ -13,34 +13,29 @@ import FirebaseDatabase
 
 
 
-struct post {
-    let title : String!
-    let message : String!
-
-}
-
-class AdvertisementViewController: UIViewController  {
+class NormalAdvertisementViewController: UIViewController  {
     let posts = [post]
-
+    
     var advtext : String?
-   // var imagep : String?
+    // var imagep : String?
     var imagep : UIImage?
     var pict: String?
     var beac: Beacons?
     //var commentfromUser: String?
     var submited: String?
     
-  
-       @IBOutlet weak var good: UIButton!
-   // var advertisement : Advertisement?
+    
+    @IBOutlet weak var good: UIButton!
+    // var advertisement : Advertisement?
     
     @IBOutlet weak var average: UIButton!
     @IBOutlet weak var bad: UIButton!
-   @IBOutlet weak var adv: UILabel!
+    @IBOutlet weak var adv: UILabel!
     @IBOutlet weak var pic: UIImageView!
-      
     
     
+    
+    @IBOutlet weak var back: UIBarButtonItem!
     
     
     override func viewDidLoad() {
@@ -51,66 +46,66 @@ class AdvertisementViewController: UIViewController  {
             adv.text = advtext
             print(advtext)
         }
-            if let pict = pict{
-                pic.image = imagep
-                
-                
-                UIGraphicsBeginImageContext(self.view.frame.size)
-                //UIImage(named: pict)?.draw
-                UIImage(named: "ibeaco.png")?.draw(in: self.view.bounds)
-                
-                let image: UIImage! = UIGraphicsGetImageFromCurrentImageContext()
-                
-                UIGraphicsEndImageContext()
-                
-                self.view.backgroundColor = UIColor(patternImage: image)
-
-             print(pict)
+        if let pict = pict{
+            pic.image = imagep
             
-
-        }
-    
-    
+            
+            UIGraphicsBeginImageContext(self.view.frame.size)
+            //UIImage(named: pict)?.draw
+            UIImage(named: "ibeaco.png")?.draw(in: self.view.bounds)
+            
+            let image: UIImage! = UIGraphicsGetImageFromCurrentImageContext()
+            
+            UIGraphicsEndImageContext()
+            
+            self.view.backgroundColor = UIColor(patternImage: image)
+            
+            print(pict)
+            
+            
         }
         
-
-          
         
-            
-            
-//            advertisementVC.advtext = beacons[indexPath.row].title
-//            advertisementVC.pict = beacons[indexPath.row].img
-//            
-           
-        
-        
+    }
     
-
-
-
-@IBAction func good(sender: UIButton){
     
-   post()
-    bad.isHidden = true
-    average.isHidden = true
-   
-    //good.setTitle("Thank You for your review", for: .focused)
-    good.setTitle("Thank You for your review", for: [.normal])
-    good.isEnabled = false
-}
-
- 
+    
+    
+    
+    
+    //            advertisementVC.advtext = beacons[indexPath.row].title
+    //            advertisementVC.pict = beacons[indexPath.row].img
+    //
+    
+    
+    
+    
+    
+    
+    
+    @IBAction func good(sender: UIButton){
+        
+        post()
+        bad.isHidden = true
+        average.isHidden = true
+        
+        //good.setTitle("Thank You for your review", for: .focused)
+        good.setTitle("Thank You for your review", for: [.normal])
+        good.isEnabled = false
+    }
+    
+    
     @IBAction func bad(sender: UIButton){
         
         badpost()
-       // good.isHidden = true
+        // good.isHidden = true
         average.isHidden = true
         good.isEnabled = false
-
+        
         good.setTitle("Thank You for your review", for: [.normal])
-               bad.isHidden = true
+        bad.isHidden = true
     }
-
+    
     
     @IBAction func average(sender: UIButton){
         
@@ -119,30 +114,30 @@ class AdvertisementViewController: UIViewController  {
         
         bad.isHidden = true
         good.isEnabled = false
-
+        
         good.setTitle("Thank You for your review", for: [.normal])
-               average.isHidden = true
-           }
-
-
-
+        average.isHidden = true
+    }
+    
+    
+    
     func post()
     {
         
-            
+        
         let title = "Advertisement "
         
         
         let message = "Good "
-
-        let post : [String : AnyObject] = ["title": title as AnyObject ,"Name": advtext as AnyObject , "message": message as AnyObject]
+        
+        let post : [String : AnyObject] = ["title": title as AnyObject , "Name": advtext as AnyObject , "message": message as AnyObject]
         let databaseREF = FIRDatabase.database().reference()
         
         databaseREF.child("POSTS").childByAutoId().setValue(post)
         
     }
     
-
+    
     func badpost()
     {
         let title = "Advertisement "
@@ -150,12 +145,12 @@ class AdvertisementViewController: UIViewController  {
         
         let message = "Bad"
         
-        let post : [String : AnyObject] = ["title": title as AnyObject , "Name": advtext as AnyObject ,"message": message as AnyObject]
+        let post : [String : AnyObject] = ["title": title as AnyObject  ,"Name": advtext as AnyObject , "message": message as AnyObject]
         let databaseREF = FIRDatabase.database().reference()
         
         databaseREF.child("POSTS").childByAutoId().setValue(post)
     }
-
+    
     
     func averagepost()
     {
@@ -164,14 +159,14 @@ class AdvertisementViewController: UIViewController  {
         
         let message = "Normal"
         
-        let post : [String : AnyObject] = ["title": title as AnyObject ,"Name": advtext as AnyObject , "message": message as AnyObject]
+        let post : [String : AnyObject] = ["title": title as AnyObject , "Name": advtext as AnyObject , "message": message as AnyObject]
         let databaseREF = FIRDatabase.database().reference()
         
         databaseREF.child("POSTS").childByAutoId().setValue(post)
         
     }
- 
- 
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -181,15 +176,15 @@ class AdvertisementViewController: UIViewController  {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-       
         
-//        if let imagep = imagep {
-//            pic.image = imagep.data(using: )
-//        }
+        
+        //        if let imagep = imagep {
+        //            pic.image = imagep.data(using: )
+        //        }
         
     }
     
-       
+    
     
     
     /*

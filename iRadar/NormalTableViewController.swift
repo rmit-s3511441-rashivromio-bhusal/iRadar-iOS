@@ -1,8 +1,8 @@
 //
-//  Beacon2TableViewController.swift
+//  BeaconTableViewController.swift
 //  iRadar
 //
-//  Created by Rashiv Romio Bhusal on 19/5/17.
+//  Created by Rashiv Romio Bhusal on 3/4/17.
 //  Copyright © 2017 Rashiv Romio Bhusal. All rights reserved.
 //
 
@@ -12,16 +12,23 @@ import GoogleSignIn
 import Firebase
 import Social
 
-class Beacon2TableViewController: UITableViewController {
 
+
+///
+
+
+class NormalTableViewController: UITableViewController {
     
-    
-   
-    
+
+  
     @IBOutlet weak var back: UIBarButtonItem!
-    @IBOutlet weak var SignOut: UIBarButtonItem!
+    
+    @IBOutlet weak var Share: UIButton!
     var beacons : [Beacons] = []
     
+    //  var beaconImages =  [String: UIImage]()
+    
+    //var beacons : [[Beacons: Beacons]]? = []
     
     
     override func viewWillAppear(_ animated: Bool)
@@ -39,12 +46,13 @@ class Beacon2TableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 275
         tableView.rowHeight = UITableViewAutomaticDimension
-
+        
+        
         // refreshControl -> pull to refresh handler
         let refreshControl = UIRefreshControl()
         self.refreshControl = refreshControl
-        post()
-        fetchrtjz()
+        post1()
+        fetchAdvertisement()
         
     }
     
@@ -55,83 +63,15 @@ class Beacon2TableViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
-  /*
-    func apicall(){
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
-        
-        let apiClient = KTKCloudClient.sharedInstance()
-        
-        let parameters = ["uniqueId": "rTJz"]
-        
-        
-        apiClient.getObjects(KTKAction.self, parameters: parameters) { (response, error) in
-            if let cloudError = KTKCloudErrorFromError(error) {
-                print(cloudError.debugDescription)
-            } else if let actions = response?.objects as? [KTKAction] {
-                for action in actions {
-                    switch action.type {
-                    case .browser:
-                        if let url = action.url {
-                            
-                                
-                             if let devicesUniqueID = action.devicesUniqueID?.contains("rTJz"){
-                                
-                                
-                                print("Browser Action for URL: \(url)")
-                                print("B Action for URL: \(devicesUniqueID)")
-                                print(action.actionID)
-                                
-                                
-                                self.fetchrTJz()
-                            
-                         
-                            }
-                        }
-                        
-                    case .content:
-                        
-                        if let contentAction = action.content{
-                            
-                             if let devicesUniqueID = action.devicesUniqueID?.contains("rTJz"){
-                                
-                                print("Contant Action. Content URL: \(contentAction)")
-                                print(" Action. Content : \(devicesUniqueID)")
-                                
-                                
-                                
-                                
-                                self.fetchrTJz()
-                            }
-                            
-                        }
-                        
-                    case .invalid:
-                        print("Invalid action")
-                    }
-                    
-                    
-                    
-                    
-                    
-                    
-                }
-            }
-        }
-    }
-    
-   */
     
     
-    //==============================================================================
-    //MARK : -  Fetch data for rtjz
-    
-    
-    public func fetchrtjz(){
+    // =========================================================================
+    // MARK: - GET IMAGES FROM URL
+    public func fetchAdvertisement(){
         print("EHU 1")
-    
         
-        let myUrl = URL(string: "https://iradar-dev.appspot.com/api/beacon-specials?major=52060&minor=16309");
+        
+        let myUrl = URL(string: "https://iradar-dev.appspot.com/api/beacon-specials?major=8076&minor=17108");
         //let myUrl = URL(string: "https://iradar-dev.appspot.com/api/beacon-specials?major=57656&minor=64688");
         var request = URLRequest(url:myUrl!);
         request.httpMethod = "GET";
@@ -187,23 +127,8 @@ class Beacon2TableViewController: UITableViewController {
                             
                             let beacon = Beacons()
                             
-                            //                       for (key, value) in actionsFromJson {
-                            //                      print("\(key) -> \(value)")
-                            
-                            // for value in actionsFromJson.values {
-                            //   print("\(value)")
-                            
-                            // if let deviceUniqueIds = actionsFromJson["devicesUniqueID"]?.contains("4tla") {
-                            
-                            // let uniqueId = actionsFromJson["deviceUniqueIds"]?["4tla"] as? String
                             
                             if let title = actionsFromJson["name"] as? String ,let desc = actionsFromJson["proximity"] as? String , let img = actionsFromJson["url"] as? String {
-                                
-                                // print(deviceUniqueIds)
-                                //  print(uniqueId)
-                                //  print(title)
-                                // print(desc)
-                                // print(title)
                                 
                                 beacon.title = title
                                 beacon.desc = desc
@@ -214,11 +139,6 @@ class Beacon2TableViewController: UITableViewController {
                                 
                                 
                             else if let title = actionsFromJson["name"] as? String ,let desc = actionsFromJson["proximity"] as? String , let img = actionsFromJson["content"] as? String  {
-                                // print(uniqueId)
-                                
-                                //  print(title)
-                                // print(desc)
-                                // print(title)
                                 
                                 beacon.title = title
                                 beacon.desc = desc
@@ -254,18 +174,18 @@ class Beacon2TableViewController: UITableViewController {
         
     }
     
-    func post()
+    
+    
+    
+    
+    func post1()
     {
-        
-        if let currentUser = GIDSignIn.sharedInstance().currentUser{
-            //   GIDSignIn.sharedInstance().signIn()
-            let name = currentUser.profile.name!
-            let email = currentUser.profile.email!
-            let major = 52060
-            let beacon = "rTJz"
-            let special = "5164320753188864"
+            let name = "Anonymous"
+            let major = 8076
+            let beacon = "4tla"
+            let special = "5739407210446848"
             
-            let parameter = ["major": major, "beacon" : beacon ,"name" : name, "special": special ,"customer": email] as [String: Any]
+            let parameter = ["major": major, "beacon" : beacon , "special": special ,"customer": name] as [String: Any]
             
             
             let myUrl = URL(string: "https://iradar-dev.appspot.com/api/impression");
@@ -345,12 +265,14 @@ class Beacon2TableViewController: UITableViewController {
                 }
             }
             task.resume()
-            
-            // beaconManager.stopMonitoringForAllRegions()
-            
-        }
-
+        
+        
+        
     }
+    
+    
+    
+    
     
     // =========================================================================
     // MARK: - Table View Data Source
@@ -361,56 +283,56 @@ class Beacon2TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        // return (self.beacons?.count)!
         
         return self.beacons.count
         
-       
+        //   return self.beacons?.count ?? 0
+        
+        //return self.beacons?.count ?? 0
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "beacontableviewcell", for: indexPath) as! BeaconTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "normalbeacontableviewcell", for: indexPath) as! NormalBeaconTableViewCell
+        
         
         print(indexPath.row)
+        
         
         if (cell.title != nil )
         {
             print(indexPath.row)
             cell.title.text = self.beacons[indexPath.row].title
-           // cell.title.text = "No title"
+            
+            //cell.title.text = "No title"
         }
         else {
             cell.title.text = "No title"
         }
         
         
-        if (cell.desc != nil)
-        {
-            print(indexPath.row)
-           //  cell.desc.text = self.beacons[indexPath.row].desc
-            cell.desc.text = "No desc"
-        }
-        else
-        {
-            cell.desc.text = "No desc"
-        }
+       
         
-        if (beacons[indexPath.row].img != nil)
+        if (cell.img == nil)
         {
             print(indexPath.row)
-            
-            cell.img.downloadImage(from: (self.beacons[indexPath.row].img!))
-            
-        }
-        else
-        {
             let img = UIImage(named: "Settings.png")
             let imageView = UIImageView(image: img)
             cell.img = imageView
             
+        }
+        else if (cell.img != nil)
+        {
+            print(indexPath.row)
+            cell.img.downloadImage(from: (self.beacons[indexPath.row].img!))
+            print(indexPath.row)
             
         }
+        
+        
+        
         
         
         
@@ -419,6 +341,66 @@ class Beacon2TableViewController: UITableViewController {
     
     
     
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "normalbeacontableviewcell", for: indexPath) as! NormalBeaconTableViewCell
+        
+        let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal , title: "Click to Share"){
+            
+            (rowaction , IndexPath) -> Void in
+            
+            let shareActionSheet = UIAlertController(title: nil,message:"Share With",preferredStyle: .actionSheet)
+            
+            
+            
+             let facebookshareAction  = UIAlertAction(title: "Facebook", style: .default) { (action) -> Void in
+
+                if
+                    SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook)
+                    
+                {
+                    let fbComposer = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+                  
+                   
+                    fbComposer?.add(cell.img.image!)
+                    
+                    fbComposer?.setInitialText("I love this")
+                    self.present(fbComposer!, animated: true, completion: nil)
+                }
+
+                else
+                {
+                    let alert = UIAlertController(title: "Accounts", message: "Please login to a Facebook account to share.", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+                
+
+            }
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel , handler: nil)
+            shareActionSheet.addAction(facebookshareAction)
+            shareActionSheet.addAction(cancelAction)
+            self.present(shareActionSheet, animated: true, completion: nil)
+            
+        }
+        let hi = UIColor(red:65/255.0, green:105/255.0, blue:226/255.0, alpha:1.0)
+       
+        shareAction.backgroundColor = hi
+        return [shareAction]
+    }
+    
+    
+    
+    
+    
+    func alert(title: String , msg : String)
+    {
+        let alertVC = UIAlertController(title: title,message : msg, preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style : .default ,handler: nil))
+        self.present(alertVC, animated: true, completion: nil)
+
+    }
+
     
     //MARK: NAVIGATION
     
@@ -441,89 +423,21 @@ class Beacon2TableViewController: UITableViewController {
     
     
     
-    
-    
-    
-    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "beacontableviewcell", for: indexPath) as! BeaconTableViewCell
-        
-        let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal , title: "Click to Share"){
-            
-            (rowaction , IndexPath) -> Void in
-            
-            let shareActionSheet = UIAlertController(title: nil,message:"Share With",preferredStyle: .actionSheet)
-            
-            let facebookshareAction  = UIAlertAction(title: "Facebook", style: .default) { (action) -> Void in
-                
-                if
-                    SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook)
-                    
-                {
-                    let fbComposer = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-                    fbComposer?.add(cell.img.image!)
-                    
-                    fbComposer?.setInitialText("I love this")
-                    self.present(fbComposer!, animated: true, completion: nil)
-                }
-                    
-                else
-                {
-                    let alert = UIAlertController(title: "Accounts", message: "Please login to a Facebook account to share.", preferredStyle: UIAlertControllerStyle.alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
-
-                }
-                
-                
-            }
-            
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel , handler: nil)
-            shareActionSheet.addAction(facebookshareAction)
-            shareActionSheet.addAction(cancelAction)
-            self.present(shareActionSheet, animated: true, completion: nil)
-            
-        }
-        let hi = UIColor(red:65/255.0, green:105/255.0, blue:226/255.0, alpha:1.0)
-        
-        shareAction.backgroundColor = hi
-        return [shareAction]
-    }
-    
-    
-    
-    func alert(title: String , msg : String)
-    {
-        let alertVC = UIAlertController(title: title,message : msg, preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style : .default ,handler: nil))
-        self.present(alertVC, animated: true, completion: nil)
-        
-    }
-    
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showdetail2" {
+        if segue.identifier == "showdetail" {
             //            if let indexPath = tableView.indexPath(for: sender as! UITableViewCell){
-            let advertisement2VC = segue.destination as! Advertisement2ViewController
+            let NadvertisementVC = segue.destination as! NormalAdvertisementViewController
             
             if let indexPath = self.tableView.indexPathForSelectedRow{
                 
-                // let dvc = segue.destinationViewController as! ListPage
-                //                dvc.newImage = postingImage.image
+                
+                
+                NadvertisementVC.advtext = beacons[indexPath.row].title
+                
+                NadvertisementVC.pict = beacons[indexPath.row].img
                 
                 
                 
-                // advertisementVC.newImage = Beacons.img
-                
-                
-                advertisement2VC.advtext = beacons[indexPath.row].title
-                
-                advertisement2VC.pict = beacons[indexPath.row].img
-                
-                
-                
-                // advertisementVC.imagep = downloadImage(from: (self.beacons[indexPath.row].img!))
-                
-                // advertisementVC.pic = beaconatIndexPath[indexPath]
                 
             }
         }
@@ -532,91 +446,15 @@ class Beacon2TableViewController: UITableViewController {
     
     
     
-//    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "advertisement2" {
-//            if let indexPath = tableView.indexPathForSelectedRow{
-//                let advertisementVC = segue.destination as! AdvertisementViewController
-//                advertisementVC.advtext = beacons[indexPath.row].title
-//                
-//            }
-//        }
-//        
-//    }
     
-    
-    
-    
-    
-    @IBAction func didTapSignOut(sender: AnyObject) {
-        
-        
-        
-        FIRAuth.auth()?.addStateDidChangeListener { auth, user in
-            if let user = user {
-                print("User was signed in.",user)
-            } else {
-                print("User is signed out.")
-            }
-            
-            
-            
-            //
-            let alertController = UIAlertController(
-                title: "Title",
-                message: "Message",
-                preferredStyle: UIAlertControllerStyle.alert
-            )
-            
-            let cancelAction = UIAlertAction(
-                title: "Cancel",
-                style: UIAlertActionStyle.destructive) { (action) in
-                    // ...
-            }
-            
-            let confirmAction = UIAlertAction(
-            title: "OK", style: UIAlertActionStyle.default) { (action) in
-                self.performSegue(withIdentifier: "logout", sender: self)
-                
-                print("sign out button tapped")
-                let firebaseAuth = FIRAuth.auth()
-                do {
-                    try firebaseAuth!.signOut()
-                    
-                    //        GIDGoogleUser.sharedInstance.signedIn = false
-                    // dismissViewControllerAnimated(true, completion: nil)
-                } catch let signOutError as NSError {
-                    print ("Error signing out: \(signOutError)")
-                } catch {
-                    print("Unknown error.")
-                }
-                
-                
-                GIDSignIn.sharedInstance().signOut()
-                
-            }
-            
-            alertController.addAction(confirmAction)
-            alertController.addAction(cancelAction)
-            
-            self.present(alertController, animated: true, completion: nil)
-            
-            //
-            
-            
-        }
-    }
-    
-    @IBAction func back(sender: UIBarButtonItem!)
+       
+    @IBAction func back(sender: AnyObject!)
     {
         self.performSegue(withIdentifier: "back", sender: self)
     }
     
     
     
-    
 }
-
-
 
 

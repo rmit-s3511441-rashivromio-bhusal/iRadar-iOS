@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0412E6421ED919F4008DFD26 /* NormalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412E6411ED919F4008DFD26 /* NormalTableViewController.swift */; };
+		0412E6441ED91CF9008DFD26 /* NormalAdvertisementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412E6431ED91CF9008DFD26 /* NormalAdvertisementViewController.swift */; };
+		0412E6461ED9209C008DFD26 /* NormalBeaconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412E6451ED9209C008DFD26 /* NormalBeaconTableViewCell.swift */; };
+		0412E64F1ED926CD008DFD26 /* Advertisement2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412E64E1ED926CD008DFD26 /* Advertisement2ViewController.swift */; };
+		0412E6511ED929B0008DFD26 /* Advertisement3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412E6501ED929B0008DFD26 /* Advertisement3ViewController.swift */; };
 		0425A7B91ECBD96B00437C84 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0425A7B81ECBD96B00437C84 /* NotificationCenter.framework */; };
 		0425A7BC1ECBD96B00437C84 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0425A7BB1ECBD96B00437C84 /* TodayViewController.swift */; };
 		0425A7BF1ECBD96B00437C84 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0425A7BD1ECBD96B00437C84 /* MainInterface.storyboard */; };
@@ -58,6 +63,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0412E6411ED919F4008DFD26 /* NormalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NormalTableViewController.swift; sourceTree = "<group>"; };
+		0412E6431ED91CF9008DFD26 /* NormalAdvertisementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NormalAdvertisementViewController.swift; sourceTree = "<group>"; };
+		0412E6451ED9209C008DFD26 /* NormalBeaconTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NormalBeaconTableViewCell.swift; sourceTree = "<group>"; };
+		0412E64E1ED926CD008DFD26 /* Advertisement2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Advertisement2ViewController.swift; sourceTree = "<group>"; };
+		0412E6501ED929B0008DFD26 /* Advertisement3ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Advertisement3ViewController.swift; sourceTree = "<group>"; };
 		0425A7B71ECBD96B00437C84 /* iRadartoday.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = iRadartoday.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		0425A7B81ECBD96B00437C84 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		0425A7BB1ECBD96B00437C84 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +123,79 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0412E6471ED92396008DFD26 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04A421211E8A8F6300194289 /* newConfigurationViewController.swift */,
+				0412E64A1ED9241C008DFD26 /* Login */,
+				0412E64B1ED92446008DFD26 /* Advertisement */,
+				0412E64C1ED9245F008DFD26 /* TableViewController */,
+				04D4AFDD1E84DE9400324E87 /* beaconViewController.swift */,
+				04A4211D1E8A8C2700194289 /* NearbyDeviceClass.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		0412E6481ED923A9008DFD26 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04D4AFE41E84DE9400324E87 /* LaunchScreen.storyboard */,
+				04D4AFE21E84DE9400324E87 /* Assets.xcassets */,
+				0412E64D1ED924A2008DFD26 /* TableViewCell */,
+				04D4AFDF1E84DE9400324E87 /* Main.storyboard */,
+				04D4AFDB1E84DE9400324E87 /* AppDelegate.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		0412E6491ED923F9008DFD26 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				045F43501E92635B00E323EC /* Beacons.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		0412E64A1ED9241C008DFD26 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				042671631ED41BCD00D36727 /* NormalViewController.swift */,
+				04A421141E8514F400194289 /* loginViewController.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		0412E64B1ED92446008DFD26 /* Advertisement */ = {
+			isa = PBXGroup;
+			children = (
+				0412E6431ED91CF9008DFD26 /* NormalAdvertisementViewController.swift */,
+				0412E6501ED929B0008DFD26 /* Advertisement3ViewController.swift */,
+				0412E64E1ED926CD008DFD26 /* Advertisement2ViewController.swift */,
+				042C6AC01EB84BD500AA46EC /* AdvertisementViewController.swift */,
+			);
+			name = Advertisement;
+			sourceTree = "<group>";
+		};
+		0412E64C1ED9245F008DFD26 /* TableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0412E6411ED919F4008DFD26 /* NormalTableViewController.swift */,
+				045F434C1E92283000E323EC /* BeaconTableViewController.swift */,
+				0425A7CA1ECEEA3B00437C84 /* Beacon2TableViewController.swift */,
+				0425A7CC1ECEF40600437C84 /* Beacon3TableViewController.swift */,
+			);
+			name = TableViewController;
+			sourceTree = "<group>";
+		};
+		0412E64D1ED924A2008DFD26 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				0412E6451ED9209C008DFD26 /* NormalBeaconTableViewCell.swift */,
+				045F434E1E9254E200E323EC /* BeaconTableViewCell.swift */,
+			);
+			name = TableViewCell;
+			sourceTree = "<group>";
+		};
 		0425A7BA1ECBD96B00437C84 /* iRadartoday */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,24 +231,12 @@
 			isa = PBXGroup;
 			children = (
 				046BB5EE1EA08CAB005BD4E7 /* GoogleService-Info.plist */,
-				04D4AFDB1E84DE9400324E87 /* AppDelegate.swift */,
-				04D4AFDD1E84DE9400324E87 /* beaconViewController.swift */,
-				04D4AFDF1E84DE9400324E87 /* Main.storyboard */,
-				042671631ED41BCD00D36727 /* NormalViewController.swift */,
-				045F434E1E9254E200E323EC /* BeaconTableViewCell.swift */,
-				042C6AC01EB84BD500AA46EC /* AdvertisementViewController.swift */,
-				04D4AFE21E84DE9400324E87 /* Assets.xcassets */,
-				04D4AFE41E84DE9400324E87 /* LaunchScreen.storyboard */,
 				04D4AFE71E84DE9400324E87 /* Info.plist */,
-				04A421141E8514F400194289 /* loginViewController.swift */,
+				0412E6481ED923A9008DFD26 /* View */,
+				0412E6471ED92396008DFD26 /* Controller */,
 				04A421171E8A3A6400194289 /* NearMessages.h */,
 				04A421181E8A671D00194289 /* iRadar-Bridging-Header.h */,
-				04A4211D1E8A8C2700194289 /* NearbyDeviceClass.swift */,
-				04A421211E8A8F6300194289 /* newConfigurationViewController.swift */,
-				045F434C1E92283000E323EC /* BeaconTableViewController.swift */,
-				0425A7CA1ECEEA3B00437C84 /* Beacon2TableViewController.swift */,
-				0425A7CC1ECEF40600437C84 /* Beacon3TableViewController.swift */,
-				045F43501E92635B00E323EC /* Beacons.swift */,
+				0412E6491ED923F9008DFD26 /* Model */,
 			);
 			path = iRadar;
 			sourceTree = "<group>";
@@ -360,13 +431,18 @@
 				04D4AFDE1E84DE9400324E87 /* beaconViewController.swift in Sources */,
 				042671641ED41BCD00D36727 /* NormalViewController.swift in Sources */,
 				04A4211E1E8A8C2700194289 /* NearbyDeviceClass.swift in Sources */,
+				0412E6461ED9209C008DFD26 /* NormalBeaconTableViewCell.swift in Sources */,
+				0412E6511ED929B0008DFD26 /* Advertisement3ViewController.swift in Sources */,
 				045F434F1E9254E200E323EC /* BeaconTableViewCell.swift in Sources */,
 				045F43511E92635B00E323EC /* Beacons.swift in Sources */,
+				0412E6421ED919F4008DFD26 /* NormalTableViewController.swift in Sources */,
 				04D4AFDC1E84DE9400324E87 /* AppDelegate.swift in Sources */,
 				04A421221E8A8F6300194289 /* newConfigurationViewController.swift in Sources */,
 				0425A7CB1ECEEA3B00437C84 /* Beacon2TableViewController.swift in Sources */,
+				0412E6441ED91CF9008DFD26 /* NormalAdvertisementViewController.swift in Sources */,
 				04A421151E8514F400194289 /* loginViewController.swift in Sources */,
 				045F434D1E92283000E323EC /* BeaconTableViewController.swift in Sources */,
+				0412E64F1ED926CD008DFD26 /* Advertisement2ViewController.swift in Sources */,
 				042C6AC11EB84BD500AA46EC /* AdvertisementViewController.swift in Sources */,
 				0425A7CD1ECEF40600437C84 /* Beacon3TableViewController.swift in Sources */,
 			);
@@ -549,7 +625,7 @@
 					"$(PROJECT_DIR)/Pods/KontaktSDK/Cocoapods/iOS",
 				);
 				INFOPLIST_FILE = iRadar/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "s3511441-student.rmit.edu.au.iRadar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -571,7 +647,7 @@
 					"$(PROJECT_DIR)/Pods/KontaktSDK/Cocoapods/iOS",
 				);
 				INFOPLIST_FILE = iRadar/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "s3511441-student.rmit.edu.au.iRadar";
 				PRODUCT_NAME = "$(TARGET_NAME)";

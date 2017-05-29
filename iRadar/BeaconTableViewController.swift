@@ -10,6 +10,7 @@ import UIKit
 import KontaktSDK
 import GoogleSignIn
 import Firebase
+import Social
 
 
 
@@ -586,6 +587,63 @@ class BeaconTableViewController: UITableViewController {
         
     }
     
+    
+    
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "beacontableviewcell", for: indexPath) as! BeaconTableViewCell
+        
+        let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal , title: "Click to Share"){
+            
+            (rowaction , IndexPath) -> Void in
+            
+            let shareActionSheet = UIAlertController(title: nil,message:"Share With",preferredStyle: .actionSheet)
+            
+            let facebookshareAction  = UIAlertAction(title: "Facebook", style: .default) { (action) -> Void in
+                
+                if
+                    SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook)
+                    
+                {
+                    let fbComposer = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+                    fbComposer?.add(cell.img.image!)
+                    
+                    fbComposer?.setInitialText("I love this")
+                    self.present(fbComposer!, animated: true, completion: nil)
+                }
+                    
+                else
+                {
+                    let alert = UIAlertController(title: "Accounts", message: "Please login to a Facebook account to share.", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+
+                }
+                
+                
+            }
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel , handler: nil)
+            shareActionSheet.addAction(facebookshareAction)
+            shareActionSheet.addAction(cancelAction)
+            self.present(shareActionSheet, animated: true, completion: nil)
+            
+        }
+        let hi = UIColor(red:65/255.0, green:105/255.0, blue:226/255.0, alpha:1.0)
+        
+        shareAction.backgroundColor = hi
+        
+        return [shareAction]
+    }
+    
+    
+    func alert(title: String , msg : String)
+    {
+        let alertVC = UIAlertController(title: title,message : msg, preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style : .default ,handler: nil))
+        self.present(alertVC, animated: true, completion: nil)
+        
+    }
     
     
     
