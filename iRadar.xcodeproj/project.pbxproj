@@ -12,6 +12,8 @@
 		0412E6461ED9209C008DFD26 /* NormalBeaconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412E6451ED9209C008DFD26 /* NormalBeaconTableViewCell.swift */; };
 		0412E64F1ED926CD008DFD26 /* Advertisement2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412E64E1ED926CD008DFD26 /* Advertisement2ViewController.swift */; };
 		0412E6511ED929B0008DFD26 /* Advertisement3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412E6501ED929B0008DFD26 /* Advertisement3ViewController.swift */; };
+		0412E6591EDEE576008DFD26 /* iRadarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412E6581EDEE576008DFD26 /* iRadarTests.swift */; };
+		0412E6671EE02456008DFD26 /* iRadarUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0412E6661EE02456008DFD26 /* iRadarUITests.m */; };
 		0425A7B91ECBD96B00437C84 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0425A7B81ECBD96B00437C84 /* NotificationCenter.framework */; };
 		0425A7BC1ECBD96B00437C84 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0425A7BB1ECBD96B00437C84 /* TodayViewController.swift */; };
 		0425A7BF1ECBD96B00437C84 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0425A7BD1ECBD96B00437C84 /* MainInterface.storyboard */; };
@@ -39,6 +41,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0412E65B1EDEE576008DFD26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04D4AFD01E84DE9400324E87 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04D4AFD71E84DE9400324E87;
+			remoteInfo = iRadar;
+		};
+		0412E6691EE02456008DFD26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04D4AFD01E84DE9400324E87 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04D4AFD71E84DE9400324E87;
+			remoteInfo = iRadar;
+		};
 		0425A7C11ECBD96C00437C84 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 04D4AFD01E84DE9400324E87 /* Project object */;
@@ -68,6 +84,12 @@
 		0412E6451ED9209C008DFD26 /* NormalBeaconTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NormalBeaconTableViewCell.swift; sourceTree = "<group>"; };
 		0412E64E1ED926CD008DFD26 /* Advertisement2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Advertisement2ViewController.swift; sourceTree = "<group>"; };
 		0412E6501ED929B0008DFD26 /* Advertisement3ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Advertisement3ViewController.swift; sourceTree = "<group>"; };
+		0412E6561EDEE576008DFD26 /* iRadarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iRadarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0412E6581EDEE576008DFD26 /* iRadarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iRadarTests.swift; sourceTree = "<group>"; };
+		0412E65A1EDEE576008DFD26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0412E6641EE02455008DFD26 /* iRadarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iRadarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0412E6661EE02456008DFD26 /* iRadarUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iRadarUITests.m; sourceTree = "<group>"; };
+		0412E6681EE02456008DFD26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0425A7B71ECBD96B00437C84 /* iRadartoday.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = iRadartoday.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		0425A7B81ECBD96B00437C84 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		0425A7BB1ECBD96B00437C84 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +124,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0412E6531EDEE576008DFD26 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0412E6611EE02455008DFD26 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0425A7B41ECBD96B00437C84 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -196,6 +232,24 @@
 			name = TableViewCell;
 			sourceTree = "<group>";
 		};
+		0412E6571EDEE576008DFD26 /* iRadarTests */ = {
+			isa = PBXGroup;
+			children = (
+				0412E6581EDEE576008DFD26 /* iRadarTests.swift */,
+				0412E65A1EDEE576008DFD26 /* Info.plist */,
+			);
+			path = iRadarTests;
+			sourceTree = "<group>";
+		};
+		0412E6651EE02456008DFD26 /* iRadarUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0412E6661EE02456008DFD26 /* iRadarUITests.m */,
+				0412E6681EE02456008DFD26 /* Info.plist */,
+			);
+			path = iRadarUITests;
+			sourceTree = "<group>";
+		};
 		0425A7BA1ECBD96B00437C84 /* iRadartoday */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +266,8 @@
 			children = (
 				04D4AFDA1E84DE9400324E87 /* iRadar */,
 				0425A7BA1ECBD96B00437C84 /* iRadartoday */,
+				0412E6571EDEE576008DFD26 /* iRadarTests */,
+				0412E6651EE02456008DFD26 /* iRadarUITests */,
 				04D4AFD91E84DE9400324E87 /* Products */,
 				04D4AFED1E84E02100324E87 /* Frameworks */,
 				7E8D8CA7CEA67004C44CD9DA /* Pods */,
@@ -223,6 +279,8 @@
 			children = (
 				04D4AFD81E84DE9400324E87 /* iRadar.app */,
 				0425A7B71ECBD96B00437C84 /* iRadartoday.appex */,
+				0412E6561EDEE576008DFD26 /* iRadarTests.xctest */,
+				0412E6641EE02455008DFD26 /* iRadarUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -264,6 +322,42 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0412E6551EDEE576008DFD26 /* iRadarTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0412E65F1EDEE576008DFD26 /* Build configuration list for PBXNativeTarget "iRadarTests" */;
+			buildPhases = (
+				0412E6521EDEE576008DFD26 /* Sources */,
+				0412E6531EDEE576008DFD26 /* Frameworks */,
+				0412E6541EDEE576008DFD26 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0412E65C1EDEE576008DFD26 /* PBXTargetDependency */,
+			);
+			name = iRadarTests;
+			productName = iRadarTests;
+			productReference = 0412E6561EDEE576008DFD26 /* iRadarTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		0412E6631EE02455008DFD26 /* iRadarUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0412E66B1EE02456008DFD26 /* Build configuration list for PBXNativeTarget "iRadarUITests" */;
+			buildPhases = (
+				0412E6601EE02455008DFD26 /* Sources */,
+				0412E6611EE02455008DFD26 /* Frameworks */,
+				0412E6621EE02455008DFD26 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0412E66A1EE02456008DFD26 /* PBXTargetDependency */,
+			);
+			name = iRadarUITests;
+			productName = iRadarUITests;
+			productReference = 0412E6641EE02455008DFD26 /* iRadarUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		0425A7B61ECBD96B00437C84 /* iRadartoday */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0425A7C61ECBD96C00437C84 /* Build configuration list for PBXNativeTarget "iRadartoday" */;
@@ -313,6 +407,18 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Rashiv Romio Bhusal";
 				TargetAttributes = {
+					0412E6551EDEE576008DFD26 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = CHW274QMX3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 04D4AFD71E84DE9400324E87;
+					};
+					0412E6631EE02455008DFD26 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = CHW274QMX3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 04D4AFD71E84DE9400324E87;
+					};
 					0425A7B61ECBD96B00437C84 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = CHW274QMX3;
@@ -340,11 +446,27 @@
 			targets = (
 				04D4AFD71E84DE9400324E87 /* iRadar */,
 				0425A7B61ECBD96B00437C84 /* iRadartoday */,
+				0412E6551EDEE576008DFD26 /* iRadarTests */,
+				0412E6631EE02455008DFD26 /* iRadarUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0412E6541EDEE576008DFD26 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0412E6621EE02455008DFD26 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0425A7B51ECBD96B00437C84 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -415,6 +537,22 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0412E6521EDEE576008DFD26 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0412E6591EDEE576008DFD26 /* iRadarTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0412E6601EE02455008DFD26 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0412E6671EE02456008DFD26 /* iRadarUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0425A7B31ECBD96B00437C84 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -451,6 +589,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0412E65C1EDEE576008DFD26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04D4AFD71E84DE9400324E87 /* iRadar */;
+			targetProxy = 0412E65B1EDEE576008DFD26 /* PBXContainerItemProxy */;
+		};
+		0412E66A1EE02456008DFD26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04D4AFD71E84DE9400324E87 /* iRadar */;
+			targetProxy = 0412E6691EE02456008DFD26 /* PBXContainerItemProxy */;
+		};
 		0425A7C21ECBD96C00437C84 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0425A7B61ECBD96B00437C84 /* iRadartoday */;
@@ -486,6 +634,68 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0412E65D1EDEE576008DFD26 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				DEVELOPMENT_TEAM = CHW274QMX3;
+				INFOPLIST_FILE = iRadarTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "s3511441-student.rmit.edu.au.iRadarTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iRadar.app/iRadar";
+			};
+			name = Debug;
+		};
+		0412E65E1EDEE576008DFD26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				DEVELOPMENT_TEAM = CHW274QMX3;
+				INFOPLIST_FILE = iRadarTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "s3511441-student.rmit.edu.au.iRadarTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iRadar.app/iRadar";
+			};
+			name = Release;
+		};
+		0412E66C1EE02456008DFD26 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				DEVELOPMENT_TEAM = CHW274QMX3;
+				INFOPLIST_FILE = iRadarUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "s3511441-student.rmit.edu.au.iRadarUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = iRadar;
+			};
+			name = Debug;
+		};
+		0412E66D1EE02456008DFD26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				DEVELOPMENT_TEAM = CHW274QMX3;
+				INFOPLIST_FILE = iRadarUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "s3511441-student.rmit.edu.au.iRadarUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = iRadar;
+			};
+			name = Release;
+		};
 		0425A7C41ECBD96C00437C84 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -660,6 +870,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0412E65F1EDEE576008DFD26 /* Build configuration list for PBXNativeTarget "iRadarTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0412E65D1EDEE576008DFD26 /* Debug */,
+				0412E65E1EDEE576008DFD26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		0412E66B1EE02456008DFD26 /* Build configuration list for PBXNativeTarget "iRadarUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0412E66C1EE02456008DFD26 /* Debug */,
+				0412E66D1EE02456008DFD26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		0425A7C61ECBD96C00437C84 /* Build configuration list for PBXNativeTarget "iRadartoday" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

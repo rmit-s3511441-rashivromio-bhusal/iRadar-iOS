@@ -591,7 +591,9 @@ class BeaconTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "beacontableviewcell", for: indexPath) as! BeaconTableViewCell
+        
+        var advertis: String?
+        _ = tableView.dequeueReusableCell(withIdentifier: "beacontableviewcell", for: indexPath) as! BeaconTableViewCell
         
         let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal , title: "Click to Share"){
             
@@ -606,9 +608,13 @@ class BeaconTableViewController: UITableViewController {
                     
                 {
                     let fbComposer = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-                    fbComposer?.add(cell.img.image!)
                     
-                    fbComposer?.setInitialText("I love this")
+                    advertis = self.beacons[indexPath.row].img!
+                    fbComposer?.add(UIImage(named: advertis!))
+                    
+                  //  fbComposer?.add(cell.img.image)
+                    
+                     fbComposer?.setInitialText("Hey just buy this item in discount. Try out with iRadar App ")
                     self.present(fbComposer!, animated: true, completion: nil)
                 }
                     
@@ -623,15 +629,57 @@ class BeaconTableViewController: UITableViewController {
                 
             }
             
+            let twittershareAction  = UIAlertAction(title: "Twitter", style: .default) { (action) -> Void in
+                
+                if
+                    SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter)
+                    
+                {
+                    let twComposer = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+                    
+                    
+                    
+                    //  let fbcomposer = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+                    twComposer?.setInitialText(("Hey just buy this item in discount. Try out with iRadar App "))
+                    print("iiii")
+                    twComposer?.add(UIImage(named: "iRadarLogo.png"))
+                    
+                    //fbComposer?.add(URL(string: "iRadar"))
+                    //fbComposer?.add(UIImage(named: "AppIcon.png"))
+                    
+                    //  fbComposer?.add(cell.img.image)
+                    
+                    //    fbComposer?.add(beacons[indexPath.row].title)
+                    
+                    self.present(twComposer!, animated: true, completion: nil)
+                }
+                    
+                else
+                {
+                    let alert = UIAlertController(title: "Accounts", message: "Please login to a Twitter account to share.", preferredStyle: UIAlertControllerStyle.alert)
+                    
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+                
+                
+            }
+            
+            
+            
+            
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel , handler: nil)
             shareActionSheet.addAction(facebookshareAction)
+            shareActionSheet.addAction(twittershareAction)
             shareActionSheet.addAction(cancelAction)
             self.present(shareActionSheet, animated: true, completion: nil)
             
         }
-        let hi = UIColor(red:65/255.0, green:105/255.0, blue:226/255.0, alpha:1.0)
         
-        shareAction.backgroundColor = hi
+       // let hi = UIColor(red:65/255.0, green:105/255.0, blue:226/255.0, alpha:1.0)
+        
+       // shareAction.backgroundColor = hi
+        shareAction.backgroundColor = UIColor.gray
         
         return [shareAction]
     }

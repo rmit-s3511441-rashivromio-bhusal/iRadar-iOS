@@ -28,6 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0412E6551EDEE576008DFD26"
+               BuildableName = "iRadarTests.xctest"
+               BlueprintName = "iRadarTests"
+               ReferencedContainer = "container:iRadar.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0412E6631EE02455008DFD26"
+               BuildableName = "iRadarUITests.xctest"
+               BlueprintName = "iRadarUITests"
+               ReferencedContainer = "container:iRadar.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

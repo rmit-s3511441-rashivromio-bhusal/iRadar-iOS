@@ -46,13 +46,21 @@ class NormalAdvertisementViewController: UIViewController  {
             adv.text = advtext
             print(advtext)
         }
-        if let pict = pict{
+        
+        
+        
+        
+        if let load = pict{
             pic.image = imagep
             
             
+          //  UIGraphicsBeginImageContext(CGSize(width: self.view.frame.size.width, height: self.view.frame.size.height - 100))
+            
+         //   UIImage(named: "ibeaco.png")?.draw(in: CGRect(x: 15, y: 15, width: self.view.frame.size.width, height: self.view.frame.size.height - 100))
+            
             UIGraphicsBeginImageContext(self.view.frame.size)
             //UIImage(named: pict)?.draw
-            UIImage(named: "ibeaco.png")?.draw(in: self.view.bounds)
+           UIImage(named: "ibeaco.png")?.draw(in: self.view.bounds)
             
             let image: UIImage! = UIGraphicsGetImageFromCurrentImageContext()
             
@@ -60,7 +68,7 @@ class NormalAdvertisementViewController: UIViewController  {
             
             self.view.backgroundColor = UIColor(patternImage: image)
             
-            print(pict)
+            print(load)
             
             
         }

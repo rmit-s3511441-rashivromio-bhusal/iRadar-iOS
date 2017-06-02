@@ -10,7 +10,7 @@ import UIKit
 import KontaktSDK
 import GoogleSignIn
 import Firebase
-import Social
+import Social 
 
 
 
@@ -125,10 +125,13 @@ class NormalTableViewController: UITableViewController {
                         
                         for actionsFromJson in actionsFromJson {
                             
+                            
                             let beacon = Beacons()
                             
                             
                             if let title = actionsFromJson["name"] as? String ,let desc = actionsFromJson["proximity"] as? String , let img = actionsFromJson["url"] as? String {
+                                
+                                
                                 
                                 beacon.title = title
                                 beacon.desc = desc
@@ -295,6 +298,8 @@ class NormalTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+      
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "normalbeacontableviewcell", for: indexPath) as! NormalBeaconTableViewCell
         
         
@@ -342,16 +347,21 @@ class NormalTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        //Change here for getting the value from table
+       // let indexPath = IndexPath(forRow: sender.tag, inSection: 0)
+       
+               
         let cell = tableView.dequeueReusableCell(withIdentifier: "normalbeacontableviewcell", for: indexPath) as! NormalBeaconTableViewCell
         
-        let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal , title: "Click to Share"){
+        let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.normal , title: "Click here to Share"){
             
             (rowaction , IndexPath) -> Void in
             
             let shareActionSheet = UIAlertController(title: nil,message:"Share With",preferredStyle: .actionSheet)
             
-            
-            
+           
+
              let facebookshareAction  = UIAlertAction(title: "Facebook", style: .default) { (action) -> Void in
 
                 if
@@ -360,16 +370,27 @@ class NormalTableViewController: UITableViewController {
                 {
                     let fbComposer = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
                   
-                   
-                    fbComposer?.add(cell.img.image!)
                     
-                    fbComposer?.setInitialText("I love this")
-                    self.present(fbComposer!, animated: true, completion: nil)
+                    
+                  //  let fbcomposer = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+                    fbComposer?.setInitialText(("Hey just buy this item in discount. Try out with iRadar App "))
+print("iiii")
+                    fbComposer?.add(UIImage(named: "iRadarLogo.png"))
+                    
+                     //fbComposer?.add(URL(string: "iRadar"))
+                    //fbComposer?.add(UIImage(named: "AppIcon.png"))
+                   
+                 //  fbComposer?.add(cell.img.image)
+                    
+                //    fbComposer?.add(beacons[indexPath.row].title)
+                    
+                                       self.present(fbComposer!, animated: true, completion: nil)
                 }
 
                 else
                 {
                     let alert = UIAlertController(title: "Accounts", message: "Please login to a Facebook account to share.", preferredStyle: UIAlertControllerStyle.alert)
+                    
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                 }
@@ -377,15 +398,58 @@ class NormalTableViewController: UITableViewController {
 
             }
             
+            
+            
+            let twittershareAction  = UIAlertAction(title: "Twitter", style: .default) { (action) -> Void in
+                
+                if
+                    SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter)
+                    
+                {
+                    let twComposer = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+                    
+                    
+                    
+                    //  let fbcomposer = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+                    twComposer?.setInitialText(("Hey just buy this item in discount. Try out with iRadar App "))
+                    print("iiii")
+                    twComposer?.add(UIImage(named: "iRadarLogo.png"))
+                    
+                    //fbComposer?.add(URL(string: "iRadar"))
+                    //fbComposer?.add(UIImage(named: "AppIcon.png"))
+                    
+                    //  fbComposer?.add(cell.img.image)
+                    
+                    //    fbComposer?.add(beacons[indexPath.row].title)
+                    
+                    self.present(twComposer!, animated: true, completion: nil)
+                }
+                    
+                else
+                {
+                    let alert = UIAlertController(title: "Accounts", message: "Please login to a Twitter account to share.", preferredStyle: UIAlertControllerStyle.alert)
+                    
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+                
+                
+            }
+
+         
+            
+            
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel , handler: nil)
             shareActionSheet.addAction(facebookshareAction)
+            shareActionSheet.addAction(twittershareAction)
             shareActionSheet.addAction(cancelAction)
             self.present(shareActionSheet, animated: true, completion: nil)
             
         }
-        let hi = UIColor(red:65/255.0, green:105/255.0, blue:226/255.0, alpha:1.0)
-       
-        shareAction.backgroundColor = hi
+        // let hi = UIColor(red:65/255.0, green:105/255.0, blue:226/255.0, alpha:1.0)
+        
+        // shareAction.backgroundColor = hi
+        shareAction.backgroundColor = UIColor.gray
         return [shareAction]
     }
     
@@ -424,9 +488,17 @@ class NormalTableViewController: UITableViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showdetail" {
+        
+        
+        
+               if segue.identifier == "showdetail" {
             //            if let indexPath = tableView.indexPath(for: sender as! UITableViewCell){
             let NadvertisementVC = segue.destination as! NormalAdvertisementViewController
+            
+//            guard let cell = sender as? UITableViewCell,
+//                let indexPath = tableView.indexPath(for: cell) else {
+//                    return
+//            }
             
             if let indexPath = self.tableView.indexPathForSelectedRow{
                 
@@ -437,14 +509,14 @@ class NormalTableViewController: UITableViewController {
                 NadvertisementVC.pict = beacons[indexPath.row].img
                 
                 
-                
-                
+                               
             }
+            
         }
         
     }
     
-    
+
     
     
        
