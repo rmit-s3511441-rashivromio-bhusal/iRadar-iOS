@@ -12,7 +12,7 @@ import Foundation
 class todayiRadar {
     
     var iRadar = [
-        "Check the special discount today when visiting Coles", "hello ","helo ava" 
+        "Check the special discount today when visiting Melton Supps ", "Check the special discount today when visiting Melton Supps  ","Check the special discount today when visiting Melton Supps " 
     ]
     
     func randomiRadar() ->String{

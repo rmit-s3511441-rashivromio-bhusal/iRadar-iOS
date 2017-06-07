@@ -877,6 +877,7 @@
 				0412E65E1EDEE576008DFD26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0412E66B1EE02456008DFD26 /* Build configuration list for PBXNativeTarget "iRadarUITests" */ = {
 			isa = XCConfigurationList;
@@ -885,6 +886,7 @@
 				0412E66D1EE02456008DFD26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0425A7C61ECBD96C00437C84 /* Build configuration list for PBXNativeTarget "iRadartoday" */ = {
 			isa = XCConfigurationList;
